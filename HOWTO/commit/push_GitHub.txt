@@ -4,7 +4,7 @@ git add .
 git commit -m "Initial commit: Sphinx docs skeleton"
 
 # Link GitHub repo
-git remote add origin https://github.com/YOURUSER/wave-energy-docs.git
+git remote add origin https://github.com/EMG-MU/WAPPAC_docs.git
 
 # Push to main branch
 git branch -M main
