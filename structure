@@ -1,0 +1,23 @@
+my-wave-project/
+├─ docs/
+│  ├─ conf.py
+│  ├─ index.md
+│  ├─ getting-started.md
+│  ├─ theory/
+│  │  ├─ index.md       <-- parent page (Theory)
+│  │  ├─ dispersion.md  <-- subtab
+│  │  ├─ wave-forces.md <-- subtab
+│  │  └─ control.md     <-- subtab
+│  ├─ refs.bib
+│  ├─ requirements.txt
+│  ├─ _static/   (optional)
+│  └─ _templates/ (optional)
+├─ .readthedocs.yml
+└─ (your code / repo files)
+
+
+webpage structure
+
+docs/
+
+

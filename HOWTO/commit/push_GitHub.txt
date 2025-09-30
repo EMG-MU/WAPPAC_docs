@@ -1,0 +1,11 @@
+# Initialize git if not already
+git init
+git add .
+git commit -m "Initial commit: Sphinx docs skeleton"
+
+# Link GitHub repo
+git remote add origin https://github.com/YOURUSER/wave-energy-docs.git
+
+# Push to main branch
+git branch -M main
+git push -u origin main

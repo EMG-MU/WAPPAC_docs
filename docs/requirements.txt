@@ -1,0 +1,6 @@
+sphinx
+myst-parser
+sphinx-book-theme
+sphinxcontrib-bibtex
+sphinx-autobuild  # optional, for live preview
+sphinx-rtd-theme   # optional, only if you want RTD look
