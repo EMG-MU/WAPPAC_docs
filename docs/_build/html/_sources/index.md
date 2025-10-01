@@ -1,6 +1,6 @@
-# My Wave Energy Project
+# WAPPAC Competition
 
-Welcome to the **My Wave Energy Project** documentation site.
+Welcome to the **WavePiston Passive Control (WAPPAC) competition** documentation site.
 
 ```{toctree}
 :caption: Contents

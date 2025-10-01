@@ -1,15 +1,20 @@
-# My Wave Energy Project
+# WAPPAC Competition
 
-Welcome to the **My Wave Energy Project** documentation site.
+Welcome to the **WavePiston Passive Control (WAPPAC)** competition documentation.  
+Use the sidebar to navigate through the sections below.
 
 ```{toctree}
-:caption: Contents
 :maxdepth: 2
+:caption: Contents
 
-getting-started
-theory/index
-results
-references
+home
+competition_overview
+model_control/index
+simulation_platform/index
+rules_eval_criteria
+submission
+integrity
+resources
 ```
 
-Use the sidebar (left) to navigate between the sections.
+[//]: # (```{include} home.md)

@@ -1,17 +1,29 @@
-my-wave-project/
+WAPPAC_docs/
+│
 ├─ docs/
 │  ├─ conf.py
 │  ├─ index.md
-│  ├─ getting-started.md
-│  ├─ theory/
-│  │  ├─ index.md       <-- parent page (Theory)
-│  │  ├─ dispersion.md  <-- subtab
-│  │  ├─ wave-forces.md <-- subtab
-│  │  └─ control.md     <-- subtab
-│  ├─ refs.bib
-│  ├─ requirements.txt
-│  ├─ _static/   (optional)
-│  └─ _templates/ (optional)
+│  ├─ home.md
+│  ├─ competition_overview.md
+│  ├─ model_control/
+│  │  ├─ index.md
+│  │  ├─ system_description.md
+│  │  ├─ modelling_framework.md
+│  │  ├─ control_problem.md
+│  │  ├─ numerical_implementation.md
+│  │  ├─ model_parametrization.md
+│  │  ├─ excitation_characterization.md
+│  ├─ simulation_platform/
+│  │  ├─ index.md
+│  │  ├─ installation.md
+│  │  ├─ inputs.md
+│  │  ├─ writing_controller.md
+│  │  ├─ running.md
+│  │  ├─ outputs_metrics.md
+│  ├─ submission.md
+│  ├─ integrity.md
+│  ├─ resources.md
+│
 ├─ .readthedocs.yml
 └─ (your code / repo files)
 

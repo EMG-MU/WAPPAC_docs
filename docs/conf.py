@@ -3,8 +3,8 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
 
-project = "My Wave Energy Project"
-author = "Your Name"
+project = "WAPPAC Competition"
+author = "Eugenio M. Gelos"
 release = "0.1"
 
 extensions = [
@@ -21,54 +21,54 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 html_static_path = ["_static"]
 html_css_files = ["custom.css"]
 
-# -- Theme Options for Piccolo ---
+# -- Theme Options for iccolo ---
 html_theme = "piccolo_theme"
 
-# # (Optional) Piccolo theme options
-# html_theme_options = {
-#     # The color mode. Can be "light", "dark", or "auto".
-#     "color_mode": "auto",
-#
-#     # An absolute URL to your project's source code, e.g. on GitHub.
-#     "source_url": "https://github.com/your-username/your-repo/",
-#
-#     # Configuration for the source link icon and text.
-#     # This replaces 'source_display_text' and 'source_icon'.
-#     "source_link_icon": "fa-brands fa-square-github",  # A FontAwesome icon
-#
-#     # Banner configuration remains the same.
-#     # "banner_text": "This is a pre-release version of the documentation.",
-#     # "banner_icon": "⚠️",
-# }
-
-# -- Theme Options for Shibuya ---
-html_theme = "shibuya"
+# (Optional) Piccolo theme options
 html_theme_options = {
-    # The URL to your GitHub repository. This is different from sphinx_book_theme's "repository_url".
-    "github_url": "https://github.com/EMG-MU/WAPPAC_docs",
-
-    # The name of the repo that will be displayed on the page.
-    "github_repo": "WAPPAC_docs",
-
-    # The author's name, displayed in the footer.
-    "author": "Your Name or Organization",
-
-    # Color palette for light and dark modes. Can be "light", "dark", or "auto".
+    # The color mode. Can be "light", "dark", or "auto".
     "color_mode": "auto",
 
-    # Add extra links to the navigation bar.
-    "nav_links": [
-        {"title": "Home", "url": "index"},
-        {"title": "Installation", "url": "installation"},
-        {"title": "About", "url": "about"},
-    ],
-    # Add icon links to the navigation bar.
-    "social_links": [
-        {"icon": "github", "url": "https://github.com/EMG-MU/WAPPAC_docs"},
-        # You can add others like:
-        # {"icon": "twitter", "url": "https://twitter.com/your-handle"},
-    ]
+    # An absolute URL to your project's source code, e.g. on GitHub.
+    "source_url": "https://github.com/your-username/your-repo/",
+
+    # Configuration for the source link icon and text.
+    # This replaces 'source_display_text' and 'source_icon'.
+    "source_link_icon": "fa-brands fa-square-github",  # A FontAwesome icon
+
+    # Banner configuration remains the same.
+    # "banner_text": "This is a pre-release version of the documentation.",
+    # "banner_icon": "⚠️",
 }
+
+# # -- Theme Options for Shibuya ---
+# html_theme = "shibuya"
+# html_theme_options = {
+#     # The URL to your GitHub repository. This is different from sphinx_book_theme's "repository_url".
+#     "github_url": "https://github.com/EMG-MU/WAPPAC_docs",
+#
+#     # The name of the repo that will be displayed on the page.
+#     "github_repo": "WAPPAC_docs",
+#
+#     # The author's name, displayed in the footer.
+#     "author": "Your Name or Organization",
+#
+#     # Color palette for light and dark modes. Can be "light", "dark", or "auto".
+#     "color_mode": "auto",
+#
+#     # Add extra links to the navigation bar.
+#     "nav_links": [
+#         {"title": "Home", "url": "index"},
+#         {"title": "Installation", "url": "installation"},
+#         {"title": "About", "url": "about"},
+#     ],
+#     # Add icon links to the navigation bar.
+#     "social_links": [
+#         {"icon": "github", "url": "https://github.com/EMG-MU/WAPPAC_docs"},
+#         # You can add others like:
+#         # {"icon": "twitter", "url": "https://twitter.com/your-handle"},
+#     ]
+# }
 
 # -- Theme Options for sphinx_book_theme ---
 # html_theme = "sphinx_book_theme"
@@ -97,6 +97,11 @@ myst_enable_extensions = [
     "html_image",
 ]
 myst_heading_anchors = 3
+
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}
 
 # BibTeX
 bibtex_bibfiles = ["refs.bib"]
