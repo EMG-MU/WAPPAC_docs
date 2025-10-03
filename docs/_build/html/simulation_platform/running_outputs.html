@@ -11,6 +11,8 @@
     <script src="../_static/documentation_options.js?v=2709fde1"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -153,7 +155,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="running-simulations-understanding-outputs">
+  <section class="tex2jax_ignore mathjax_ignore" id="running-simulations-understanding-outputs">
 <h1>Running Simulations &amp; Understanding Outputs<a class="headerlink" href="#running-simulations-understanding-outputs" title="Link to this heading">¶</a></h1>
 <p>The WAPPAC platform can operate in two modes: <strong>Development Mode</strong> and <strong>Evaluation Mode</strong>. These modes differ in how the simulation is executed and what outputs are generated.</p>
 <hr class="docutils" />
@@ -190,7 +192,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">Wave</span> <span class="pre">ID</span></code> → Wave scenario ID</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Wave</span> <span class="pre">realization</span> <span class="pre">seed</span></code> → Seed used for reproducibility</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Time</span> <span class="pre">Stamp</span></code> → Timestamp of the simulation</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Performance</span> <span class="pre">Index</span></code> → Calculated $\mathcal{G}$ value</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Performance</span> <span class="pre">Index</span></code> → Calculated <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> value</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Performance</span> <span class="pre">Index</span> <span class="pre">Evaluation</span> <span class="pre">time</span> <span class="pre">span</span></code> → <code class="docutils literal notranslate"><span class="pre">[start,</span> <span class="pre">end]</span></code> seconds of scoring interval</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Mean</span> <span class="pre">Generated</span> <span class="pre">Power</span></code> → Average absorbed power over scoring window</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Power</span> <span class="pre">constraint</span> <span class="pre">satisfaction</span></code> → Boolean flag for passivity compliance</p></li>

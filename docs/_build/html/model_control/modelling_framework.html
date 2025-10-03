@@ -155,25 +155,25 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="modeling-framework">
+  <section class="tex2jax_ignore mathjax_ignore" id="modeling-framework">
 <h1>Modeling Framework<a class="headerlink" href="#modeling-framework" title="Link to this heading">¶</a></h1>
 <p>The WavePiston competition model uses a simplified one-sail, one energy-collector device.
-Therefore, the system has <strong>one degree of freedom (DoF)</strong> in the surge direction as depicted in <a class="reference internal" href="#fig-wavepiston-sch"><span class="std std-numref">Figure 1</span></a>.</p>
+The system has <strong>one degree of freedom (DoF)</strong> in the surge direction as depicted in <a class="reference internal" href="#fig-wavepiston-sch"><span class="std std-numref">Figure 1</span></a>.</p>
 <figure class="align-center" id="fig-wavepiston-sch">
 <a class="reference internal image-reference" href="../_images/WavePiston_sch.png"><img alt="../_images/WavePiston_sch.png" src="../_images/WavePiston_sch.png" style="width: 100%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 1 </span><span class="caption-text">Schematic of the one-sail WavePiston competition model.</span><a class="headerlink" href="#fig-wavepiston-sch" title="Link to this image">¶</a></p>
+<p><span class="caption-number">Figure 1 </span><span class="caption-text">Schematic of the one-sail WavePiston device and upwave surface elevation measurement.</span><a class="headerlink" href="#fig-wavepiston-sch" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
 <li><p><strong>Geometry &amp; Coordinates:</strong><br />
-The sail is positioned at $x=0$, with incoming waves traveling along the positive $x$-axis ($\beta=0$).<br />
-An up-wave wave probe provides a reference elevation signal at $x=-10$ m.</p></li>
+The sail is positioned at <span class="math notranslate nohighlight">\(x=0\)</span>, with incoming waves traveling along the positive <span class="math notranslate nohighlight">\(x\)</span>-axis (<span class="math notranslate nohighlight">\(\beta=0\)</span>).<br />
+An up-wave wave probe provides a reference elevation signal at <span class="math notranslate nohighlight">\(x=-10\)</span> m.</p></li>
 <li><p><strong>Constraints (conceptual):</strong></p>
 <ul>
-<li><p>Sail displacement: $|x(t)| \leq x_{\max}$</p></li>
-<li><p>PTO force: $|F_{pto}(t)| \leq F_{pto,\max}$</p></li>
+<li><p>Sail displacement: <span class="math notranslate nohighlight">\(|x(t)| \leq x_{\max}\)</span></p></li>
+<li><p>PTO force: <span class="math notranslate nohighlight">\(|F_{pto}(t)| \leq F_{pto,\max}\)</span></p></li>
 <li><p>Passivity: the PTO can only absorb power, not inject reactive power.</p></li>
 </ul>
 </li>
@@ -182,26 +182,27 @@ An up-wave wave probe provides a reference elevation signal at $x=-10$ m.</p></l
 <section id="hydrodynamic-equation">
 <h2>Hydrodynamic Equation<a class="headerlink" href="#hydrodynamic-equation" title="Link to this heading">¶</a></h2>
 <p>The hydrodynamics of the device are described by <strong>Cummins’ integro-differential equation</strong>:</p>
-<p>$$
+<div class="math notranslate nohighlight">
+\[
 M \ddot{x}(t) + F_r(t) + S_h x(t) + \frac{1}{2} \rho A C_D \dot{x} |\dot{x}|
 = F_{ex}(t) - F_{pto}(t)
-$$</p>
+\]</div>
 <ul class="simple">
-<li><p>$x(t)$: sail position,</p></li>
-<li><p>$\dot{x}(t)$: velocity,</p></li>
-<li><p>$M = m_w + m_\infty$: total mass (device mass + added mass asymptote),</p></li>
-<li><p>$f_r(t)$: radiation impulse kernel,</p></li>
-<li><p>$F_{ex}(t)$: wave excitation force,</p></li>
-<li><p>$F_{pto}(t)$: control force applied by the PTO.</p></li>
-<li><p>$\rho$: sea water density.</p></li>
-<li><p>$A$: sail area.</p></li>
-<li><p>$C_D$: viscous drag coefficient.</p></li>
+<li><p><span class="math notranslate nohighlight">\(x(t)\)</span>: sail position,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot{x}(t)\)</span>: velocity,</p></li>
+<li><p><span class="math notranslate nohighlight">\(M = m_w + m_\infty\)</span>: total mass (device mass + added mass asymptote),</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_r(t)\)</span>: radiation impulse kernel,</p></li>
+<li><p><span class="math notranslate nohighlight">\(F_{ex}(t)\)</span>: wave excitation force,</p></li>
+<li><p><span class="math notranslate nohighlight">\(F_{pto}(t)\)</span>: control force applied by the PTO.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\rho\)</span>: sea water density.</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\)</span>: sail area.</p></li>
+<li><p><span class="math notranslate nohighlight">\(C_D\)</span>: viscous drag coefficient.</p></li>
 </ul>
-<p>Additionally, $F_r(t)$ is the radiation force term, typically approximated by a finite-order state-space system as follows:</p>
+<p>Additionally, <span class="math notranslate nohighlight">\(F_r(t)\)</span> is the radiation force term, typically approximated by a finite-order state-space system as follows:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\dot{\mathbf{\xi}}(t) &amp;= \mathbf{A_r}\,\mathbf{\xi}(t) + \mathbf{B_r}\,\dot{x}(t) \\
 F_r(t) &amp;= \mathbf{C_r}\,\mathbf{\xi}(t)\end{split}\]</div>
-<p>where $\mathbf{\xi}(t)$ is the radiation state vector.</p>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{\xi}(t)\)</span> is the radiation state vector.</p>
 <p>Note that no hydrodynamic restoring force acts on the WEC, since the sails are constrained to move horizontally and are assumed rigid. Therefore, this term does not appear in the hydrodynamical equation.</p>
 </section>
 </section>

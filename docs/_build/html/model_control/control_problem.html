@@ -11,6 +11,8 @@
     <script src="../_static/documentation_options.js?v=2709fde1"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -155,24 +157,27 @@
             
   <section id="control-problem-formulation">
 <h1>Control Problem Formulation<a class="headerlink" href="#control-problem-formulation" title="Link to this heading">¶</a></h1>
-<p><strong>Objective:</strong> Design a control system to maximize the performance metric ($\mathcal{G}$), which can be considered a surrogate for the Levelized Cost of Energy (LCoE), balancing power generation against physical constraints and capacity factor:</p>
-<p>$$
-\max:  \mathcal{G}\left(F_u(t)\right) = \frac{\bar{P}<em>u}{2 + \frac{|x(t)|</em>{98}}{x_{\max}} + \frac{|F_u(t)|<em>{98}}{F</em>{u,\max}} - \frac{\bar{P}<em>u}{|p_u(t)|</em>{98}} }
-$$</p>
-<p>$$ s.t. \quad \text{WavePiston dynamics} $$
-$$ \qquad\quad p_u(t) = F_u(t) \dot{x}(t) \ge 0  $$</p>
+<p><strong>Objective:</strong> Design a control system to maximize the performance metric (<span class="math notranslate nohighlight">\(\mathcal{G}\)</span>), which can be considered a surrogate for the Levelized Cost of Energy (LCoE), balancing power generation against physical constraints and capacity factor:</p>
+<div class="math notranslate nohighlight">
+\[
+\max:  \mathcal{G}\left(F_u(t)\right) = \frac{\bar{P}_u}{2 + \frac{|x(t)|_{98}}{x_{\max}} + \frac{|F_u(t)|_{98}}{F_{u,\max}} - \frac{\bar{P}_u}{|p_u(t)|_{98}} }
+\]</div>
+<div class="math notranslate nohighlight">
+\[ s.t. \quad \text{WavePiston dynamics} \]</div>
+<div class="math notranslate nohighlight">
+\[ \qquad\quad p_u(t) = F_u(t) \dot{x}(t) \ge 0  \]</div>
 <ul class="simple">
-<li><p>$\bar{P}_u$: Average captured power.</p></li>
-<li><p>$|x(t)|_{98}$: The <strong>98th percentile</strong> of the absolute WP displacement.</p></li>
-<li><p>$|F_u(t)|_{98}$: The <strong>98th percentile</strong> of the absolute control force.</p></li>
-<li><p>$|p_u(t)|_{98}$: The <strong>98th percentile</strong> of the instantaneous control power.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\bar{P}_u\)</span>: Average captured power.</p></li>
+<li><p><span class="math notranslate nohighlight">\(|x(t)|_{98}\)</span>: The <strong>98th percentile</strong> of the absolute WP displacement.</p></li>
+<li><p><span class="math notranslate nohighlight">\(|F_u(t)|_{98}\)</span>: The <strong>98th percentile</strong> of the absolute control force.</p></li>
+<li><p><span class="math notranslate nohighlight">\(|p_u(t)|_{98}\)</span>: The <strong>98th percentile</strong> of the instantaneous control power.</p></li>
 <li><p>The constant 2 is a scaling factor.</p></li>
 </ul>
 <p><strong>Constraints:</strong></p>
 <ul class="simple">
-<li><p>$x_\mathrm{max}$ → maximum allowable displacement (sail position)</p></li>
-<li><p>$F_{u,\max}$ → maximum allowable control force magnitude</p></li>
-<li><p>$p_u(t) \ge 0$ → PTO is passive , meaning that control power cannot be negative</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_\mathrm{max}\)</span> → maximum allowable displacement (sail position)</p></li>
+<li><p><span class="math notranslate nohighlight">\(F_{u,\max}\)</span> → maximum allowable control force magnitude</p></li>
+<li><p><span class="math notranslate nohighlight">\(p_u(t) \ge 0\)</span> → PTO is passive , meaning that control power cannot be negative</p></li>
 </ul>
 </section>
 

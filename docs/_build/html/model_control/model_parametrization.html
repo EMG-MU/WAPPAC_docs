@@ -11,6 +11,8 @@
     <script src="../_static/documentation_options.js?v=2709fde1"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -153,17 +155,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="model-parametrization">
+  <section class="tex2jax_ignore mathjax_ignore" id="model-parametrization">
 <h1>Model Parametrization<a class="headerlink" href="#model-parametrization" title="Link to this heading">¶</a></h1>
 <p>This section provides the numerical and physical parameters of the competition model.</p>
 <hr class="docutils" />
 <section id="wavepiston-device-values">
 <h2>WavePiston Device Values<a class="headerlink" href="#wavepiston-device-values" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Maximum displacement: $x_{\max} = 2.0$ m</p></li>
-<li><p>Maximum PTO force: $F_{u,\max} = 1.0$ MN</p></li>
-<li><p>Time step: $\Delta t = 0.05$ s</p></li>
-<li><p>Scoring start time: $t_{\text{score}} = 30$ s</p></li>
+<li><p>Maximum displacement: <span class="math notranslate nohighlight">\(x_{\max} = 2.0\)</span> m</p></li>
+<li><p>Maximum PTO force: <span class="math notranslate nohighlight">\(F_{u,\max} = 1.0\)</span> MN</p></li>
+<li><p>Time step: <span class="math notranslate nohighlight">\(\Delta t = 0.05\)</span> s</p></li>
+<li><p>Scoring start time: <span class="math notranslate nohighlight">\(t_{\text{score}} = 30\)</span> s</p></li>
 </ul>
 <p><strong>Note:</strong> These values are public and identical for all participants. Internally, additional parameters are used for model fidelity but remain undisclosed.</p>
 </section>
@@ -171,8 +173,8 @@
 <section id="numerical-implementation">
 <h2>Numerical Implementation<a class="headerlink" href="#numerical-implementation" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Ramp duration: $t_{ramp} = 20$ s</p></li>
-<li><p>Performance evaluation Time Span: $[30,t_{end}]$ s, where $t_{end}$ is the end of simulation varying for the different sea states scenarios (<code class="docutils literal notranslate"><span class="pre">wave_id=</span> <span class="pre">{1,2,3}</span></code>).</p></li>
+<li><p>Ramp duration: <span class="math notranslate nohighlight">\(t_{ramp} = 20\)</span> s</p></li>
+<li><p>Performance evaluation Time Span: <span class="math notranslate nohighlight">\([30,t_{end}]\)</span> s, where <span class="math notranslate nohighlight">\(t_{end}\)</span> is the end of simulation varying for the different sea states scenarios (<code class="docutils literal notranslate"><span class="pre">wave_id=</span> <span class="pre">{1,2,3}</span></code>).</p></li>
 </ul>
 </section>
 <hr class="docutils" />
@@ -184,13 +186,13 @@
 <li><p>Excitation forces are derived from frequency-domain characterizations of the radiation kernel.</p></li>
 <li><p>No direct access is provided to:</p>
 <ul>
-<li><p>Surface elevation at $x=0$,</p></li>
-<li><p>Excitation force $F_{ex}(t)$.</p></li>
+<li><p>Surface elevation at <span class="math notranslate nohighlight">\(x=0\)</span>,</p></li>
+<li><p>Excitation force <span class="math notranslate nohighlight">\(F_{ex}(t)\)</span>.</p></li>
 </ul>
 </li>
 <li><p>Direct access is provided to:</p>
 <ul>
-<li><p>10 m up-wave surface elevation measurment ($x = -10$ m).</p></li>
+<li><p>10 m up-wave surface elevation measurment (<span class="math notranslate nohighlight">\(x = -10\)</span> m).</p></li>
 </ul>
 </li>
 </ul>

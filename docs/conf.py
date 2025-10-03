@@ -21,7 +21,7 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 html_static_path = ["_static"]
 # html_css_files = ["custom.css"]
 
-
+# Figure configuration
 numfig = True
 
 numfig_format = {
@@ -30,6 +30,28 @@ numfig_format = {
     'code-block': 'Listing %s',
     'section': 'Section %s',
 }
+
+# MyST (Markdown) settings
+myst_enable_extensions = [
+    "amsmath",
+    "dollarmath",
+    "deflist",
+    "html_admonition",
+    "html_image",
+]
+myst_heading_anchors = 3
+
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}
+
+# BibTeX
+bibtex_bibfiles = ["refs.bib"]
+
+# If you want logo/favicon, add:
+# html_logo = "_static/logo.png"
+# html_favicon = "_static/favicon.ico"
 
 # -- Theme Options for iccolo ---
 html_theme = "piccolo_theme"
@@ -98,26 +120,4 @@ html_theme_options = {
 #     "navbar_end": ["search-field.html", "navbar-icon-links"],
 # }
 
-# MyST (Markdown) settings
-myst_enable_extensions = [
-    "amsmath",
-    "dollarmath",
-    "deflist",
-    "html_admonition",
-    "html_image",
-    "myst_parser",
-    "sphinxcontrib.bibtex",
-]
-myst_heading_anchors = 3
 
-source_suffix = {
-    '.rst': 'restructuredtext',
-    '.md': 'markdown',
-}
-
-# BibTeX
-bibtex_bibfiles = ["refs.bib"]
-
-# If you want logo/favicon, add:
-# html_logo = "_static/logo.png"
-# html_favicon = "_static/favicon.ico"
