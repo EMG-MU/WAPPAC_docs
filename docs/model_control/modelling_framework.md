@@ -61,15 +61,23 @@ where $\mathbf{\xi}(t)$ is the radiation state vector.
 
 [//]: # (```)
 
-## WavePiston Constraint
+[//]: # (## WavePiston Constraint)
 
+[//]: # ()
+[//]: # ()
+[//]: # (### PTO Passivity constraint)
 
-### PTO Passivity constraint
-Because of the WavePiston’s design, the PTO can only extract power from the waves.
-This means that the PTO cannot inject reactive power back into the system, and therefore:
+[//]: # (Because of the WavePiston’s design, the PTO can only extract power from the waves.)
 
-```{important}
-PTO power is constrained to be non-negative: 
-```{math}
-    p_{pto}(t) = F_{pto}(t) \dot{x}(t) \geq 0
-```
+[//]: # (This means that the PTO cannot inject reactive power back into the system, and therefore:)
+
+[//]: # ()
+[//]: # (```{important})
+
+[//]: # (PTO power is constrained to be non-negative: )
+
+[//]: # (```{math})
+
+[//]: # (    p_{pto}&#40;t&#41; = F_{pto}&#40;t&#41; \dot{x}&#40;t&#41; \geq 0)
+
+[//]: # (```)

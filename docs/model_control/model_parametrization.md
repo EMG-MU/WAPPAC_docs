@@ -1,4 +1,4 @@
-
+# Model & Simulation Parametrization
 This section provides the numerical and physical parameters of the competition model.
 
 ---

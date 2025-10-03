@@ -10,5 +10,3 @@ modelling_framework
 control_problem
 numerical_implementation
 model_parametrization
-
-[//]: # (excitation_characterization)
