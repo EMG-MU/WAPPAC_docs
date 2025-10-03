@@ -155,14 +155,14 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="numerical-implementation">
+  <section class="tex2jax_ignore mathjax_ignore" id="numerical-implementation">
 <h1>Numerical Implementation<a class="headerlink" href="#numerical-implementation" title="Link to this heading">¶</a></h1>
 <p>The simulation environment is implemented with a consistent numerical setup to ensure comparability across controllers.</p>
 <hr class="docutils" />
 <section id="time-integration">
 <h2>Time Integration<a class="headerlink" href="#time-integration" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><strong>Fixed-step solver</strong> with $\Delta t = 0.05$ s.</p></li>
+<li><p><strong>Fixed-step solver</strong> with <span class="math notranslate nohighlight">\(\Delta t = 0.05\)</span> s.</p></li>
 <li><p>The solver integrates Cummins’ equation with the radiation state-space model and nonlinear drag.</p></li>
 </ul>
 </section>
@@ -170,8 +170,8 @@
 <section id="control-update">
 <h2>Control Update<a class="headerlink" href="#control-update" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Control inputs $F_u(t)$ are applied using a <strong>zero-order hold (ZOH)</strong> behavior.</p></li>
-<li><p>Controller updates occur at the simulation time step $\Delta t$.</p></li>
+<li><p>Control inputs <span class="math notranslate nohighlight">\(F_u(t)\)</span> are applied using a <strong>zero-order hold (ZOH)</strong> behavior.</p></li>
+<li><p>Controller updates occur at the simulation time step <span class="math notranslate nohighlight">\(\Delta t\)</span>.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
