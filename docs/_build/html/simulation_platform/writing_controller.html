@@ -8,7 +8,6 @@
     <title>Writing Your Controller &#8212; WAPPAC Competition 0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=9b2032db" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1186fc1e" />
     <script src="../_static/documentation_options.js?v=2709fde1"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -156,7 +155,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section class="tex2jax_ignore mathjax_ignore" id="writing-your-controller">
+  <section id="writing-your-controller">
 <h1>Writing Your Controller<a class="headerlink" href="#writing-your-controller" title="Link to this heading">¶</a></h1>
 <p>Your control algorithm is implemented in <code class="docutils literal notranslate"><span class="pre">my_controller.py</span></code> Python file.</p>
 <ul class="simple">
@@ -177,7 +176,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> (float): WP sail position [m]</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">v</span></code> (float): WP sail velocity [m/s]</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">t</span></code> (float): Current simulation time [s]</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">eta10</span></code> (float): 10-meter up-wave elevation measurement [m] (measured at <span class="math notranslate nohighlight">\(x=-10\)</span> m).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eta10</span></code> (float): 10-meter up-wave elevation measurement [m] (measured at $x=-10$ m).</p></li>
 </ul>
 </li>
 <li><p><strong>Output:</strong></p>
@@ -193,8 +192,8 @@
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ul class="simple">
-<li><p><strong>Performance Index</strong> is evaluated along the so-called <strong>scoring interval</strong>: from <span class="math notranslate nohighlight">\(\mathbf{t \geq 30}\)</span> <strong>s</strong> until the end of each simulation run.</p></li>
-<li><p><strong>Passivity constraint</strong> (<span class="math notranslate nohighlight">\(p_{pto} \geq 0\)</span>) must be satisfied for the <strong>full simulation perdiod</strong> (<span class="math notranslate nohighlight">\(t\geq0\)</span>).</p></li>
+<li><p><strong>Performance Index</strong> is evaluated along the so-called <strong>scoring interval</strong>: from $\mathbf{t \geq 30}$ <strong>s</strong> until the end of each simulation run.</p></li>
+<li><p><strong>Passivity constraint</strong> ($p_{pto} \geq 0$) must be satisfied for the <strong>full simulation perdiod</strong> ($t\geq0$).</p></li>
 </ul>
 </div>
 </section>
@@ -203,23 +202,23 @@
 <p>The <strong>wave excitation force</strong> is smoothly introduced using a raised cosine window:</p>
 <div class="math notranslate nohighlight">
 \[ramp(t) = 0.5 \left[ 1.0 - \cos\!\left(\frac{\pi t}{t_{ramp}}\right) \right]\]</div>
-<p>where <span class="math notranslate nohighlight">\(ramp(t_{ramp}=20)=1\)</span>.</p>
+<p>where $ramp(t_{ramp}=20)=1$.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p><strong>Ramp duration</strong> (influence on excitation force) is of <span class="math notranslate nohighlight">\(\mathbf{20}\)</span> <strong>s</strong> for all simulations runs.</p>
+<p><strong>Ramp duration</strong> (influence on excitation force) is of $\mathbf{20}$ <strong>s</strong> for all simulations runs.</p>
 </div>
 </section>
 <section id="zero-order-hold-zoh">
 <h3><strong>Zero-Order Hold (ZOH):</strong><a class="headerlink" href="#zero-order-hold-zoh" title="Link to this heading">¶</a></h3>
-<p>Control force is updated at the simulation time step <span class="math notranslate nohighlight">\((\Delta t=0.5 \; \text{s})\)</span>. However, internally the solver takes sub-steps in which control force is held constant.</p>
+<p>Control force is updated at the simulation time step $(\Delta t=0.5 ; \text{s})$. However, internally the solver takes sub-steps in which control force is held constant.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p><strong>Your control</strong> implementation (<code class="docutils literal notranslate"><span class="pre">my_controller</span></code> function) <strong>must</strong> be defined for the <strong>full simulation time span</strong> (<span class="math notranslate nohighlight">\(t\geq0\)</span>), regardless performance index is only evaluated along the scoring interval.</p>
+<p><strong>Your control</strong> implementation (<code class="docutils literal notranslate"><span class="pre">my_controller</span></code> function) <strong>must</strong> be defined for the <strong>full simulation time span</strong> ($t\geq0$), regardless performance index is only evaluated along the scoring interval.</p>
 </div>
 </section>
 <section id="handling-up-wave-measurement-eta10-nan-values">
 <h3><strong>Handling Up-Wave Measurement (<code class="docutils literal notranslate"><span class="pre">eta10</span></code>) NaN values:</strong><a class="headerlink" href="#handling-up-wave-measurement-eta10-nan-values" title="Link to this heading">¶</a></h3>
-<p>For <span class="math notranslate nohighlight">\(\mathbf{t &lt; 30}\)</span> <strong>s</strong> (outside the scoring interval), the signal <code class="docutils literal notranslate"><span class="pre">eta10</span></code> is NaN.
+<p>For $\mathbf{t &lt; 30}$ <strong>s</strong> (outside the scoring interval), the signal <code class="docutils literal notranslate"><span class="pre">eta10</span></code> is NaN.
 Your controller must handle this gracefully when using <code class="docutils literal notranslate"><span class="pre">eta10</span></code> in <code class="docutils literal notranslate"><span class="pre">my_controller</span></code> function.</p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">my_controller</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">eta10</span><span class="p">):</span>

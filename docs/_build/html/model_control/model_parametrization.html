@@ -8,17 +8,14 @@
     <title>Model Parametrization &#8212; WAPPAC Competition 0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=9b2032db" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1186fc1e" />
     <script src="../_static/documentation_options.js?v=2709fde1"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Using the Simulation Platform" href="../simulation_platform/index.html" />
+    <link rel="next" title="Using WAPPAC Simulation Platform" href="../simulation_platform/index.html" />
     <link rel="prev" title="Numerical Implementation" href="numerical_implementation.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
@@ -134,14 +131,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../home.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../competition_overview.html">Competition Overview</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">WavePiston Model &amp; Control Framework</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="modelling_framework.html">Modelling Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modelling_framework.html">Modeling Framework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="control_problem.html">Control Problem Formulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="numerical_implementation.html">Numerical Implementation</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Model Parametrization</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../simulation_platform/index.html">Using the Simulation Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rules_eval_criteria.html">Performance Index Evaluation Criteria &amp; Competition Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation_platform/index.html">Using WAPPAC Simulation Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rules_eval_criteria.html">Evaluation Criteria &amp; Competition Rules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../submission.html">Submission Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../integrity.html">Integrity &amp; Fairness</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources</a></li>
@@ -156,17 +153,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section class="tex2jax_ignore mathjax_ignore" id="model-parametrization">
+  <section id="model-parametrization">
 <h1>Model Parametrization<a class="headerlink" href="#model-parametrization" title="Link to this heading">¶</a></h1>
 <p>This section provides the numerical and physical parameters of the competition model.</p>
 <hr class="docutils" />
 <section id="wavepiston-device-values">
 <h2>WavePiston Device Values<a class="headerlink" href="#wavepiston-device-values" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Maximum displacement: <span class="math notranslate nohighlight">\(x_{\max} = 2.0\)</span> m</p></li>
-<li><p>Maximum PTO force: <span class="math notranslate nohighlight">\(F_{u,\max} = 1.0\)</span> MN</p></li>
-<li><p>Time step: <span class="math notranslate nohighlight">\(\Delta t = 0.05\)</span> s</p></li>
-<li><p>Scoring start time: <span class="math notranslate nohighlight">\(t_{\text{score}} = 30\)</span> s</p></li>
+<li><p>Maximum displacement: $x_{\max} = 2.0$ m</p></li>
+<li><p>Maximum PTO force: $F_{u,\max} = 1.0$ MN</p></li>
+<li><p>Time step: $\Delta t = 0.05$ s</p></li>
+<li><p>Scoring start time: $t_{\text{score}} = 30$ s</p></li>
 </ul>
 <p><strong>Note:</strong> These values are public and identical for all participants. Internally, additional parameters are used for model fidelity but remain undisclosed.</p>
 </section>
@@ -174,8 +171,8 @@
 <section id="numerical-implementation">
 <h2>Numerical Implementation<a class="headerlink" href="#numerical-implementation" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Ramp duration: <span class="math notranslate nohighlight">\(t_{ramp} = 20\)</span> s</p></li>
-<li><p>Performance evaluation Time Span: <span class="math notranslate nohighlight">\([30,t_{end}]\)</span> s, where <span class="math notranslate nohighlight">\(t_{end}\)</span> is the end of simulation varying for the different sea states scenarios (<code class="docutils literal notranslate"><span class="pre">wave_id=</span> <span class="pre">{1,2,3}</span></code>).</p></li>
+<li><p>Ramp duration: $t_{ramp} = 20$ s</p></li>
+<li><p>Performance evaluation Time Span: $[30,t_{end}]$ s, where $t_{end}$ is the end of simulation varying for the different sea states scenarios (<code class="docutils literal notranslate"><span class="pre">wave_id=</span> <span class="pre">{1,2,3}</span></code>).</p></li>
 </ul>
 </section>
 <hr class="docutils" />
@@ -187,13 +184,13 @@
 <li><p>Excitation forces are derived from frequency-domain characterizations of the radiation kernel.</p></li>
 <li><p>No direct access is provided to:</p>
 <ul>
-<li><p>Surface elevation at <span class="math notranslate nohighlight">\(x=0\)</span>,</p></li>
-<li><p>Excitation force <span class="math notranslate nohighlight">\(F_{ex}(t)\)</span>.</p></li>
+<li><p>Surface elevation at $x=0$,</p></li>
+<li><p>Excitation force $F_{ex}(t)$.</p></li>
 </ul>
 </li>
 <li><p>Direct access is provided to:</p>
 <ul>
-<li><p>10 m up-wave surface elevation measurment (<span class="math notranslate nohighlight">\(x = -10\)</span> m).</p></li>
+<li><p>10 m up-wave surface elevation measurment ($x = -10$ m).</p></li>
 </ul>
 </li>
 </ul>
@@ -239,7 +236,7 @@
 
             <div class="right">
                 
-                    <a href="../simulation_platform/index.html"><span>Using the Simulation Platform</span><span class="icon">&gt;</span></a>
+                    <a href="../simulation_platform/index.html"><span>Using WAPPAC Simulation Platform</span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>

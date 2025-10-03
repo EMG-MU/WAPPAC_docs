@@ -1,7 +1,15 @@
 # Modeling Framework
 
 The WavePiston competition model uses a simplified one-sail, one energy-collector device. 
-Thus system has **one degree of freedom (DoF)** in the surge direction as depicted in the figure below.
+Therefore, the system has **one degree of freedom (DoF)** in the surge direction as depicted in {numref}`fig_wavepiston_sch`.
+
+
+```{figure} ../_static/figures/schematics/WavePiston_sch.png
+:name: fig_wavepiston_sch
+:width: 100%
+:align: center
+Schematic of the one-sail WavePiston competition model.
+```
 
 - **Geometry & Coordinates:**  
   The sail is positioned at $x=0$, with incoming waves traveling along the positive $x$-axis ($\beta=0$).  

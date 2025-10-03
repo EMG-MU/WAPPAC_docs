@@ -8,18 +8,15 @@
     <title>Control Problem Formulation &#8212; WAPPAC Competition 0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=9b2032db" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1186fc1e" />
     <script src="../_static/documentation_options.js?v=2709fde1"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Numerical Implementation" href="numerical_implementation.html" />
-    <link rel="prev" title="Modelling Framework" href="modelling_framework.html" /> 
+    <link rel="prev" title="Modeling Framework" href="modelling_framework.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
 <div id="top_nav">
@@ -134,14 +131,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../home.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../competition_overview.html">Competition Overview</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">WavePiston Model &amp; Control Framework</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="modelling_framework.html">Modelling Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modelling_framework.html">Modeling Framework</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Control Problem Formulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="numerical_implementation.html">Numerical Implementation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="model_parametrization.html">Model Parametrization</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../simulation_platform/index.html">Using the Simulation Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rules_eval_criteria.html">Performance Index Evaluation Criteria &amp; Competition Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation_platform/index.html">Using WAPPAC Simulation Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rules_eval_criteria.html">Evaluation Criteria &amp; Competition Rules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../submission.html">Submission Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../integrity.html">Integrity &amp; Fairness</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources</a></li>
@@ -158,27 +155,24 @@
             
   <section id="control-problem-formulation">
 <h1>Control Problem Formulation<a class="headerlink" href="#control-problem-formulation" title="Link to this heading">¶</a></h1>
-<p><strong>Objective:</strong> Design a control system to maximize the performance metric (<span class="math notranslate nohighlight">\(\mathcal{G}\)</span>), which can be considered a surrogate for the Levelized Cost of Energy (LCoE), balancing power generation against physical constraints and capacity factor:</p>
-<div class="math notranslate nohighlight">
-\[
-\max:  \mathcal{G}\left(F_u(t)\right) = \frac{\bar{P}_u}{2 + \frac{|x(t)|_{98}}{x_{\max}} + \frac{|F_u(t)|_{98}}{F_{u,\max}} - \frac{\bar{P}_u}{|p_u(t)|_{98}} }
-\]</div>
-<div class="math notranslate nohighlight">
-\[ s.t. \quad \text{WavePiston dynamics} \]</div>
-<div class="math notranslate nohighlight">
-\[ \qquad\quad p_u(t) = F_u(t) \dot{x}(t) \ge 0  \]</div>
+<p><strong>Objective:</strong> Design a control system to maximize the performance metric ($\mathcal{G}$), which can be considered a surrogate for the Levelized Cost of Energy (LCoE), balancing power generation against physical constraints and capacity factor:</p>
+<p>$$
+\max:  \mathcal{G}\left(F_u(t)\right) = \frac{\bar{P}<em>u}{2 + \frac{|x(t)|</em>{98}}{x_{\max}} + \frac{|F_u(t)|<em>{98}}{F</em>{u,\max}} - \frac{\bar{P}<em>u}{|p_u(t)|</em>{98}} }
+$$</p>
+<p>$$ s.t. \quad \text{WavePiston dynamics} $$
+$$ \qquad\quad p_u(t) = F_u(t) \dot{x}(t) \ge 0  $$</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\bar{P}_u\)</span>: Average captured power.</p></li>
-<li><p><span class="math notranslate nohighlight">\(|x(t)|_{98}\)</span>: The <strong>98th percentile</strong> of the absolute WP displacement.</p></li>
-<li><p><span class="math notranslate nohighlight">\(|F_u(t)|_{98}\)</span>: The <strong>98th percentile</strong> of the absolute control force.</p></li>
-<li><p><span class="math notranslate nohighlight">\(|p_u(t)|_{98}\)</span>: The <strong>98th percentile</strong> of the instantaneous control power.</p></li>
+<li><p>$\bar{P}_u$: Average captured power.</p></li>
+<li><p>$|x(t)|_{98}$: The <strong>98th percentile</strong> of the absolute WP displacement.</p></li>
+<li><p>$|F_u(t)|_{98}$: The <strong>98th percentile</strong> of the absolute control force.</p></li>
+<li><p>$|p_u(t)|_{98}$: The <strong>98th percentile</strong> of the instantaneous control power.</p></li>
 <li><p>The constant 2 is a scaling factor.</p></li>
 </ul>
 <p><strong>Constraints:</strong></p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(x_\mathrm{max}\)</span> → maximum allowable displacement (sail position)</p></li>
-<li><p><span class="math notranslate nohighlight">\(F_{u,\max}\)</span> → maximum allowable control force magnitude</p></li>
-<li><p><span class="math notranslate nohighlight">\(p_u(t) \ge 0\)</span> → PTO is passive , meaning that control power cannot be negative</p></li>
+<li><p>$x_\mathrm{max}$ → maximum allowable displacement (sail position)</p></li>
+<li><p>$F_{u,\max}$ → maximum allowable control force magnitude</p></li>
+<li><p>$p_u(t) \ge 0$ → PTO is passive , meaning that control power cannot be negative</p></li>
 </ul>
 </section>
 
@@ -196,7 +190,7 @@
             <div class="left">
                 
                 <a href="modelling_framework.html">
-                    <span class="icon">&lt;</span><span>Modelling Framework</span></a>
+                    <span class="icon">&lt;</span><span>Modeling Framework</span></a>
                 
             </div>
 

@@ -19,7 +19,17 @@ extensions = [
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 html_static_path = ["_static"]
-html_css_files = ["custom.css"]
+# html_css_files = ["custom.css"]
+
+
+numfig = True
+
+numfig_format = {
+    'figure': 'Figure %s',
+    'table': 'Table %s',
+    'code-block': 'Listing %s',
+    'section': 'Section %s',
+}
 
 # -- Theme Options for iccolo ---
 html_theme = "piccolo_theme"
@@ -95,6 +105,8 @@ myst_enable_extensions = [
     "deflist",
     "html_admonition",
     "html_image",
+    "myst_parser",
+    "sphinxcontrib.bibtex",
 ]
 myst_heading_anchors = 3
 

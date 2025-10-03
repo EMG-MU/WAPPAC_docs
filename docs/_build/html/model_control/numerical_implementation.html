@@ -8,7 +8,6 @@
     <title>Numerical Implementation &#8212; WAPPAC Competition 0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=9b2032db" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1186fc1e" />
     <script src="../_static/documentation_options.js?v=2709fde1"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -134,14 +133,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../home.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../competition_overview.html">Competition Overview</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">WavePiston Model &amp; Control Framework</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="modelling_framework.html">Modelling Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modelling_framework.html">Modeling Framework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="control_problem.html">Control Problem Formulation</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Numerical Implementation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="model_parametrization.html">Model Parametrization</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../simulation_platform/index.html">Using the Simulation Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rules_eval_criteria.html">Performance Index Evaluation Criteria &amp; Competition Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation_platform/index.html">Using WAPPAC Simulation Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rules_eval_criteria.html">Evaluation Criteria &amp; Competition Rules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../submission.html">Submission Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../integrity.html">Integrity &amp; Fairness</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources</a></li>
@@ -156,14 +155,14 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section class="tex2jax_ignore mathjax_ignore" id="numerical-implementation">
+  <section id="numerical-implementation">
 <h1>Numerical Implementation<a class="headerlink" href="#numerical-implementation" title="Link to this heading">¶</a></h1>
 <p>The simulation environment is implemented with a consistent numerical setup to ensure comparability across controllers.</p>
 <hr class="docutils" />
 <section id="time-integration">
 <h2>Time Integration<a class="headerlink" href="#time-integration" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><strong>Fixed-step solver</strong> with <span class="math notranslate nohighlight">\(\Delta t = 0.05\)</span> s.</p></li>
+<li><p><strong>Fixed-step solver</strong> with $\Delta t = 0.05$ s.</p></li>
 <li><p>The solver integrates Cummins’ equation with the radiation state-space model and nonlinear drag.</p></li>
 </ul>
 </section>
@@ -171,8 +170,8 @@
 <section id="control-update">
 <h2>Control Update<a class="headerlink" href="#control-update" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Control inputs <span class="math notranslate nohighlight">\(F_u(t)\)</span> are applied using a <strong>zero-order hold (ZOH)</strong> behavior.</p></li>
-<li><p>Controller updates occur at the simulation time step <span class="math notranslate nohighlight">\(\Delta t\)</span>.</p></li>
+<li><p>Control inputs $F_u(t)$ are applied using a <strong>zero-order hold (ZOH)</strong> behavior.</p></li>
+<li><p>Controller updates occur at the simulation time step $\Delta t$.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
