@@ -5,9 +5,9 @@ General information about the competition is provided in this section. At the en
 
 For many years, wave energy research has focused on **maximizing power capture**, often through **reactive control strategies**. These approaches not only absorb energy from wave-induced motion (active power) but also inject energy back into the system via the PTO (reactive power). 
 
-When the PTO is restricted to absorbing power only — a **passive PTO** — it is inherently subject to the **passivity constraint**. While reactive control can, in theory, achieve higher energy capture than passive strategies, it often does so by amplifying device motion and applying larger control forces. The larger motion and control force operational spaces can lead to more wear on the PTO and mechanical components, implying higher maintenance demands. In addition, the need for bidirectional power capability is usually associated with more complex system (e.g., energy storage, grid connection, or bidirectional actuators), further increasing system  costs. As a result, these factors can collectively negatively impact on the **levelized cost of energy (LCoE)**.  
+When the PTO is restricted to absorbing power only — a **passive PTO** — it is inherently subject to the **passivity constraint**. While reactive control can, in theory, achieve higher energy capture than passive strategies, it often does so by amplifying device motion and applying larger control forces {cite:p}`ringwoodBacelliFusco2014,windt2021`. The larger motion and control force operational spaces can lead to more wear on the PTO and mechanical components, implying higher maintenance demands. In addition, the need for bidirectional power capability is usually associated with more complex system {cite:p}`hals2011` (e.g., energy storage, grid connection, or bidirectional actuators), further increasing system  costs. As a result, these factors can collectively negatively impact on the **levelized cost of energy (LCoE)** {cite:p}`said2024`.  
 
-By contrast, passive control is theoretically associated with lower energy capture due to its inherent suboptimality. Yet it offers practical advantages: elimination of energy storage requirements, potentially simpler PTO configurations, and milder device motions with smaller control forces, leading to reduced operational regimes. Together, these characteristics can positively influence the LCoE, even if theoretical energy capture is lower.  
+By contrast, passive control is theoretically associated with lower energy capture due to its inherent suboptimality. Yet it offers practical advantages: elimination of energy storage requirements, potentially simpler PTO configurations, and milder device motions with smaller control forces, leading to reduced operational regimes, e.g. {cite:p}`hals2011`. Together, these characteristics can positively influence the LCoE, even if theoretical energy capture is lower.  
 
 **Not all that glitters is gold:** while passive control can appear simpler and less demanding, the nonlinear passivity constraint inherent in these strategies introduces significant challenges for control design. This is precisely where the **real challenge of the competition** lies.  
 
@@ -19,22 +19,21 @@ In this context, the WAPPAC competition offers an attractive opportunity for the
 
 ## WavePiston Device
 
-[WavePiston](https://wavepiston.dk/) is a Danish wave energy technology developer, harnessing the power of ocean waves. Its system captures wave energy using a series of **sails and PTO units** mounted on a submerged string, converting wave motion into usable energy.  
+[WavePiston](https://wavepiston.dk/) is a Danish wave energy technology developer, harnessing the power of ocean waves. Its system captures wave energy using a series of **sails and PTO units** coupled on a submerged pipe or 'string' (see {numref}`fig-wavepiston-1`). Each sail moves back and forth through the surge motion of passing waves and the horizontal motion relative to the string drives the hydraulic PTO unit, converting wave motion into usable energy.  
 
 
-📌 *Schematic/illustration placeholder — insert device diagram here.*
 ```{figure} _static/figures/WavePiston_device/Wavepiston_system_illustration_3.jpg
-:name: fig-wavepiston
+:name: fig-wavepiston-1
 :alt: Illustration of Wavepiston WEC system.
 :width: 600px
 Illustration of Wavepiston WEC system, comprising a string of energy collectors. Image courtesy of Wavepiston.
 ```
 
 ```{figure} _static/figures/WavePiston_device/Topview_from_the_first_energy_collector_installed_on_the_Wavepiston_string.jpg
-:name: fig-wavepiston
+:name: fig-wavepiston-2
 :alt: Top-view of the first installed energy collector
 :width: 600px
-Top-view from the first energy collector installed on the Wavepiston string. Image courtesy of Wavepiston.
+Top-view from the first energy collector installed on the Wavepiston string at the PLOCAN test site, Gran Canaria. Image courtesy of Wavepiston.
 ```
 ---
 
@@ -85,3 +84,7 @@ Follow the links below for further details regarding:
 - [Evaluation Criteria & Competition Rules](...).
 
 - [Submission Guidelines](submission.md).
+
+```{bibliography}
+:filter: docname in docname
+:style: plain
