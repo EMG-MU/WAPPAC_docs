@@ -77,7 +77,3 @@ Follow the links below for further details regarding:
 - [Evaluation Criteria & Competition Rules](...).
 
 - [Submission Guidelines](submission.md).
-
-```{bibliography}
-:filter: docname in docname
-:style: plain
