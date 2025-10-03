@@ -157,8 +157,7 @@
             
   <section class="tex2jax_ignore mathjax_ignore" id="modeling-framework">
 <h1>Modeling Framework<a class="headerlink" href="#modeling-framework" title="Link to this heading">¶</a></h1>
-<p>The WavePiston competition model uses a simplified one-sail, one energy-collector device.
-The system has <strong>one degree of freedom (DoF)</strong> in the surge direction as depicted in <a class="reference internal" href="#fig-wavepiston-sch"><span class="std std-numref">Figure 1</span></a>.</p>
+<p>WAPPAC competition uses a simplified one-sail, one PTO device, schematically represented in <a class="reference internal" href="#fig-wavepiston-sch"><span class="std std-numref">Figure 1</span></a>.</p>
 <figure class="align-center" id="fig-wavepiston-sch">
 <a class="reference internal image-reference" href="../_images/WavePiston_sch.png"><img alt="../_images/WavePiston_sch.png" src="../_images/WavePiston_sch.png" style="width: 100%;" />
 </a>
@@ -167,26 +166,28 @@ The system has <strong>one degree of freedom (DoF)</strong> in the surge directi
 </figcaption>
 </figure>
 <ul class="simple">
-<li><p><strong>Geometry &amp; Coordinates:</strong><br />
-The sail is positioned at <span class="math notranslate nohighlight">\(x=0\)</span>, with incoming waves traveling along the positive <span class="math notranslate nohighlight">\(x\)</span>-axis (<span class="math notranslate nohighlight">\(\beta=0\)</span>).<br />
-An up-wave wave probe provides a reference elevation signal at <span class="math notranslate nohighlight">\(x=-10\)</span> m.</p></li>
-<li><p><strong>Constraints (conceptual):</strong></p>
+<li><p><strong>WavePiston characteristics:</strong></p>
 <ul>
-<li><p>Sail displacement: <span class="math notranslate nohighlight">\(|x(t)| \leq x_{\max}\)</span></p></li>
-<li><p>PTO force: <span class="math notranslate nohighlight">\(|F_{pto}(t)| \leq F_{pto,\max}\)</span></p></li>
-<li><p>Passivity: the PTO can only absorb power, not inject reactive power.</p></li>
+<li><p>The system has <strong>one degree of freedom (DoF)</strong> in the surge direction.</p></li>
+<li><p>The sail is positioned at <span class="math notranslate nohighlight">\(\mathcal{X}=0\)</span>, with incoming waves traveling along the positive <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>-axis (<span class="math notranslate nohighlight">\(\beta=0\)</span>).</p></li>
+<li><p>The maximum allowable displacement of the sail is denoted by <span class="math notranslate nohighlight">\(x_{\max}\)</span>.</p></li>
+</ul>
+</li>
+<li><p><strong>Upwave Measurement:</strong></p>
+<ul>
+<li><p>A probe provides the upwave surface elevation measurement at <span class="math notranslate nohighlight">\(x=-10\)</span> m.</p></li>
 </ul>
 </li>
 </ul>
 <hr class="docutils" />
-<section id="hydrodynamic-equation">
-<h2>Hydrodynamic Equation<a class="headerlink" href="#hydrodynamic-equation" title="Link to this heading">¶</a></h2>
-<p>The hydrodynamics of the device are described by <strong>Cummins’ integro-differential equation</strong>:</p>
-<div class="math notranslate nohighlight">
-\[
+<section id="wavepiston-dynamics">
+<h2>WavePiston Dynamics<a class="headerlink" href="#wavepiston-dynamics" title="Link to this heading">¶</a></h2>
+<p>The hydrodynamics of the device are described by <strong>Cummins’ equation</strong> and a viscous drag term <a class="reference internal" href="#equation-eq-wp-hydrodyn">(1)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-wp-hydrodyn">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-wp-hydrodyn" title="Link to this equation">¶</a></span>\[\begin{equation}
 M \ddot{x}(t) + F_r(t) + S_h x(t) + \frac{1}{2} \rho A C_D \dot{x} |\dot{x}|
 = F_{ex}(t) - F_{pto}(t)
-\]</div>
+\end{equation}\]</div>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(x(t)\)</span>: sail position,</p></li>
 <li><p><span class="math notranslate nohighlight">\(\dot{x}(t)\)</span>: velocity,</p></li>
@@ -204,6 +205,15 @@ M \ddot{x}(t) + F_r(t) + S_h x(t) + \frac{1}{2} \rho A C_D \dot{x} |\dot{x}|
 F_r(t) &amp;= \mathbf{C_r}\,\mathbf{\xi}(t)\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf{\xi}(t)\)</span> is the radiation state vector.</p>
 <p>Note that no hydrodynamic restoring force acts on the WEC, since the sails are constrained to move horizontally and are assumed rigid. Therefore, this term does not appear in the hydrodynamical equation.</p>
+<ul class="simple">
+<li><p><strong>Constraints (conceptual):</strong></p>
+<ul>
+<li><p>Sail displacement: <span class="math notranslate nohighlight">\(|x(t)| \leq x_{\max}\)</span></p></li>
+<li><p>PTO force: <span class="math notranslate nohighlight">\(|F_{pto}(t)| \leq F_{pto,\max}\)</span></p></li>
+<li><p>Passivity: the PTO can only absorb power, not inject reactive power.</p></li>
+</ul>
+</li>
+</ul>
 </section>
 </section>
 
@@ -222,7 +232,7 @@ F_r(t) &amp;= \mathbf{C_r}\,\mathbf{\xi}(t)\end{split}\]</div>
             <div class="page_toc">
                 <ul>
 <li><a class="reference internal" href="#">Modeling Framework</a><ul>
-<li><a class="reference internal" href="#hydrodynamic-equation">Hydrodynamic Equation</a></li>
+<li><a class="reference internal" href="#wavepiston-dynamics">WavePiston Dynamics</a></li>
 </ul>
 </li>
 </ul>

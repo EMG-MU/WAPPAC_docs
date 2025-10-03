@@ -1,7 +1,7 @@
 # Modeling Framework
 
-The WavePiston competition model uses a simplified one-sail, one energy-collector device. 
-The system has **one degree of freedom (DoF)** in the surge direction as depicted in {numref}`fig_wavepiston_sch`.
+WAPPAC competition uses a simplified one-sail, one PTO device, schematically represented in {numref}`fig_wavepiston_sch`. 
+
 
 
 ```{figure} ../_static/figures/schematics/WavePiston_sch.png
@@ -11,33 +11,28 @@ The system has **one degree of freedom (DoF)** in the surge direction as depicte
 Schematic of the one-sail WavePiston device and upwave surface elevation measurement.
 ```
 
-- **Geometry & Coordinates:**  
-  The sail is positioned at $x=0$, with incoming waves traveling along the positive $x$-axis ($\beta=0$).  
-  An up-wave wave probe provides a reference elevation signal at $x=-10$ m.
+- **WavePiston characteristics:**  
+  - The system has **one degree of freedom (DoF)** in the surge direction.
+  - The sail is positioned at $\mathcal{X}=0$, with incoming waves traveling along the positive $\mathcal{X}$-axis ($\beta=0$).
+  - The maximum allowable displacement of the sail is denoted by $x_{\max}$.
 
-- **Constraints (conceptual):**  
-  - Sail displacement: $|x(t)| \leq x_{\max}$  
-  - PTO force: $|F_{pto}(t)| \leq F_{pto,\max}$  
-  - Passivity: the PTO can only absorb power, not inject reactive power.
+- **Upwave Measurement:**  
+  - A probe provides the upwave surface elevation measurement at $x=-10$ m.
 
 ---
 
-## Hydrodynamic Equation
+## WavePiston Dynamics
 
-The hydrodynamics of the device are described by **Cummins’ integro-differential equation**:
+The hydrodynamics of the device are described by **Cummins’ equation** and a viscous drag term {eq}`eq:WP_hydrodyn`:
 
-[//]: # ($$)
+```{math}
+:label: eq:WP_hydrodyn
 
-[//]: # (M \ddot{x}&#40;t&#41; + \int_{-\infty}^t K&#40;t-\tau&#41; v&#40;\tau&#41;\, d\tau + S_h x&#40;t&#41; + \frac{1}{2} \rho A C_D \dot{x} |\dot{x}|)
-
-[//]: # (= F_{ex}&#40;t&#41; - F_{pto}&#40;t&#41;)
-
-[//]: # ($$)
-
-$$
+\begin{equation}
 M \ddot{x}(t) + F_r(t) + S_h x(t) + \frac{1}{2} \rho A C_D \dot{x} |\dot{x}|
 = F_{ex}(t) - F_{pto}(t)
-$$
+\end{equation}
+```
 
 
 *   $x(t)$: sail position,
@@ -66,3 +61,8 @@ F_r(t) &= \mathbf{C_r}\,\mathbf{\xi}(t)
 where $\mathbf{\xi}(t)$ is the radiation state vector.
 
 Note that no hydrodynamic restoring force acts on the WEC, since the sails are constrained to move horizontally and are assumed rigid. Therefore, this term does not appear in the hydrodynamical equation.
+
+- **Constraints (conceptual):**  
+  - Sail displacement: $|x(t)| \leq x_{\max}$  
+  - PTO force: $|F_{pto}(t)| \leq F_{pto,\max}$  
+  - Passivity: the PTO can only absorb power, not inject reactive power.
