@@ -19,7 +19,7 @@ In this context, the WAPPAC competition offers an attractive opportunity for the
 
 ## WavePiston Device
 
-[WavePiston](https://wavepiston.dk/) is a Danish wave energy technology developer, harnessing the power of ocean waves. Its system captures wave energy using a series of **sails and PTO units** coupled on a submerged pipe or 'string' (see {numref}`fig-wavepiston-1`). Each sail moves back and forth through the surge motion of passing waves and the horizontal motion relative to the string drives the hydraulic PTO unit, converting wave motion into usable energy.  
+[WavePiston](https://wavepiston.dk/) is a Danish wave energy technology developer, harnessing the power of ocean waves. Its system captures wave energy using a series of **sails and PTO units** coupled on a submerged pipe or 'string' (see {numref}`fig-wavepiston-1`). Each sail moves back and forth in response to the surge motion of passing waves and the horizontal motion of the sail relative to the string drives the hydraulic PTO unit, converting wave motion into usable energy.  
 
 
 ```{figure} _static/figures/WavePiston_device/Wavepiston_system_illustration_3.jpg
@@ -66,7 +66,7 @@ The workflow for participants is straightforward:
 
 3. **Generate evaluation files**.  
 
-4. **Submit** your controller, evaluation files and a report for official evaluation by the organizers. For further details refer to [docs/submission]
+4. **Submit** your controller, evaluation files and a report for official evaluation by the organizers. For further details refer to {doc}`submission`
 
 
 This ensures a **fair, repeatable, and secure evaluation** of all participants’ controllers.
