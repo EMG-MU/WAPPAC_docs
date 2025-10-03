@@ -40,6 +40,12 @@ The project aims to reduce the **levelized cost of energy (LCOE)** while minimiz
 * **COER’s role**: Hydrodynamic modelling and control.
 * **Key partners**: Technical University of Denmark, FibronPipe, Leser, Julia F. Chozas, Applied Renewables Research, Marine Systems Modelling, and PLOCAN.
 
+```{figure} _static/figures/logos/Shy_2.jpg
+:name: fig-SHY
+:alt: SHY logo
+:width: 400px
+```
+
 ---
 
 [//]: # (## Quick Links)
