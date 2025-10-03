@@ -13,7 +13,7 @@ The simulation environment is implemented with a consistent numerical setup to e
 
 ## Control Update
 
-- Control inputs $F_u(t)$ are applied using a **zero-order hold (ZOH)** behavior.  
+- Control inputs $F_{pto}(t)$ are applied using a **zero-order hold (ZOH)** behavior.  
 - Controller updates occur at the simulation time step $\Delta t$.
 
 ---

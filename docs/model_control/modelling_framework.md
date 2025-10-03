@@ -13,41 +13,37 @@ Schematic of the one-sail WavePiston device and upwave surface elevation measure
 
 - **WavePiston characteristics:**  
   - The system has **one degree of freedom (DoF)** in the surge direction.
-  - The sail is positioned at $\mathcal{X}=0$, with incoming waves traveling along the positive $\mathcal{X}$-axis ($\beta=0$).
-  - The maximum allowable displacement of the sail is denoted by $x_{\max}$.
+  - The sail **excursion midpoint** is at $x=0$, with incoming waves traveling along the positive $x$-axis ($\beta=0$).
+  - The sail **maximum allowable displacement** of the sail is denoted by $x_{\max}$.
 
 - **Upwave Measurement:**  
-  - A probe provides the upwave surface elevation measurement at $x=-10$ m.
+  - A probe provides the **upwave** surface elevation **measurement** at $x=-10$ m.
 
 ---
 
 ## WavePiston Dynamics
 
-The hydrodynamics of the device are described by **Cummins’ equation** and a viscous drag term {eq}`eq:WP_hydrodyn`:
+The hydrodynamics of the WavePiston device can be described using Cummins’ equation together with a viscous drag term {eq}`eq_WP_hydrodyn`:
 
 ```{math}
-:label: eq:WP_hydrodyn
-
-\begin{equation}
-M \ddot{x}(t) + F_r(t) + S_h x(t) + \frac{1}{2} \rho A C_D \dot{x} |\dot{x}|
-= F_{ex}(t) - F_{pto}(t)
-\end{equation}
+:label: eq_WP_hydrodyn
+M \ddot{x}(t) + F_r(t) + \frac{1}{2} \rho A C_D \, \dot{x} |\dot{x}|
+= F_{ex}(t) - F_{pto}(t) ,
 ```
 
-
+where
 *   $x(t)$: sail position,
 
-*   $\dot{x}(t)$: velocity,
+*   $\dot{x}(t)$: sail velocity,
 
 *   $M = m_w + m_\infty$: total mass (device mass + added mass asymptote),
 
-*   $f_r(t)$: radiation impulse kernel,
-
+[//]: # (*   $f_r&#40;t&#41;$: radiation impulse kernel,)
 *   $F_{ex}(t)$: wave excitation force,
 
 *   $F_{pto}(t)$: control force applied by the PTO.
 
-*   $\rho$: sea water density.
+*   $\rho$: seawater density.
 
 *   $A$: sail area.
 
@@ -60,9 +56,20 @@ F_r(t) &= \mathbf{C_r}\,\mathbf{\xi}(t)
 ```
 where $\mathbf{\xi}(t)$ is the radiation state vector.
 
-Note that no hydrodynamic restoring force acts on the WEC, since the sails are constrained to move horizontally and are assumed rigid. Therefore, this term does not appear in the hydrodynamical equation.
+[//]: # (```{note})
+**No hydrodynamic restoring force** acts on the WEC, since the sails are constrained to move horizontally and are assumed rigid. Therefore, this term does not appear in the hydrodynamical equation.
 
-- **Constraints (conceptual):**  
-  - Sail displacement: $|x(t)| \leq x_{\max}$  
-  - PTO force: $|F_{pto}(t)| \leq F_{pto,\max}$  
-  - Passivity: the PTO can only absorb power, not inject reactive power.
+[//]: # (```)
+
+## WavePiston Constraint
+
+
+### PTO Passivity constraint
+Because of the WavePiston’s design, the PTO can only extract power from the waves.
+This means that the PTO cannot inject reactive power back into the system, and therefore:
+
+```{important}
+PTO power is constrained to be non-negative: 
+```{math}
+    p_{pto}(t) = F_{pto}(t) \dot{x}(t) \geq 0
+```

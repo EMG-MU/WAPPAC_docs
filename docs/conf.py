@@ -31,7 +31,15 @@ numfig_format = {
     'section': 'Section %s',
 }
 
-# MyST (Markdown) settings
+extensions = [
+    "myst_parser",
+    "sphinxcontrib.bibtex",
+    "sphinx.ext.mathjax",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.viewcode",
+]
+
 myst_enable_extensions = [
     "amsmath",
     "dollarmath",
@@ -39,6 +47,18 @@ myst_enable_extensions = [
     "html_admonition",
     "html_image",
 ]
+
+mathjax3_config = {
+    "TeX": {
+        "equationNumbers": {"autoNumber": "all"},
+        "tags": "all",
+    },
+    "chtml": {
+        "displayAlign": "center",
+        "displayIndent": "0em",
+    }
+}
+
 myst_heading_anchors = 3
 
 source_suffix = {
@@ -62,7 +82,7 @@ html_theme_options = {
     "color_mode": "auto",
 
     # An absolute URL to your project's source code, e.g. on GitHub.
-    "source_url": "https://github.com/your-username/your-repo/",
+    "source_{pto}rl": "https://github.com/your-username/your-repo/",
 
     # Configuration for the source link icon and text.
     # This replaces 'source_display_text' and 'source_icon'.
@@ -76,8 +96,8 @@ html_theme_options = {
 # # -- Theme Options for Shibuya ---
 # html_theme = "shibuya"
 # html_theme_options = {
-#     # The URL to your GitHub repository. This is different from sphinx_book_theme's "repository_url".
-#     "github_url": "https://github.com/EMG-MU/WAPPAC_docs",
+#     # The URL to your GitHub repository. This is different from sphinx_book_theme's "repository_{pto}rl".
+#     "github_{pto}rl": "https://github.com/EMG-MU/WAPPAC_docs",
 #
 #     # The name of the repo that will be displayed on the page.
 #     "github_repo": "WAPPAC_docs",

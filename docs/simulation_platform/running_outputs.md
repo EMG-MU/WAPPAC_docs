@@ -29,7 +29,7 @@ A new folder `sim_out/` is created containing:
   - `pos` → Sail displacement [m]  
   - `vel` → Sail velocity [m/s]  
   - `Fu` → Control force [N]  
-  - `p_u` → Absorbed power [W]  
+  - `p_{pto}` → Absorbed power [W]  
 
 - **results_metadata.json** → Performance metrics and metadata:
   - `Participant's name` → Name of the participant  
