@@ -1,0 +1,19 @@
+# 4.4 Running Simulations
+
+There are two modes:
+
+## Development Mode (`eval_flag = false`)
+
+- Runs one simulation with your chosen `wave_id` and `wave_realiz_seed`.
+- Produces:
+  - `results.npz` → Arrays: `t`, `pos`, `vel`, `Fu`, `p_u`.
+  - `results_metadata.json` → Performance summary (e.g., $\mathcal{G}$).
+  - `results_visual.pdf` → Plots of position, velocity, control force, and power.
+
+## Evaluation Mode (`eval_flag = true`)
+
+- Runs **all three wave IDs** with fixed seeds.  
+- Outputs encrypted `.enc` files to `evaluation_outputs/` folder.  
+- These files are your **submission package**.  
+- No access to raw time series or plots.  
+- Terminal only prints whether **passivity constraint** was satisfied.
