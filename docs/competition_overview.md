@@ -23,7 +23,19 @@ In this context, the WAPPAC competition offers an attractive opportunity for the
 
 
 📌 *Schematic/illustration placeholder — insert device diagram here.*
+```{figure} _static/figures/WavePiston_device/Wavepiston_system_illustration_3.jpg
+:name: fig-wavepiston
+:alt: Illustration of Wavepiston WEC system.
+:width: 600px
+Illustration of Wavepiston WEC system, comprising a string of energy collectors. Image courtesy of Wavepiston.
+```
 
+```{figure} _static/figures/WavePiston_device/Topview_from_the_first_energy_collector_installed_on_the_Wavepiston_string.jpg
+:name: fig-wavepiston
+:alt: Top-view of the first installed energy collector
+:width: 600px
+Top-view from the first energy collector installed on the Wavepiston string. Image courtesy of Wavepiston.
+```
 ---
 
 ## Objective
