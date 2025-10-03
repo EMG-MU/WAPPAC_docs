@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Modelling Framework &#8212; WAPPAC Competition 0.1 documentation</title>
+    <title>Modeling Framework &#8212; WAPPAC Competition 0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1186fc1e" />
@@ -134,14 +134,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../home.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../competition_overview.html">Competition Overview</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">WavePiston Model &amp; Control Framework</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Modelling Framework</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Modeling Framework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="control_problem.html">Control Problem Formulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="numerical_implementation.html">Numerical Implementation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="model_parametrization.html">Model Parametrization</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../simulation_platform/index.html">Using the Simulation Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rules_eval_criteria.html">Performance Index Evaluation Criteria &amp; Competition Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation_platform/index.html">Using WAPPAC Simulation Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rules_eval_criteria.html">Evaluation Criteria &amp; Competition Rules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../submission.html">Submission Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../integrity.html">Integrity &amp; Fairness</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources</a></li>
@@ -156,9 +156,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section class="tex2jax_ignore mathjax_ignore" id="modelling-framework">
-<h1>Modelling Framework<a class="headerlink" href="#modelling-framework" title="Link to this heading">¶</a></h1>
-<p>The WavePiston competition model represents a simplified one-sail, one-collector device. The system has <strong>one degree of freedom (DoF)</strong> in the surge direction.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="modeling-framework">
+<h1>Modeling Framework<a class="headerlink" href="#modeling-framework" title="Link to this heading">¶</a></h1>
+<p>The WavePiston competition model uses a simplified one-sail, one energy-collector device.
+Thus system has <strong>one degree of freedom (DoF)</strong> in the surge direction as depicted in the figure below.</p>
 <ul class="simple">
 <li><p><strong>Geometry &amp; Coordinates:</strong><br />
 The sail is positioned at <span class="math notranslate nohighlight">\(x=0\)</span>, with incoming waves traveling along the positive <span class="math notranslate nohighlight">\(x\)</span>-axis (<span class="math notranslate nohighlight">\(\beta=0\)</span>).<br />
@@ -214,7 +215,7 @@ F_r(t) &amp;= \mathbf{C_r}\,\mathbf{\xi}(t)\end{split}\]</div>
             <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
             <div class="page_toc">
                 <ul>
-<li><a class="reference internal" href="#">Modelling Framework</a><ul>
+<li><a class="reference internal" href="#">Modeling Framework</a><ul>
 <li><a class="reference internal" href="#hydrodynamic-equation">Hydrodynamic Equation</a></li>
 </ul>
 </li>
