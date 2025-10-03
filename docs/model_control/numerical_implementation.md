@@ -52,3 +52,18 @@ Also, $ramp(T_{\text{ramp}}) = 1$, so the excitation force reaches its full magn
 - The ramp interval **finishes before** the scoring interval begins.
     - This is to mitigate the transient effects caused by the artificial ramp-up before performance evaluation starts.
 ```
+
+---
+
+## Upwave Measurement
+Particpants have access to the **upwave measurement** located at $x=-10$ m, see the schematic representation below:
+```{figure} ../_static/figures/schematics/WavePiston_sch.png
+:name: fig_wavepiston_sch_sensor
+:width: 100%
+:align: center
+Schematic of the one-sail WavePiston device and upwave surface elevation measurement.
+```
+### Handling Upwave Measurement (`eta10`):
+
+* The `eta10` signal is only provided during the **scoring interval**. 
+* For all time $t < T_0$ s, the value of `eta10` is `NaN`. Refer to [Writing Your Controller](/simulation_platform/writing_controller.md) for further details on how to handle `NaN` inputs gracefully to avoid errors when defining your control strategy.

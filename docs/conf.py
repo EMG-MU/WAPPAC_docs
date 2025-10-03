@@ -22,9 +22,9 @@ html_static_path = ["_static"]
 html_css_files = ["custom_1.css"]
 
 # Figure configuration
-numref = True
+numfig = True
 
-numref_format = {
+numfig_format = {
     'figure': 'Figure %s',
     'table': 'Table %s',
     'code-block': 'Listing %s',
