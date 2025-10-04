@@ -1,7 +1,7 @@
 # Numerical Implementation
 
 The [model](./modelling_framework.md) and [control](./control_problem.md) framework is implemented with a consistent numerical setup to ensure comparability across different control strategies proposed by particpants. 
-When developing your control strategy, please keep the following implementation details in mind.
+When developing your control strategy, keep the following implementation details in mind.
 
 ---
 
@@ -17,7 +17,7 @@ When developing your control strategy, please keep the following implementation 
 
 - The control force $F_{pto}(t)$ is implemented using a **zero-order hold (ZOH)**.  
    - The controller is updated at the beginning of every simulation time-step (every $\Delta t$ s of simulation time).  
-   - Practically, this means your controller function `my_controller` is called once per time-step.  
+   - Practically, this means your controller function `my_controller` is called once per time-step of $\Delta t$ duration.  
    - During the intermediate RK4 sub-steps, the control force is held constant.  
 
 ---
@@ -63,7 +63,13 @@ Particpants have access to the **upwave measurement** located at $x=-10$ m, see 
 :align: center
 Schematic of the one-sail WavePiston device and upwave surface elevation measurement.
 ```
-### Handling Upwave Measurement (`eta10`):
+### Handling Upwave Measurement
 
-* The `eta10` signal is only provided during the **scoring interval**. 
-* For all time $t < T_0$ s, the value of `eta10` is `NaN`. Refer to [Writing Your Controller](/simulation_platform/writing_controller.md) for further details on how to handle `NaN` inputs gracefully to avoid errors when defining your control strategy.
+```{important}
+* Upwave measurment is inly provided during the **scoring time** ($t \geq T_0$).
+* For $t < T_0$ s, the value of the upwave measurement is `NaN`. Refer to [Writing Your Controller](/simulation_platform/writing_controller.md) for further details on how to handle `NaN` inputs gracefully.
+```
+
+[//]: # (* The upwave measurement is only provided during the **scoring interval**. )
+
+[//]: # (* For all time $t < T_0$ s, the value of the upwave measurement is `NaN`. Refer to [Writing Your Controller]&#40;/simulation_platform/writing_controller.md&#41; for further details on how to handle `NaN` inputs gracefully to avoid errors when defining your control strategy.)

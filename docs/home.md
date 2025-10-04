@@ -43,7 +43,8 @@ The project aims to reduce the **levelized cost of energy (LCOE)** while minimiz
 ```{figure} _static/figures/logos/Shy_2.jpg
 :name: fig-SHY
 :alt: SHY logo
-:width: 400px
+:width: 25%
+:align: center
 ```
 
 ---

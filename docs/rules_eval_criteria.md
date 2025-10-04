@@ -1,4 +1,4 @@
-# Summary of Evaluation Criteria & Competition Rules
+# Evaluation Criteria & Competition Rules
 
 To ensure a clear evaluation of the results, a crucial distinction between the full simulation time span and the scoring interval must be made.
 
