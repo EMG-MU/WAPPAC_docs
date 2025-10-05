@@ -3,7 +3,7 @@ The **performance index** $\mathcal{G}$, which participants aim to maximize acro
 In this way, $\mathcal{G}$ can be interpreted as a **surrogate for the Levelized Cost of Energy (LCoE)**:
 
 $$
-\max:  \mathcal{G}\left(F_{pto}(t)\right) = \frac{\bar{P}_{pto}}{2 + \frac{|x(t)|_{98}}{x_{\max}} + \frac{|F_{pto}(t)|_{98}}{F_{u,\max}} - \frac{\bar{P}_{pto}}{|p_{pto}(t)|_{98}} }
+\max_{F_u(t)} \; \mathcal{G}\!\left(F_{pto}(t)\right) = \frac{\bar{P}_{pto}}{2 + \frac{|x(t)|_{98}}{x_{\max}} + \frac{|F_{pto}(t)|_{98}}{F_{u,\max}} - \frac{\bar{P}_{pto}}{|p_{pto}(t)|_{98}} }
 $$
 
 $$ s.t. \quad \text{WavePiston dynamics} $$
@@ -28,11 +28,6 @@ To ensure a clear evaluation of the results, a crucial **distinction** between k
 
 [//]: # (the **full simulation time span** and the **scoring interval** must be made.)
 
-- **Full simulation time span:** Characterized by the time interval $t \in [t_{init}, t_{end}]$.
-- **Scoring interval:** Period in which the performance index is evaluated $t \in [T_0, t_{end}]$. 
-- **Startup Interval:** Initial period where performance index is not evaluated $t \in [t_{init}, T_0]$.
-
-
 ```{figure} ../_static/figures/schematics/startup_int_vs_scoring_int.png
 :name: fig_startup_int_vs_scoring_int
 :width: 100%
@@ -41,7 +36,9 @@ Key time intervals for the performance index evaluation.
 ```
 
 ```{important}
-**Performance index** is evaluated during the **scoring interval** defined as $t = [T_0, t_{end}]$.
+- **Full simulation time span:** Characterized by the time interval $t \in [t_{init}, t_{end}]$.
+- **Scoring interval:** Period in which the performance index is evaluated $t \in [T_0, t_{end}]$. 
+- **Startup Interval:** Initial period where performance index is not evaluated $t \in [t_{init}, T_0]$.
 ```
 For more details on the startup interval refer to [Numerical Implementation](./numerical_implementation.md).
 
