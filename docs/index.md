@@ -10,8 +10,8 @@ Use the sidebar to navigate through the sections below.
 home
 competition_overview
 model_control/index
-rules_eval_criteria
 simulation_platform/index
+rules_eval_criteria
 submission
 integrity
 resources
