@@ -1,51 +1,20 @@
 # Competition Overview
-General information about the competition is provided in this section. At the end, quick acess links are provided directing readers to sections that describe each aspect of the competition in more detail.
+
+This section provides a general overview of the competition. Quick-access links at the end direct readers to dedicated sections that describe each aspect of the competition in greater detail.
 
 ## Motivation
 
-For many years, wave energy research has focused on **maximizing power capture**, often through **reactive control strategies**. These approaches not only absorb energy from wave-induced motion (active power) but also inject energy back into the system via the PTO (reactive power). 
+For decades, wave energy research has primarily focused on **maximizing power absorption**, often through **reactive control strategies** {cite:p}`TBC`. These controllers not only extract energy from wave-induced motion (active power) but also inject energy back into the system through the power take-off (PTO), supplying **reactive power** to enhance energy capture.  
 
-When the PTO is restricted to absorbing power only — a **passive PTO** — it is inherently subject to the **passivity constraint**. While reactive control can, in theory, achieve higher energy capture than passive strategies, it often does so by amplifying device motion and applying larger control forces {cite:p}`ringwoodBacelliFusco2014,windt2021`. The larger motion and control force operational spaces can lead to more wear on the PTO and mechanical components, implying higher maintenance demands. In addition, the need for bidirectional power capability is usually associated with more complex system {cite:p}`hals2011` (e.g., energy storage, grid connection, or bidirectional actuators), further increasing system  costs. As a result, these factors can collectively negatively impact on the **levelized cost of energy (LCoE)** {cite:p}`said2024`.  
+When the PTO is limited to absorbing power only — i.e., operating under a **passivity constraint** — the control strategy is considered **passive**. While reactive control can theoretically achieve higher energy absorption, it typically does so by amplifying device motion and applying larger control forces {cite:p}`ringwoodBacelliFusco2014,windt2021`. In practice, such demands may increase mechanical wear and maintenance requirements. Moreover, the need for bidirectional power flow often entails more complex hardware architectures {cite:p}`hals2011` (e.g., energy storage systems or grid connections, bidirectional actuators), thereby increasing cost and potentially reducing overall reliability. Collectively, these factors can negatively affect the **levelized cost of energy (LCoE)** {cite:p}`said2024`.  
 
-By contrast, passive control is theoretically associated with lower energy capture due to its inherent suboptimality. Yet it offers practical advantages: elimination of energy storage requirements, potentially simpler PTO configurations, and milder device motions with smaller control forces, leading to reduced operational regimes, e.g. {cite:p}`hals2011`. Together, these characteristics can positively influence the LCoE, even if theoretical energy capture is lower.  
+Conversely, **passive control** is theoretically suboptimal in terms of absorbed power but offers tangible practical advantages: it removes the need for energy storage, simplifies PTO design, and generally yields milder motions and smaller control forces {cite:p}`hals2011`. These traits contribute to lower operational stress and cost, which may ultimately improve the LCoE despite lower theoretical power absorption.  
 
-**Not all that glitters is gold:** while passive control can appear simpler and less demanding, the nonlinear passivity constraint inherent in these strategies introduces significant challenges for control design. This is precisely where the **real challenge of the competition** lies.  
+However, **not all that glitters is gold**: while passive control may appear conceptually simpler, the **nonlinear passivity constraint** poses a significant challenge for both control design and real-time implementation. Enforcing passivity typically increases the computational burden, complicating the development of efficient controllers suitable for practical deployment. Achieving high performance within these bounds, while maintaining reasonable computational cost for real-time implementation, remains an open challenge that needs innovative solutions from the community.
 
-```{important} 
-In this context, the WAPPAC competition offers an attractive opportunity for the wave energy community to advance the state of the art in **passive control strategies**. By focusing on this active debate topic with still open challenges to overcome, participants’ proposals will help scrutinize practical trade-offs and contribute to progress in wave energy control design field.  
+```{important}
+The **WAPPAC competition** provides a unique opportunity for the wave energy community to push the boundaries of **passive control design**. By addressing this open and practically relevant challenge, participants will contribute to advancing the field and refining the overall community understanding of the trade-offs between energy capture, reliability, and simplicity in real-world wave energy systems.
 ```
-
----
-
-## WavePiston Device
-
-[WavePiston](https://wavepiston.dk/) is a Danish wave energy technology developer, working to harness the vast potential of ocean waves.
-Its system captures wave energy using a series of **sails and power take-off (PTO) units** mounted on a submerged string, as illustrated in {numref}`fig-wavepiston-3`, converting the surge motion of waves into usable energy.
-
-```{figure} _static/figures/WavePiston_device/Wavepiston_system_illustration_1.jpg
-:name: fig-wavepiston-3
-:alt: Illustration of an elevation view of Wavepiston WEC system.
-:width: 600px
-Illustration of Wavepiston WEC system, comprising a string of energy collectors. Image courtesy of Wavepiston.
-```
----
-
-## Objective
-
-The objective of the competition is to design **passive control strategies** that achieve the best trade-off between energy production and reliability.  
-
-Controllers will be evaluated on their ability to:
-
-
-- **Maximize a performance index** that balances energy capture, physical constraint handling of the WavePiston device, and capacity factor — serving as a surrogate for the LCoE,  
-
-- **Maintain robust performance across different sea states**,  
-
-- Operate strictly under the **passivity constraint**, without access to reactive power.
-
-
-The overall aim is to identify control approaches that, while limited by passivity, still have meaningful performance indexes and demonstrate practical value for real-world deployment.
-
 ---
 
 ## Competition Flow
@@ -53,13 +22,13 @@ The overall aim is to identify control approaches that, while limited by passivi
 The workflow for participants is straightforward:
 
 
-1. **Develop** your controller locally using the simulation platform.  
+1. **Develop** your controller locally using the WAPPAC simulation platform.  
 
 2. **Test locally** with provided wave scenarios and tools.  
 
 3. **Generate evaluation files**.  
 
-4. **Submit** your controller, evaluation files and a report for official evaluation by the organizers. For further details refer to {doc}`submission`
+4. **Submit** your controller, evaluation files and a report for official evaluation by the organizers.
 
 
 This ensures a **fair, repeatable, and secure evaluation** of all participants’ controllers.
@@ -72,7 +41,7 @@ Follow the links below for further details regarding:
 
 - Modeling and control framework, its numerical implementation and system parametrization: [WavePiston Model & Control Problem](model_control/index.md).
 
-- [Using WAPPAC Simulation Platform](...).
+- Practical use and considerations of the provided simulation platform: [Using WAPPAC Simulation Platform](...).
 
 - [Evaluation Criteria & Competition Rules](...).
 

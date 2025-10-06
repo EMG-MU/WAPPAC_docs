@@ -1,75 +1,71 @@
 # Numerical Implementation
 
-The [model](./modelling_framework.md) and [control](./control_problem.md) framework is implemented with a consistent numerical setup to ensure comparability across different control strategies proposed by particpants. 
-When developing your control strategy, keep the following implementation details in mind.
+The [model](./modelling_framework.md) and [control](./control_problem.md) frameworks are implemented with a consistent numerical setup to ensure comparability across all control strategies submitted by participants. When developing your controller, the following implementation details should be carefully considered.
 
 ---
 
 ## Time Integration
 
-- The system dynamics, given by {eq}`eq_WP_hydrodyn`, are solved using a **4th-order Runge–Kutta (RK4)** method.  
-- The solver runs with a **fixed time step** of $\Delta t = 0.05$ s.  
-- Within each main step, the RK4 method evaluates four internal sub-steps.  
+* The WavePiston dynamics, given by {eq}`eq_WP_hydrodyn`, are integrated using a **4th-order Runge–Kutta (RK4)** scheme.
+* The solver operates with a **fixed time step** of $\Delta t = 0.05$ s.
+* Within each main time step, RK4 evaluates four internal sub-steps to ensure accurate integration.
 
 ---
 
 ## Control Update
 
-- The control force $F_{pto}(t)$ is implemented using a **zero-order hold (ZOH)**.  
-   - The controller is updated at the beginning of every simulation time-step (every $\Delta t$ s of simulation time).  
-   - Practically, this means your controller function `my_controller` is called once per time-step of $\Delta t$ duration.  
-   - During the intermediate RK4 sub-steps, the control force is held constant.  
+* The control force $F_{pto}(t)$ is implemented using a **zero-order hold (ZOH)**:
+
+  * The controller is evaluated once at the start of each simulation time step ($\Delta t$).
+  * During RK4 sub-steps, the control force is held constant.
+  * Practically, this means your controller function `my_controller` is called once per time step of duration $\Delta t$.
 
 ---
 
 ## Ramp Interval
 
-To mitigate large transients at the beginning of the simulation, which could cause sail position drifting leading to premature constraint violations, the wave excitation force is **gradually introduced** during the so-called **ramp interval**, schematically represented in {numref}`fig_ramp_interval`.
-
+To reduce large transients at the start of the simulation—which could induce sail position drift and premature constraint violations—the **wave excitation force is gradually applied** during the **ramp interval**, illustrated in {numref}`fig_ramp_interval`.
 
 ```{figure} ../_static/figures/schematics/ramp_interval.png
 :name: fig_ramp_interval
 :width: 100%
 :align: center
-Ramp interval vs. scoring interval.
+Ramp interval versus scoring interval.
 ```
 
 The ramp function is defined as a raised cosine:
 
 ```{math}
-ramp(t) = 0.5 \left[1 - \cos\!\left(\frac{\pi t}{T_{\text{ramp}}}\right)\right], \qquad \text{defined for} \; t \in [t_{init}, T_{ramp}]
+ramp(t) = 0.5 \left[1 - \cos\!\left(\frac{\pi t}{T_{\text{ramp}}}\right)\right], \quad t \in [t_{init}, T_{\text{ramp}}]
 ```
 This function multiplies the excitation force from zero to its full value over the interval $0 \le t \le T_{\text{ramp}}$. Thus, the attenuated excitation force is given by:
 ```{math}
 \tilde{F}_{exc} = ramp(t) F_{exc} 
 ```
 Note that the raised cosine time derivative is zero at both the start ($t=0$) and end $(t=T_{\text{ramp}})$ of the ramp, ensuring a smooth transition. 
-Also, $ramp(T_{\text{ramp}}) = 1$, so the excitation force reaches its full magnitude exactly at the end of the ramp interval.
+Also, $ramp(T_{\text{ramp}}) = 1$, so the excitation force reaches its full magnitude exactly at the end of the ramp interval. 
 
 ```{note}
-- The **ramp interval duration** is **fixed** for every simulation at $T_{\text{ramp}} = 20$ s.
-- for $t \geq T_{ramp}$, the attenuated excitation force ($\tilde{F}_{exc}$) is equal to the full excitation force ($F_{exc}$).
-- The ramp interval **finishes before** the scoring interval begins.
-    - This is to mitigate the transient effects caused by the artificial ramp-up before performance evaluation starts.
+- The **ramp interval duration** is **fixed** for every simulation at $T_{\text{ramp}} = 20$ s across all three predefined sea states scenarios.
+- For $t \ge T_{\text{ramp}}$ → $\tilde{F}_{exc} = F_{exc}$.
+- The ramp interval ends **before the scoring interval begins** ($T_{ramp}=20 < T_0 = 30$ s), mitigating transient effects of artifical ramp-up function before start evaluating the performance index.
 ```
-
 ---
 
 ## Upwave Measurement
-Particpants have access to the **upwave measurement** located at $x=-10$ m, see the schematic representation below:
+
+Participants have access to the **upwave surface elevation measurement** located at $x=-10$ m (see {numref}`fig_wavepiston_sch_sensor`):
+
 ```{figure} ../_static/figures/schematics/WavePiston_sch.png
 :name: fig_wavepiston_sch_sensor
 :width: 100%
 :align: center
 Schematic of the one-sail WavePiston device and upwave surface elevation measurement.
 ```
+
 ### Handling Upwave Measurement
 
 ```{important}
-* Upwave measurment is inly provided during the **scoring time** ($t \geq T_0$).
-* For $t < T_0$ s, the value of the upwave measurement is `NaN`. Refer to [Writing Your Controller](/simulation_platform/writing_controller.md) for further details on how to handle `NaN` inputs gracefully.
+- Upwave measurement is available **only during the scoring interval** ($t \ge T_0$).  
+- For $t < T_0$, the measurement value is `NaN`. Refer to [Writing Your Controller](/simulation_platform/writing_controller.md) for instructions on handling `NaN` inputs safely in your control strategy.
 ```
-
-[//]: # (* The upwave measurement is only provided during the **scoring interval**. )
-
-[//]: # (* For all time $t < T_0$ s, the value of the upwave measurement is `NaN`. Refer to [Writing Your Controller]&#40;/simulation_platform/writing_controller.md&#41; for further details on how to handle `NaN` inputs gracefully to avoid errors when defining your control strategy.)

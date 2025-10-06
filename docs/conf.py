@@ -5,7 +5,7 @@ sys.path.insert(0, os.path.abspath('..'))
 
 project = "WAPPAC Competition"
 author = "Eugenio M. Gelos"
-release = "0.1"
+# release = "0.1"
 
 extensions = [
     "myst_parser",
