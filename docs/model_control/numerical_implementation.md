@@ -52,20 +52,20 @@ Also, $ramp(T_{\text{ramp}}) = 1$, so the excitation force reaches its full magn
 ```
 ---
 
-## Upwave Measurement
+## Up-wave Measurement
 
-Participants have access to the **upwave surface elevation measurement** located at $x=-10$ m (see {numref}`fig_wavepiston_sch_sensor`):
+Participants have access to the **up-wave surface elevation measurement** located at $x=-10$ m (see {numref}`fig_wavepiston_sch_sensor`):
 
 ```{figure} ../_static/figures/schematics/WavePiston_sch.png
 :name: fig_wavepiston_sch_sensor
 :width: 100%
 :align: center
-Schematic of the one-sail WavePiston device and upwave surface elevation measurement.
+Schematic of the one-sail WavePiston device and up-wave surface elevation measurement.
 ```
 
-### Handling Upwave Measurement
+### Handling Up-wave Measurement
 
 ```{important}
-- Upwave measurement is available **only during the scoring interval** ($t \ge T_0$).  
+- Up-wave measurement is available **only during the scoring interval** ($t \ge T_0$).  
 - For $t < T_0$, the measurement value is `NaN`. Refer to [Writing Your Controller](/simulation_platform/writing_controller.md) for instructions on handling `NaN` inputs safely in your control strategy.
 ```

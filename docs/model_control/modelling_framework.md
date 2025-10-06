@@ -17,7 +17,7 @@ For the purpose of WAPPAC competition, a simplified **one-sail, one-PTO** config
 :name: fig_wavepiston_sch
 :width: 100%
 :align: center
-Schematic of the one-sail WavePiston device and upwave surface elevation measurement.
+Schematic of the one-sail WavePiston device and up-wave surface elevation measurement.
 ```
 
 **WavePiston characteristics:**
@@ -26,9 +26,9 @@ Schematic of the one-sail WavePiston device and upwave surface elevation measure
 * The sail **midpoint position** is at $x=0$, with incoming waves propagating along the positive $x$-axis ($\beta=0$).
 * The **maximum allowable sail displacement** is denoted by $x_{\max}$.
 
-**Upwave Measurement:**
+**Up-wave Measurement:**
 
-* A sensor measures the **upwave** surface elevation at $x=-10$ m.
+* A sensor measures the **up-wave** surface elevation at $x=-10$ m.
 
 ---
 

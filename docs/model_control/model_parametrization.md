@@ -25,7 +25,7 @@ The following parameters fully characterize the model accessible to participants
 | $C_D$                | Quadratic viscous drag coefficient    | 1.5                                                          |
 | $x_{\max}$           | Maximum allowed displacement          | 2.0 m                                                        |
 | $F_{pto,\max}$       | Maximum allowed PTO (control) force magnitude | 1.0 MN                                                       |
-| Upwave measurement location | Surface elevation probe position              | $x = -10$ m                                            |
+| Up-wave measurement location | Surface elevation probe position              | $x = -10$ m                                            |
 
 **Note:** These values are public and identical for all participants. Additional internal parameters may be used to ensure model fidelity but remain undisclosed.
 
@@ -40,7 +40,7 @@ Although the excitation force time series $F_{ex}(t)$ is **not directly provided
 
 * **Real-time sail motion data:** The instantaneous sail position and velocity available within the controller function (see [Writing My Controller](...) for details).
 * **Excitation force kernel:** The frequency-domain excitation kernel distributed with the WAPPAC simulation platform (see [Installation & Setup](...) for details).
-* **Upwave surface elevation measurement:** The surface elevation probe located 10 m upwave of the device ($x = -10$ m), available to participants during the **scoring interval** via the simulation interface (see [Numerical Implementation](...) and [Writing My Controller](...) for details).
+* **Up-wave surface elevation measurement:** The surface elevation probe located 10 m up-wave of the device ($x = -10$ m), available to participants during the **scoring interval** via the simulation interface (see [Numerical Implementation](...) and [Writing My Controller](...) for details).
 * **Public WavePiston model parametrization:** The shared model parameters provided above.
 
 In summary, while direct excitation force data remain undisclosed, participants are equipped with sufficient information to implement **observer-based** or **model-driven estimators** as part of their control strategy.
@@ -57,7 +57,7 @@ Although the excitation force time series $F_{ex}(t)$ is **not provided directly
 
 * **Real-time sail motion data:** The current sail position and velocity, available within the controller function (see [Writing My Controller](...) for details).
 * **Excitation force kernel:** The frequency-domain excitation kernel distributed with the WAPPAC simulation platform (see [Installation & Setup](...) for details).
-* **Upwave surface elevation measurement:** The wave surface elevation located 10 m upwave of the device ($x = -10$ m) is accessible by particpants through the simulation interface fr the **scoring interval** (see [Numerical Implementation](...) and [Writing My Controller](...) for details).
+* **Up-wave surface elevation measurement:** The wave surface elevation located 10 m up-wave of the device ($x = -10$ m) is accessible by particpants through the simulation interface fr the **scoring interval** (see [Numerical Implementation](...) and [Writing My Controller](...) for details).
 * **Public WavePiston model parametrization** shared above.
 * 
 In summary, while direct excitation force data remain undisclosed, participants are equipped with sufficient information to develop **observer-based** or **model-driven estimators** if required by their control strategy.
@@ -75,7 +75,7 @@ In summary, while direct excitation force data remain undisclosed, participants 
   * The excitation force time series $F_{ex}(t)$
 * Participants **do have access** to:
 
-  * The **10 m upwave** surface elevation measurement ($x = -10$ m)
+  * The **10 m up-wave** surface elevation measurement ($x = -10$ m)
   * Frequency domain excitation force kernel included with WPPAC simulation platform distirbution (see [Installation & Setup](...) for more details)
 
 ---
