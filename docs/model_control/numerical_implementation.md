@@ -46,9 +46,9 @@ Note that the raised cosine time derivative is zero at both the start ($t=0$) an
 Also, $ramp(T_{\text{ramp}}) = 1$, so the excitation force reaches its full magnitude exactly at the end of the ramp interval. 
 
 ```{note}
-- The **ramp interval duration** is **fixed** for every simulation at $T_{\text{ramp}} = 20$ s across all three predefined sea states scenarios.
+- The **ramp interval duration** is **fixed** for every simulation at $T_{\text{ramp}} = 20$ s across all three predefined sea state scenarios.
 - For $t \ge T_{\text{ramp}}$ → $\tilde{F}_{exc} = F_{exc}$.
-- The ramp interval ends **before the scoring interval begins** ($T_{ramp}=20 < T_0 = 30$ s), mitigating transient effects of artifical ramp-up function before start evaluating the performance index.
+- The ramp interval ends **before the scoring interval begins** ($T_{ramp}=20 < T_0 = 30$ s), mitigating transient effects of the artifical ramp-up function before start evaluating the performance index.
 ```
 ---
 

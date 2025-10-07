@@ -23,7 +23,7 @@ s.t.& \qquad \text{WavePiston dynamics,} \\
 & \qquad p_{pto}(t) = F_{pto}(t)\dot{x}(t) \ge 0
 ```
 
-A full derivation and explanation of $\mathcal{G}$ and its terms are provided in [**Control Problem Definition**](./performance_index.md).
+A full derivation and explanation of $\mathcal{G}$ and its terms are provided in [**Control Problem Definition**](./model_control/control_problem.md).
 
 ---
 
@@ -31,7 +31,7 @@ A full derivation and explanation of $\mathcal{G}$ and its terms are provided in
 
 When defining and testing their controllers, participants must account for two key time intervals:
 
-```{figure} ../_static/figures/schematics/startup_int_vs_scoring_int.png
+```{figure} ./_static/figures/schematics/startup_int_vs_scoring_int.png
 :name: fig_startup_int_vs_scoring_int_eval
 :width: 100%
 :align: center
@@ -68,11 +68,11 @@ In case of a **tie**, the organizers may apply secondary criteria such as lowest
 
 1. **Evaluation Mode & Reproducibility**
 
-   * Final evaluation is performed by setting `eval_flag = true` in `my_sim_input_file.json` (refer to [Simulation Input File](...)).
+   * Final evaluation is performed by setting `eval_flag = true` in `my_sim_input_file.json` (refer to [Simulation Input File](./simulation_platform/sim_input.md)).
      This sequentially generates three **encrypted** `.enc` files (one per sea state) corresponding to the official evaluation runs.
      Performance indices are computed according to {eq}`eq_perf_index_total` and the rules in this section.
    * The three encrypted outputs produced in Evaluation Mode are the **official submission files**.
-     Participants must submit these files along with all items listed in [**Submission Guidelines**](./submission_guidelines.md).
+     Participants must submit these files along with all items listed in [**Submission Guidelines**](./submission.md).
    * The **COER team will re-run** each participant’s controller on the **official WAPPAC simulation platform**, using identical numerical solvers, hydrodynamic models, and fixed seeds.
      This ensures **reproducibility and fairness** across all submissions.
    * Any missing, non-functional, or non-reproducible controller for a given sea state will result in exclusion of that sea state’s score $\mathcal{G}_i$ from the total $\mathcal{G}_{\text{total}}$.
@@ -87,7 +87,7 @@ In case of a **tie**, the organizers may apply secondary criteria such as lowest
 3. **Position and Force (Soft) Constraints Handling**
 
    * Position and PTO force limits are treated as **soft constraints**.
-     Occasional exceedances are permitted but penalized through reduced $\mathcal{G}$ values (see [**Control Problem Definition**](./performance_index.md)).
+     Occasional exceedances are permitted but penalized through reduced $\mathcal{G}$ values (see [**Control Problem Definition**](./model_control/control_problem.md)).
 
 4. **Integrity and Evaluation Environment**
 
@@ -119,8 +119,8 @@ In case of a **tie**, the organizers may apply secondary criteria such as lowest
 
 ### Related Sections for Further Details
 
-* [**Modeling Framework**](./modelling_framework.md)
-* [**Control Problem Definition**](./control_problem.md)
+* [**Modeling Framework**](./model_control/modelling_framework.md)
+* [**Control Problem Definition**](./model_control/control_problem.md)
 * [**Performance Index & Metrics**](./performance_index.md)
-* [**Simulation Framework**](./simulation_framework.md)
-* [**Submission Guidelines**](./submission_guidelines.md)
+* [**Simulation Framework**](./simulation_platform/index.md)
+* [**Submission Guidelines**](./submission.md)

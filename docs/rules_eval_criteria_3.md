@@ -20,7 +20,7 @@ For more details on the performance index $\mathcal{G}$ formulation refer to [**
 ### Key Time Intervals for Evaluation Criteria
 [Here a sentence should be added saying something like: note the following key intervals for evaluating the particpants control propsoal must be considered when deifning the control strategy]
 
-```{figure} ../_static/figures/schematics/startup_int_vs_scoring_int.png
+```{figure} ./_static/figures/schematics/startup_int_vs_scoring_int.png
 :name: fig_startup_int_vs_scoring_int
 :width: 100%
 :align: center

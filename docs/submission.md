@@ -3,6 +3,15 @@
 Participants must submit the following items via the official competition portal:
 **[Link to Submission Portal will be provided HERE soon...]()**
 
+### ✅ Submission Checklist
+
+| Item                        | Description                                                  |
+| --------------------------- | ------------------------------------------------------------ |
+| 🔒 **Encrypted files**      | Three `.enc` files from `evaluation_outputs/`                |
+| 🧠 **Controller script**    | `my_controller.py` (plus any auxiliary scripts, if needed)   |
+| 📄 **Controller report**    | Summary document describing your control strategy            |
+| 📦 **Self-contained**       | All files necessary for reproducibility are included         |
+
 ---
 
 ### 1. Encrypted Evaluation Files
@@ -56,12 +65,3 @@ This document should be clear enough for the organizers to understand and verify
 
 [//]: # ()
 [//]: # (---)
-
-### ✅ Submission Checklist
-
-| Item                        | Description                                                  |
-| --------------------------- | ------------------------------------------------------------ |
-| 🔒 **Encrypted files**      | Three `.enc` files from `evaluation_outputs/`                |
-| 🧠 **Controller script**    | `my_controller.py` (plus any auxiliary scripts, if needed)   |
-| 📄 **Controller report**    | Summary document describing your control strategy            |
-| 📦 **Self-contained**       | All files necessary for reproducibility are included         |
