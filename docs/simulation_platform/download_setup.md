@@ -109,7 +109,7 @@ This will:
 ## Notes
 
 * The platform operates entirely **offline**; no internet connection is required.
-* Results are **deterministic** and **reproducible** across compliant systems.
+* Results are **deterministic** and **reproducible** across Windows and Linux systems.
 * For more details, see:
 
   * [Simulation Input File](./sim_input.md)

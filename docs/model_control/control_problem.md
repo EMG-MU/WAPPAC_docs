@@ -4,10 +4,10 @@ Participants are tasked with designing a control strategy that maximizes a defin
 
 ### Key Time Intervals for Performance Index Evaluation
 
-To clearly define the control problem, it is important to distinguish the key time intervals, illustrated in {numref}`fig_startup_int_vs_scoring_int`. These intervals are consistent across all three sea state scenarios:
+To clearly define the control problem, it is important to distinguish the key time intervals, illustrated in {numref}`fig-startup-int-vs-scoring-int`. These intervals are consistent across all three sea state scenarios:
 
 ```{figure} ../_static/figures/schematics/startup_int_vs_scoring_int.png
-:name: fig_startup_int_vs_scoring_int
+:name: fig-startup-int-vs-scoring-int
 :width: 100%
 :align: center
 Key time intervals for the performance index evaluation.
@@ -27,7 +27,7 @@ Key time intervals for the performance index evaluation.
   The scoring interval start time is identical across all three sea states.
   
 - **Sea-state-dependent simulation horizon:**  
-  Note that the end time of the simulation, $t_{end}$, varies depending on the sea state scenario ($t_{init}=0$ s awlays).
+  Note that the simulation end time, $t_{end}$, varies depending on the sea state scenario, whereas $t_{init}=0$ s always.
 ```
 
 For additional details on the startup interval, see [Numerical Implementation](./numerical_implementation.md).

@@ -3,14 +3,14 @@
 
 ## WAPPAC Competition
 
-The **WavePiston Passive Control (WAPPAC) competition** is an open challenge to the wave energy and control community. Participants are invited to **evelop passive control strategies** for the novel WavePiston wave energy converter (WEC).
+The **WavePiston Passive Control (WAPPAC) competition** is an open challenge to the wave energy and control community. Participants are invited to **develop passive control strategies** for the novel WavePiston wave energy converter (WEC).
 The goal is to **maximize captured energy while respecting WavePiston physical constraints**, with particular attention to the **PTO passivity constraint**.
 
 Through this initiative, WAPPAC competition aims to **foster innovation** and **advance** the **state of the art** in **wave energy control**.
 
 
 
-This competition is hosted by the **Centre for Ocean Energy Research (COER), Maynooth University**, and builds upon ongoing European research initiatives.
+This competition is hosted by the **Centre for Ocean Energy Research (COER), Maynooth University**, and is supported by the European Union (EU) under Horizon funding (Grant Agreement No. 101147456 - SHY).
 
 ```{figure} _static/figures/logos/COER_logo.png
 :name: fig_COER_logo
@@ -44,11 +44,10 @@ Top-view from the first energy collector installed on the Wavepiston string at t
 
 ## EU Horizon [SHY](https://shyproject.eu/) Project
 
-**WAPPAC** competition is framed within the **EU Horizon Seawater HYdraulic (SHY) PTO project**, which focuses on the development of key components for a seawater-based hydraulic PTO system and the advancement of passive control strategies for wave energy converters.
-The project aims to **reduce the levelized cost of energy (LCOE)** of **WavePiston** device while ensuring **environmental sustainability**.
+**WAPPAC** competition is framed within the EU's open science policy as part of the **EU Horizon** funded **Seawater HYdraulic (SHY) PTO project**. The SHY project aims to **reduce the levelized cost of energy (LCoE)** of the WavePiston device, while ensuring environmental sustainability, through the development of key components for a seawater-based hydraulic PTO system and the advancement of passive control strategies for wave energy converters.
 
 * **WavePiston** – Technology developer and system integrator.
-* **COER** – Responsible for hydrodynamic modelling and control strategy development.
+* **COER** – Responsible for control strategy development and various other research.
 * **Key partners** – Technical University of Denmark, FibronPipe, Leser, Julia F. Chozas Consultancy, Applied Renewables Research, Marine Systems Modelling, and PLOCAN.
 
 

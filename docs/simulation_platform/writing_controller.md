@@ -16,7 +16,7 @@ Recall that the objective of your controller is to maximize $\mathcal{G}$ over t
 \text{s.t.}& \quad \text{WavePiston dynamics,} \quad \\
 & \quad p_{pto}(t) = F_{pto}(t) \dot{x}(t) \ge 0 \quad \forall t \in [t_{init},t_{end}]
 ```
-For more details, refer to [Control Problem Definition]().
+For more details, refer to [Control Problem Definition](../model_control/control_problem.md).
 
 ---
 
@@ -52,7 +52,7 @@ You may rename the Python file, but the function name **must** be `my_controller
 ---
 
 ## Key Controller Design Considerations
-Some important considerations for participants when defining their controller are summarized below, however, participnts are encouraged to explore the full details in the corresponding sections in this documentation.
+Some important considerations for participants when defining their controller are summarized below, however, participants are encouraged to explore the full details in the corresponding sections in this documentation.
 For convenience, the key time intervals are also illustrated again in {numref}`fig_startup_int_vs_scoring_int_writing_controller`:
 
 ```{figure} ../_static/figures/schematics/startup_int_vs_scoring_int.png
@@ -64,9 +64,9 @@ Key time intervals for the performance index evaluation.
 
 ### Controller Definition
 ```{important}
-**Your control** implementation (`my_controller` function) **must** be defined for the **full simulation time span** ($t\geq0$), regardless performance index is only evaluated along the scoring interval.
+**Your control** implementation (`my_controller` function) **must** be defined for the **full simulation time span** ($t\geq0$), regardless of whether the performance index is only evaluated along the scoring interval.
 ```
-For more details, refer to [Control Problem Definition]().
+For more details, refer to [Control Problem Definition](../model_control/control_problem.md).
 
 ### Evaluation Criteria
 
@@ -74,7 +74,7 @@ For more details, refer to [Control Problem Definition]().
 - **Performance Index ($\mathcal{G}$):** evaluated during the **scoring interval** ($t \geq T_0 = 30$ s).  
 - **Passivity constraint:** $p_{pto} \geq 0$ must hold at all times over the **full simulation duration** ($t \geq 0$).
 ```
-For a complete self-contain description of the performance index, refer to [Evaluation Criteria & Competition Rules]().
+For a complete self-contained description of the performance index, refer to [Evaluation Criteria & Competition Rules](../rules_eval_criteria.md).
 ### Startup Ramp
 
 The **wave excitation force** is gradually introduced via a smooth raised-cosine ramp:
@@ -88,10 +88,10 @@ where $ramp(T_{ramp}=20) = 1$.
 ```{important}
 Ramp duration is $\mathbf{T_{ramp}} = 20$ seconds for all simulation runs.
 ```
-For further details on the ramp implementation refer to [Numerical Implementation]().
+For further details on the ramp implementation refer to [Numerical Implementation](../model_control/numerical_implementation.md).
 
 ### Control Update Scheme (Zero-Order Hold, ZOH)
-Control force is updated at the simulation time step $(\Delta t=0.5 \; \text{s})$. However, internally the solver takes sub-steps in which control force is held constant (see [Numerical Implementation]() for details).
+Control force is updated at the simulation time step $(\Delta t=0.5 \; \text{s})$. However, internally the solver takes sub-steps in which control force is held constant (see [Numerical Implementation](../model_control/numerical_implementation.md) for details).
 
 ### Handling Up-Wave Data (`eta10`)
 

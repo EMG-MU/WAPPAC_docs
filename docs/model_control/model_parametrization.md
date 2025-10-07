@@ -38,9 +38,9 @@ Three **predefined sea states** — representing realistic conditions at a poten
 
 Although the excitation force time series $F_{ex}(t)$ is **not directly provided**, participants may **estimate or reconstruct** it if needed, using the following available information and resources:
 
-* **Real-time sail motion data:** The instantaneous sail position and velocity available within the controller function (see [Writing My Controller](...) for details).
-* **Excitation force kernel:** The frequency-domain excitation kernel distributed with the WAPPAC simulation platform (see [Installation & Setup](...) for details).
-* **Up-wave surface elevation measurement:** The surface elevation probe located 10 m up-wave of the device ($x = -10$ m), available to participants during the **scoring interval** via the simulation interface (see [Numerical Implementation](...) and [Writing My Controller](...) for details).
+* **Real-time sail motion data:** The instantaneous sail position and velocity available within the controller function (see [Writing Your Controller](../simulation_platform/writing_controller.md) for details).
+* **Excitation force kernel:** The frequency-domain excitation kernel distributed with the WAPPAC simulation platform (see [Installation & Setup](../simulation_platform/download_setup.md) for details).
+* **Up-wave surface elevation measurement:** The surface elevation probe located 10 m up-wave of the device ($x = -10$ m), available to participants during the **scoring interval** via the simulation interface (see [Numerical Implementation](./numerical_implementation.md) and [Writing Your Controller](../simulation_platform/writing_controller.md) for details).
 * **Public WavePiston model parametrization:** The shared model parameters provided above.
 
 In summary, while direct excitation force data remain undisclosed, participants are equipped with sufficient information to implement **observer-based** or **model-driven estimators** as part of their control strategy.
@@ -55,9 +55,9 @@ The **excitation force** acting on the WavePiston sail is characterized using th
 
 Although the excitation force time series $F_{ex}(t)$ is **not provided directly**, participants may **estimate or forecast** it if needed, using the following available information and resources:
 
-* **Real-time sail motion data:** The current sail position and velocity, available within the controller function (see [Writing My Controller](...) for details).
-* **Excitation force kernel:** The frequency-domain excitation kernel distributed with the WAPPAC simulation platform (see [Installation & Setup](...) for details).
-* **Up-wave surface elevation measurement:** The wave surface elevation located 10 m up-wave of the device ($x = -10$ m) is accessible by particpants through the simulation interface fr the **scoring interval** (see [Numerical Implementation](...) and [Writing My Controller](...) for details).
+* **Real-time sail motion data:** The current sail position and velocity, available within the controller function (see [Writing Your Controller](../simulation_platform/writing_controller.md) for details).
+* **Excitation force kernel:** The frequency-domain excitation kernel distributed with the WAPPAC simulation platform (see [Installation & Setup](../simulation_platform/download_setup.md) for details).
+* **Up-wave surface elevation measurement:** The wave surface elevation located 10 m up-wave of the device ($x = -10$ m) is accessible by participants through the simulation interface for the **scoring interval** (see [Numerical Implementation](./numerical_implementation.md) and [Writing Your Controller](../simulation_platform/writing_controller.md) for details).
 * **Public WavePiston model parametrization** shared above.
 * 
 In summary, while direct excitation force data remain undisclosed, participants are equipped with sufficient information to develop **observer-based** or **model-driven estimators** if required by their control strategy.
@@ -76,7 +76,7 @@ In summary, while direct excitation force data remain undisclosed, participants 
 * Participants **do have access** to:
 
   * The **10 m up-wave** surface elevation measurement ($x = -10$ m)
-  * Frequency domain excitation force kernel included with WPPAC simulation platform distirbution (see [Installation & Setup](...) for more details)
+  * Frequency domain excitation force kernel included with WPPAC simulation platform distirbution (see [Installation & Setup](../simulation_platform/download_setup.md) for more details)
 
 ---
 
