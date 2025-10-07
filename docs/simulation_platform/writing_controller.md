@@ -1,7 +1,22 @@
 # Writing Your Controller
 
 Each participant must implement their control algorithm in a Python file (by default, `my_controller.py`).
-This file defines the real-time control law applied by the simulation.
+This file defines the control strategy implemented by the simulation.
+
+Recall that the objective of your controller is to maximize $\mathcal{G}$ over the **scoring interval** $t \in [T_0, t_{end}]$ by defining the control force $F_{pto}(t)$ appropriately for **all three predefined sea state scenarios**:
+
+```{math}
+\max_{F_{pto}(t)} \; \mathcal{G}\!\left(F_{pto}(t); t \in [T_0,t_{end}] \right) 
+= \frac{\bar{P}_{pto}}
+{2 + \frac{\left[|x(t)|\right]_{98}}{x_{\max}} 
+  + \frac{\left[|F_{pto}(t)|\right]_{98}}{F_{u,\max}} 
+  - \frac{\bar{P}_{pto}}{\left[p_{pto}(t)\right]_{98}}}
+```
+```{math}
+\text{s.t.}& \quad \text{WavePiston dynamics,} \quad \\
+& \quad p_{pto}(t) = F_{pto}(t) \dot{x}(t) \ge 0 \quad \forall t \in [t_{init},t_{end}]
+```
+For more details, refer to [Control Problem Definition]().
 
 ---
 
@@ -51,6 +66,7 @@ Key time intervals for the performance index evaluation.
 ```{important}
 **Your control** implementation (`my_controller` function) **must** be defined for the **full simulation time span** ($t\geq0$), regardless performance index is only evaluated along the scoring interval.
 ```
+For more details, refer to [Control Problem Definition]().
 
 ### Evaluation Criteria
 
@@ -58,7 +74,7 @@ Key time intervals for the performance index evaluation.
 - **Performance Index ($\mathcal{G}$):** evaluated during the **scoring interval** ($t \geq T_0 = 30$ s).  
 - **Passivity constraint:** $p_{pto} \geq 0$ must hold at all times over the **full simulation duration** ($t \geq 0$).
 ```
-
+For a complete self-contain description of the performance index, refer to [Evaluation Criteria & Competition Rules]().
 ### Startup Ramp
 
 The **wave excitation force** is gradually introduced via a smooth raised-cosine ramp:
@@ -72,9 +88,10 @@ where $ramp(T_{ramp}=20) = 1$.
 ```{important}
 Ramp duration is $\mathbf{T_{ramp}} = 20$ seconds for all simulation runs.
 ```
+For further details on the ramp implementation refer to [Numerical Implementation]().
 
 ### Control Update Scheme (Zero-Order Hold, ZOH)
-Control force is updated at the simulation time step $(\Delta t=0.5 \; \text{s})$. However, internally the solver takes sub-steps in which control force is held constant.
+Control force is updated at the simulation time step $(\Delta t=0.5 \; \text{s})$. However, internally the solver takes sub-steps in which control force is held constant (see [Numerical Implementation]() for details).
 
 ### Handling Up-Wave Data (`eta10`)
 

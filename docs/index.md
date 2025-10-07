@@ -14,7 +14,7 @@ simulation_platform/index
 rules_eval_criteria
 submission
 integrity
-resources
+support_contact
 ```
 
 [//]: # (```{include} home.md)

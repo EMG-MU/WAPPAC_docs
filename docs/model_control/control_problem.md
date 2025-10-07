@@ -1,4 +1,4 @@
-## Control Problem Formulation
+## Control Problem Definition
 
 Participants are tasked with designing a control strategy that maximizes a defined performance index over the **scoring interval** for **three predefined sea state scenarios**. The following details clarify the control problem formulation.
 

@@ -1,93 +1,96 @@
 # Running Simulations & Understanding Outputs
 
-The WAPPAC platform can operate in two modes: **Development Mode** and **Evaluation Mode**. These modes differ in how the simulation is executed and what outputs are generated.
+The WAPPAC simulation platform operates in **two modes**: **Development Mode** and **Evaluation Mode**. These modes differ in execution behavior, output generation, and intended use.
 
 ---
 
-## Development Mode (`"eval_flag": false`)
-
-Use this mode for **testing and tuning** your controller.  
-
-### How to Run
+## How to Run
 
 **Linux:**
+
 ```bash
 ./WAPPAC my_controller.py my_sim_input_file.json
 ```
 
 **Windows:**
+
 ```bash
 WAPPAC.exe my_controller.py my_sim_input_file.json
 ```
 
+---
+
+## Development Mode (`"eval_flag": false`)
+
+Use this mode for **iterative testing, tuning, and debugging** of your controller.
+
 ### Outputs
 
-A new folder `sim_out/` is created containing:
+A new folder `sim_out/` is generated for each simulation run, containing:
 
-- **results.npz** → Time series arrays:
-  - `t` → Time [s]  
-  - `pos` → Sail displacement [m]  
-  - `vel` → Sail velocity [m/s]  
-  - `Fu` → Control force [N]  
-  - `p_{pto}` → Absorbed power [W]  
+* **results.npz** → Time series arrays:
 
-- **results_metadata.json** → Performance metrics and metadata:
-  - `Participant's name` → Name of the participant  
-  - `Wave ID` → Wave scenario ID  
-  - `Wave realization seed` → Seed used for reproducibility  
-  - `Time Stamp` → Timestamp of the simulation  
-  - `Performance Index` → Calculated $\mathcal{G}$ value  
-  - `Performance Index Evaluation time span` → `[start, end]` seconds of scoring interval  
-  - `Mean Generated Power` → Average absorbed power over scoring window  
-  - `Power constraint satisfaction` → Boolean flag for passivity compliance  
+  * `t` → Time [s]
+  * `pos` → Sail displacement [m]
+  * `vel` → Sail velocity [m/s]
+  * `Fu` → Control force [N]
+  * `p_pto` → Absorbed power [W]
 
-- **results_visual.pdf** → Plots of sail position, velocity, control force, and power.
+* **results_metadata.json** → Summary metadata and performance metrics:
+
+  * Participant name
+  * Wave ID
+  * Wave realization seed
+  * Simulation timestamp
+  * Performance Index $\mathcal{G}$
+  * Scoring interval `[start, end]`
+  * Mean absorbed power over scoring window
+  * Passivity constraint compliance (Boolean)
+
+* **results_visual.pdf** → Plots of sail position, velocity, control force, and power.
 
 ```{important}
-All simulation outputs are **stored** in `sim_out/waveID_[ID]_[timestamp]/`. 
+All simulation outputs are stored in `sim_out/waveID_[ID]_[timestamp]/`.
 ```
 
-```{tip} 
-Retain some simulation run folders `sim_out/waveID_X_YY_MM_DD_HH_mm_SS` for reproducibility, especially if you need to revisit results or debug unexpected behaviors.
+```{tip}
+Keep previous simulation folders for reproducibility and to revisit results during controller development.
 ```
 
 ---
 
 ## Evaluation Mode (`"eval_flag": true`)
 
-Use this mode **only when ready to generate official submission files**.  
+Use this mode **only when ready to generate official submission files**.
 
-### What Happens
+### Behavior
 
-- All **three sea states (Wave IDs 1–3)** are simulated automatically.  
-- Fixed deterministic seeds are used (your `wave_realiz_seed` is ignored).  
-- Simulation outputs are hidden: **no `.npz` or `.pdf` files are generated**.  
-- Passivity constraint **compliance** is printed to the terminal for your info.  
+* All **three sea states (Wave IDs 1–3)** are simulated sequentially.
+* Fixed deterministic seeds are used; your `wave_realiz_seed` is ignored.
+* No detailed outputs (`.npz` or `.pdf`) are generated.
+* Compliance with the **passivity constraint** is printed in the console.
 
 ### Outputs
+
 A new folder `evaluation_outputs/` is created containing:
 
 ```{important}
-- Three **encrypted** files (one per sea state): `evaluation_outputs/waveID_[ID]_[timestamp]_compressed.enc`.  
-```
-
-Take into consideration that:
-```{important}
- - These are your **official submission results**. 
-   
-   ⚠️ Without these files, your submission is incomplete.  
+- Three encrypted files (one per sea state): 
+    `evaluation_outputs/waveID_[ID]_[timestamp]_compressed.enc`.
+- These are your **official submission results**. 
+    ⚠️ Submissions without these files are considered incomplete.
 ```
 
 ---
+
 ## Summary Workflow
 
 1. **Development Mode (`"eval_flag": false`)**
-   - Test and refine your controller.  
-   - Inspect `.npz`, `.json`, and `.pdf` files in `sim_out/[timestamp]/` to debug and optimize.
+
+   * Test, debug, and optimize your controller.
+   * Inspect `.npz`, `.json`, and `.pdf` outputs in `sim_out/`.
 
 2. **Evaluation Mode (`"eval_flag": true`)**
-   - Generate encrypted output files in `evaluation_outputs/`.  
-   - Submit `.enc` files, `my_controller.py` (and any extra scripts), and your controller report.
 
-
-
+   * Generate encrypted `.enc` files for all three sea states.
+   * Submit `.enc` files, your `my_controller.py`, and any supplementary scripts or reports.
