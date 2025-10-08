@@ -14,11 +14,6 @@ When contacting us, please include:
 * A concise **description of the issue or question**
 * Relevant **log files or error messages**, if applicable
 
----
-
-### **Development Team**
-
-The **WAPPAC Simulation Platform** and associated competition framework are developed and maintained by the
-**Centre for Ocean Energy Research (COER), Maynooth University, Ireland**.
-
 While suggestions for improvement are welcome, we kindly ask that only **well-founded and relevant feedback** be submitted to help us prioritize efforts effectively.
+
+---

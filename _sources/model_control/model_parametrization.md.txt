@@ -37,7 +37,8 @@ The following parameters fully characterize the model accessible to participants
 ## Excitation Force Characterization
 
 The **excitation force** acting on the WavePiston sail is defined by the interaction between the **incident wave surface elevation** and the **excitation force kernel** of the WavePiston device.
-Three **predefined sea states** — representing realistic conditions at a potential WavePiston deployment site — are used in the competition. These remain **undisclosed** to participants.
+
+Three **predefined sea states**, representing realistic conditions at a potential WavePiston deployment site, are used in the competition. These remain **undisclosed** to participants.
 
 Although the excitation force time series $F_{ex}(t)$ is **not directly provided**, participants may **estimate or reconstruct** it if needed, using the following available information and resources:
 
@@ -47,40 +48,6 @@ Although the excitation force time series $F_{ex}(t)$ is **not directly provided
 * **Public WavePiston model parametrization:** The shared model parameters provided above.
 
 In summary, while direct excitation force data remain undisclosed, participants are equipped with sufficient information to implement **observer-based** or **model-driven estimators** as part of their control strategy.
-
-
-
----
-## Excitation Force Characterization
-
-The **excitation force** acting on the WavePiston sail is characterized using the incident wave surface elevation and the excitation force kernel of the WavePiston device.
-**Three predefined sea states**, representing realistic conditions at a potential WavePiston deployment site, are used which remain undisclosed to participants.
-
-Although the excitation force time series $F_{ex}(t)$ is **not provided directly**, participants may **estimate or forecast** it if needed, using the following available information and resources:
-
-* **Real-time sail motion data:** The current sail position and velocity, available within the controller function (see [Writing Your Controller](../simulation_platform/writing_controller.md) for details).
-* **Excitation force kernel:** The frequency-domain excitation kernel distributed with the WAPPAC simulation platform (see [Getting Started with WAPPAC Simulator](../simulation_platform/download_setup.md) for details).
-* **Up-wave surface elevation measurement:** The wave surface elevation located 10 m up-wave of the device ($x = -10$ m) is accessible by participants through the simulation interface for the **scoring interval** (see [Numerical Implementation](./numerical_implementation.md) and [Writing Your Controller](../simulation_platform/writing_controller.md) for details).
-* **Public WavePiston model parametrization** shared above.
-* 
-In summary, while direct excitation force data remain undisclosed, participants are equipped with sufficient information to develop **observer-based** or **model-driven estimators** if required by their control strategy.
-
-
-
-## Excitation Force Characterization
-
-* The excitation force corresponds to **three predefined sea states** which remain undisclosed for participants.
-* These sea states are representative of conditions at a **potential WavePiston deployment site**.
-* Excitation forces are derived from **frequency-domain hydrodynamic characterizations** of the radiation kernel.
-
-* Participants **do not have direct access** to:
-
-  * The local surface elevation at the device position ($x = 0$)
-  * The excitation force time series $F_{ex}(t)$
-* Participants **do have access** to:
-
-  * The **10 m up-wave** surface elevation measurement ($x = -10$ m)
-  * Frequency domain excitation force kernel included with WPPAC simulation platform distribution (see [Getting Started with WAPPAC Simulator](../simulation_platform/download_setup.md) for more details)
 
 ---
 
