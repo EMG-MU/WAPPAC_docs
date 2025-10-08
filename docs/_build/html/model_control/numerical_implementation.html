@@ -157,18 +157,21 @@
 <ul class="simple">
 <li><p>The WavePiston dynamics, given by <a class="reference internal" href="modelling_framework.html#equation-eq-wp-hydrodyn">(1)</a>, are integrated using a <strong>4th-order Runge–Kutta (RK4)</strong> scheme.</p></li>
 <li><p>The solver operates with a <strong>fixed time step</strong> of <span class="math notranslate nohighlight">\(\Delta t = 0.05\)</span> s.</p></li>
-<li><p>Within each main time step, RK4 evaluates four internal sub-steps to ensure accurate integration.</p></li>
+<li><p>Within each time step, RK4 performs <strong>four intermediate evaluations (stages)</strong> of the WavePiston dynamics function, modeled by <a class="reference internal" href="modelling_framework.html#equation-eq-wp-hydrodyn">(1)</a>, to estimate the state at the next time step:</p>
+<ul>
+<li><p>Evaluates WavePiston dynamics once at the beginning of the time step, twice at the midpoint, and once at the end of the time step.</p></li>
+</ul>
+</li>
 </ul>
 </section>
-<hr class="docutils" />
 <section id="control-update">
 <h2>Control Update<a class="headerlink" href="#control-update" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>The control force <span class="math notranslate nohighlight">\(F_{pto}(t)\)</span> is implemented using a <strong>zero-order hold (ZOH)</strong>:</p>
 <ul>
-<li><p>The controller is evaluated once at the start of each simulation time step (<span class="math notranslate nohighlight">\(\Delta t\)</span>).</p></li>
-<li><p>During RK4 sub-steps, the control force is held constant.</p></li>
-<li><p>Practically, this means your controller function <code class="docutils literal notranslate"><span class="pre">my_controller</span></code> is called once per time step of duration <span class="math notranslate nohighlight">\(\Delta t\)</span>.</p></li>
+<li><p>The controller is <strong>evaluated once</strong> at the start of each simulation time step (<span class="math notranslate nohighlight">\(\Delta t\)</span>).</p></li>
+<li><p>During RK4 internal evaluations or stages, the control force is <strong>held constant</strong>.</p></li>
+<li><p>Practically, this means your controller <strong>function</strong> <code class="docutils literal notranslate"><span class="pre">my_controller</span></code> is <strong>called once</strong> per time step of duration <span class="math notranslate nohighlight">\(\Delta t\)</span>.</p></li>
 </ul>
 </li>
 </ul>

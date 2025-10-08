@@ -8,17 +8,16 @@ The [model](./modelling_framework.md) and [control](./control_problem.md) framew
 
 * The WavePiston dynamics, given by {eq}`eq_WP_hydrodyn`, are integrated using a **4th-order Runge–Kutta (RK4)** scheme.
 * The solver operates with a **fixed time step** of $\Delta t = 0.05$ s.
-* Within each main time step, RK4 evaluates four internal sub-steps to ensure accurate integration.
-
----
+* Within each time step, RK4 performs **four intermediate evaluations (stages)** of the WavePiston dynamics function, modeled by {eq}`eq_WP_hydrodyn`, to estimate the state at the next time step:  
+  * Evaluates WavePiston dynamics once at the beginning of the time step, twice at the midpoint, and once at the end of the time step.
 
 ## Control Update
 
 * The control force $F_{pto}(t)$ is implemented using a **zero-order hold (ZOH)**:
 
-  * The controller is evaluated once at the start of each simulation time step ($\Delta t$).
-  * During RK4 sub-steps, the control force is held constant.
-  * Practically, this means your controller function `my_controller` is called once per time step of duration $\Delta t$.
+  * The controller is **evaluated once** at the start of each simulation time step ($\Delta t$).
+  * During RK4 internal evaluations or stages, the control force is **held constant**.
+  * Practically, this means your controller **function** `my_controller` is **called once** per time step of duration $\Delta t$.
 
 ---
 

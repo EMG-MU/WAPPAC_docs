@@ -11,23 +11,26 @@ The WavePiston device dynamics are represented as a **single-degree-of-freedom (
 The following parameters fully characterize the model accessible to participants.
 
 
-| Variable             | Description                           | Value / Units                                                                                                                                                                                                                                                                                                                                                        |
-| :------------------- | :------------------------------------ |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| $m_w$                | Sail module mass                      | 3.47 × 10³ kg                                                                                                                                                                                                                                                                                                                                                        |
-| $m_\infty$           | Added mass at infinite frequency      | 7.06 × 10⁴ kg                                                                                                                                                                                                                                                                                                                                                        |
-| $M = m_w + m_\infty$ | Total effective mass                  | 7.41 × 10⁴ kg                                                                                                                                                                                                                                                                                                                                                        |
-| $\mathbf{A_r}$       | Radiation state matrix                | $\begin{bmatrix} 0.255105939420693 & 1.78906906057931  & 0.255105939420693 & -0.255105939420693 \\ -1.88750427814366 & -0.156670721856338 & 0.156670721856338 & -0.156670721856338 \\ -0.626966768274260 & 0.626966768274260 & -0.626966768274260 & 4.74657376827426 \\ 2.79237589911423 & -2.79237589911423 & -1.32723110088577 & -2.79237589911423 \end{bmatrix}$  |
-| $\mathbf{B_r}$       | Radiation input matrix                | $\begin{bmatrix} -0.255105939420693 & -0.156670721856338 & 0.626966768274260 & -2.79237589911423 \end{bmatrix}^T$                                                                                                                                                                                                                                                    |
-| $\mathbf{C_r}$       | Radiation output matrix               | $\begin{bmatrix} 269114.367780750 & -285154.232219250 & -51220.6030099600 & -141249.743009960 \end{bmatrix}$                                                                                                                                                                                                                                                            |
-| $S_h$                | Hydrostatic stiffness coefficient     | 0 N/m                                                                                                                                                                                                                                                                                                                                                                |
-| $\rho$               | Water density                         | 1025 kg/m³                                                                                                                                                                                                                                                                                                                                                           |
-| $A_{\text{sail}}$    | Effective sail area                   | 32.0 m²                                                                                                                                                                                                                                                                                                                                                              |
-| $C_D$                | Quadratic viscous drag coefficient    | 1.5                                                                                                                                                                                                                                                                                                                                                                  |
-| $x_{\max}$           | Maximum allowed displacement          | 2.0 m                                                                                                                                                                                                                                                                                                                                                                |
-| $F_{pto,\max}$       | Maximum allowed PTO (control) force magnitude | 1.0 MN                                                                                                                                                                                                                                                                                                                                                               |
-| Up-wave measurement location | Surface elevation probe position              | $x = -10$ m                                                                                                                                                                                                                                                                                                                                                          |
+| Variable             | Description                           | Value / Units                                                                                                                                                                                |
+| :------------------- | :------------------------------------ |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| $m_w$                | Sail module mass                      | 3.47 × 10³ kg                                                                                                                                                                                |
+| $m_\infty$           | Added mass at infinite frequency      | 7.06 × 10⁴ kg                                                                                                                                                                                |
+| $M = m_w + m_\infty$ | Total effective mass                  | 7.41 × 10⁴ kg                                                                                                                                                                                |
+| $\mathbf{A_r}$       | Radiation state matrix                | $\begin{bmatrix} 0.2551 & 1.7891  & 0.2551 & -0.2551 \\ -1.8875 & -0.1567 & 0.1567 & -0.1567 \\ -0.6270 & 0.627070 & -0.6270 & 4.7466 \\ 2.7924 & -2.7924 & -1.3272 & -2.7924 \end{bmatrix}$ |
+| $\mathbf{B_r}$       | Radiation input matrix                | $\begin{bmatrix} -0.2551 & -0.1567 & 0.6270 & -2.7924 \end{bmatrix}^T$                                                                                                                       |
+| $\mathbf{C_r}$       | Radiation output matrix               | $\begin{bmatrix} 269114.3678 & -285154.2322 & -51220.6030 & -141249.7430 \end{bmatrix}$                                                                                 |
+| $S_h$                | Hydrostatic stiffness coefficient     | 0 N/m                                                                                                                                                                                        |
+| $\rho$               | Water density                         | 1025 kg/m³                                                                                                                                                                                   |
+| $A_{\text{sail}}$    | Effective sail area                   | 32.0 m²                                                                                                                                                                                      |
+| $C_D$                | Quadratic viscous drag coefficient    | 1.5                                                                                                                                                                                          |
+| $x_{\max}$           | Maximum allowed displacement          | 2.0 m                                                                                                                                                                                        |
+| $F_{pto,\max}$       | Maximum allowed PTO (control) force magnitude | 1.0 MN                                                                                                                                                                                       |
+| Up-wave measurement location | Surface elevation probe position              | $x = -10$ m                                                                                                                                                                                  |
 
-**Note:** These values are public and identical for all participants. Additional internal parameters may be used to ensure model fidelity but remain undisclosed.
+```{note}
+* These values are **public** and identical for all participants. Any additional internal parameters remain **undisclosed**.
+* **Radiation state-space model matrices** are also provided (in full precision) with the WAPPAC simulation platform (see [Getting Started with WAPPAC Simulator](../simulation_platform/download_setup.md) for details).
+```
 
 ---
 
@@ -39,7 +42,7 @@ Three **predefined sea states** — representing realistic conditions at a poten
 Although the excitation force time series $F_{ex}(t)$ is **not directly provided**, participants may **estimate or reconstruct** it if needed, using the following available information and resources:
 
 * **Real-time sail motion data:** The instantaneous sail position and velocity available within the controller function (see [Writing Your Controller](../simulation_platform/writing_controller.md) for details).
-* **Excitation force kernel:** The frequency-domain excitation kernel distributed with the WAPPAC simulation platform (see [Installation & Setup](../simulation_platform/download_setup.md) for details).
+* **Excitation force kernel:** The frequency-domain excitation kernel distributed with the WAPPAC simulation platform (see [Getting Started with WAPPAC Simulator](../simulation_platform/download_setup.md) for details).
 * **Up-wave surface elevation measurement:** The surface elevation probe located 10 m up-wave of the device ($x = -10$ m), available to participants during the **scoring interval** via the simulation interface (see [Numerical Implementation](./numerical_implementation.md) and [Writing Your Controller](../simulation_platform/writing_controller.md) for details).
 * **Public WavePiston model parametrization:** The shared model parameters provided above.
 
@@ -56,7 +59,7 @@ The **excitation force** acting on the WavePiston sail is characterized using th
 Although the excitation force time series $F_{ex}(t)$ is **not provided directly**, participants may **estimate or forecast** it if needed, using the following available information and resources:
 
 * **Real-time sail motion data:** The current sail position and velocity, available within the controller function (see [Writing Your Controller](../simulation_platform/writing_controller.md) for details).
-* **Excitation force kernel:** The frequency-domain excitation kernel distributed with the WAPPAC simulation platform (see [Installation & Setup](../simulation_platform/download_setup.md) for details).
+* **Excitation force kernel:** The frequency-domain excitation kernel distributed with the WAPPAC simulation platform (see [Getting Started with WAPPAC Simulator](../simulation_platform/download_setup.md) for details).
 * **Up-wave surface elevation measurement:** The wave surface elevation located 10 m up-wave of the device ($x = -10$ m) is accessible by participants through the simulation interface for the **scoring interval** (see [Numerical Implementation](./numerical_implementation.md) and [Writing Your Controller](../simulation_platform/writing_controller.md) for details).
 * **Public WavePiston model parametrization** shared above.
 * 
@@ -69,6 +72,7 @@ In summary, while direct excitation force data remain undisclosed, participants 
 * The excitation force corresponds to **three predefined sea states** which remain undisclosed for participants.
 * These sea states are representative of conditions at a **potential WavePiston deployment site**.
 * Excitation forces are derived from **frequency-domain hydrodynamic characterizations** of the radiation kernel.
+
 * Participants **do not have direct access** to:
 
   * The local surface elevation at the device position ($x = 0$)
@@ -76,7 +80,7 @@ In summary, while direct excitation force data remain undisclosed, participants 
 * Participants **do have access** to:
 
   * The **10 m up-wave** surface elevation measurement ($x = -10$ m)
-  * Frequency domain excitation force kernel included with WPPAC simulation platform distirbution (see [Installation & Setup](../simulation_platform/download_setup.md) for more details)
+  * Frequency domain excitation force kernel included with WPPAC simulation platform distribution (see [Getting Started with WAPPAC Simulator](../simulation_platform/download_setup.md) for more details)
 
 ---
 

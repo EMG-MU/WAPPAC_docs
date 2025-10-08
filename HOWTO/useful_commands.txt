@@ -1,17 +1,19 @@
 --- Manually build ---
 - Probably more adequate for large (re-)builds.
 
-sphinx-build -b docs docs/_build/html
+    sphinx-build -b docs docs/_build/html
 
 --- Build once ---
 - Probably more adequate for small new clean builds.
 
-sphinx-build -E docs docs/_build/html
+    sphinx-build -E docs docs/_build/html
 
 --- Auto-build ---
 - See changes online in real time.
 
 sphinx-autobuild docs docs/_build/html --open-browser
+
+
 
 
 # Initialize git if not already
