@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Evaluation Criteria &amp; Competition Rules &#8212; WAPPAC Competition  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=9b2032db" />
+    <link rel="stylesheet" type="text/css" href="_static/custom_1.css" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>window.MathJax = {"TeX": {"equationNumbers": {"autoNumber": "all"}, "tags": "all"}, "chtml": {"displayAlign": "center", "displayIndent": "0em"}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Submission Guidelines" href="submission.html" />
+    <link rel="prev" title="Running Simulations &amp; Understanding Outputs" href="simulation_platform/running_outputs.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="index.html" title="Go to homepage">WAPPAC Competition  documentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="home.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="competition_overview.html">Competition Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_control/index.html">WavePiston Model &amp; Control Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulation_platform/index.html">Using WAPPAC Simulation Platform</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Evaluation Criteria &amp; Competition Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submission.html">Submission Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integrity.html">Integrity &amp; Fairness</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support_contact.html">Support &amp; Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="evaluation-criteria-competition-rules">
+<h1>Evaluation Criteria &amp; Competition Rules<a class="headerlink" href="#evaluation-criteria-competition-rules" title="Link to this heading">¶</a></h1>
+<p>This section presents the <strong>evaluation framework</strong> and <strong>official competition rules</strong> for the <strong>WavePiston Passive Control (WAPPAC) Competition</strong>.</p>
+<p>It is self-contained for participants’ convenience, while details on formulations and implementations are provided in the relevant sections of the <strong>WAPPAC Competition Documentation</strong>.</p>
+<hr class="docutils" />
+<section id="evaluation-criteria">
+<h2>Evaluation Criteria<a class="headerlink" href="#evaluation-criteria" title="Link to this heading">¶</a></h2>
+<p>The WAPPAC Competition challenges participants to design a <strong>passive control strategy</strong> that maximizes a <strong>performance index</strong> balancing absorbed power, physical constraints, and capacity factor.</p>
+<p>All controllers are evaluated using the <strong>official WAPPAC simulation platform</strong>, under <strong>identical numerical setups, model configurations, and sea-state data</strong> to ensure fairness and reproducibility.</p>
+<p>The <strong>performance index</strong> <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> to be maximized across three predefined sea states is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-perf-g">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-perf-g" title="Link to this equation">¶</a></span>\[\begin{split}\max_{F_{pto}(t)} \; \mathcal{G}\!\left(F_{pto}(t)\right) \;=&amp;\; 
+\frac{\overline{P}_{pto}}
+{\,2 \;+\; \dfrac{|x(t)|_{98}}{x_{\max}} \;+\; \dfrac{|F_{pto}(t)|_{98}}{F_{u,\max}} \;-\; \dfrac{\overline{P}_{pto}}{|p_{pto}(t)|_{98}}\,} \\[4pt]
+s.t.&amp; \qquad \text{WavePiston dynamics,} \\ 
+&amp; \qquad p_{pto}(t) = F_{pto}(t)\dot{x}(t) \ge 0\end{split}\]</div>
+<p>A full derivation and explanation of <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> and its terms are provided in <a class="reference internal" href="model_control/control_problem.html"><span class="std std-doc"><strong>Control Problem Definition</strong></span></a>.</p>
+<hr class="docutils" />
+<section id="key-time-intervals">
+<h3>Key Time Intervals<a class="headerlink" href="#key-time-intervals" title="Link to this heading">¶</a></h3>
+<p>When defining and testing their controllers, participants must account for two key time intervals:</p>
+<figure class="align-center" id="fig-startup-int-vs-scoring-int-eval">
+<a class="reference internal image-reference" href="_images/startup_int_vs_scoring_int.png"><img alt="_images/startup_int_vs_scoring_int.png" src="_images/startup_int_vs_scoring_int.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 9 </span><span class="caption-text">Key time intervals for the performance index evaluation.</span><a class="headerlink" href="#fig-startup-int-vs-scoring-int-eval" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul class="simple">
+<li><p><strong>Scoring interval (<span class="math notranslate nohighlight">\(t \ge 30\)</span> s):</strong></p>
+<ul>
+<li><p>The performance index <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> is computed only during the <strong>scoring interval</strong> <span class="math notranslate nohighlight">\(t \in [T_0, t_{end}]\)</span>, where <span class="math notranslate nohighlight">\(T_0 = 30\)</span> s.</p></li>
+</ul>
+</li>
+<li><p><strong>Full simulation time span (<span class="math notranslate nohighlight">\(t \ge 0\)</span> s):</strong></p>
+<ul>
+<li><p>The controller must remain defined and stable for the <strong>entire</strong> simulation duration <span class="math notranslate nohighlight">\(t \in [t_{init}, t_{end}]\)</span>.</p></li>
+<li><p>The passivity constraint <span class="math notranslate nohighlight">\(p_{pto}(t) \ge 0\)</span> must hold for the <strong>entire time span</strong>.</p></li>
+<li><p>Any violation of the passivity (hard) constraint results in <strong>disqualification of the corresponding sea state evaluation</strong> (see <em>Competition Rules</em> below).</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<hr class="docutils" />
+<section id="participants-final-competition-score">
+<h3>Participant’s Final Competition Score<a class="headerlink" href="#participants-final-competition-score" title="Link to this heading">¶</a></h3>
+<p>Each of the three predefined sea states is evaluated independently, producing scores <span class="math notranslate nohighlight">\(\mathcal{G}_1\)</span>, <span class="math notranslate nohighlight">\(\mathcal{G}_2\)</span>, and <span class="math notranslate nohighlight">\(\mathcal{G}_3\)</span>. The <strong>final competition score</strong> is computed as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-perf-index-total">
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-perf-index-total" title="Link to this equation">¶</a></span>\[\mathcal{G}_{\text{total}} \;=\; \mathcal{G}_1 \;+\; \mathcal{G}_2 \;+\; \mathcal{G}_3\]</div>
+<p>The participant achieving the highest <span class="math notranslate nohighlight">\(\mathcal{G}_{\text{total}}\)</span> will be declared the <strong>winner of the WAPPAC Competition</strong>.
+In case of a <strong>tie</strong>, the organizers may apply secondary criteria such as lowest computational cost or earliest valid submission.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="competition-rules">
+<h2>Competition Rules<a class="headerlink" href="#competition-rules" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Evaluation Mode &amp; Reproducibility</strong></p>
+<ul class="simple">
+<li><p>Final evaluation is performed by setting <code class="docutils literal notranslate"><span class="pre">eval_flag</span> <span class="pre">=</span> <span class="pre">true</span></code> in <code class="docutils literal notranslate"><span class="pre">my_sim_input_file.json</span></code> (refer to <a class="reference internal" href="simulation_platform/sim_input.html"><span class="std std-doc">Simulation Input File</span></a>).
+This sequentially generates three <strong>encrypted</strong> <code class="docutils literal notranslate"><span class="pre">.enc</span></code> files (one per sea state) corresponding to the official evaluation runs.
+Performance indices are computed according to <a class="reference internal" href="#equation-eq-perf-index-total">(3)</a> and the rules in this section.</p></li>
+<li><p>The three encrypted outputs produced in Evaluation Mode are the <strong>official submission files</strong>.
+Participants must submit these files along with all items listed in <a class="reference internal" href="submission.html"><span class="std std-doc"><strong>Submission Guidelines</strong></span></a>.</p></li>
+<li><p>The <strong>COER team will re-run</strong> each participant’s controller on the <strong>official WAPPAC simulation platform</strong>, using identical numerical solvers, hydrodynamic models, and fixed seeds.
+This ensures <strong>reproducibility and fairness</strong> across all submissions.</p></li>
+<li><p>Any missing, non-functional, or non-reproducible controller for a given sea state will result in exclusion of that sea state’s score <span class="math notranslate nohighlight">\(\mathcal{G}_i\)</span> from the total <span class="math notranslate nohighlight">\(\mathcal{G}_{\text{total}}\)</span>.
+If fewer than three valid evaluations are obtained, only valid ones are counted — however, <strong>incomplete submissions may be deemed invalid</strong> at the organizers’ discretion.</p></li>
+</ul>
+</li>
+<li><p><strong>Passivity (Hard) Constraint Handling</strong></p>
+<ul class="simple">
+<li><p>The PTO power must remain <strong>non-negative</strong> throughout the entire simulation:
+<span class="math notranslate nohighlight">\(p_{pto}(t) = F_{pto}(t)\dot{x}(t) \ge 0 \, \forall t\)</span>.</p></li>
+<li><p>Any violation of this constraint leads to <strong>exclusion</strong> of the affected sea state score <span class="math notranslate nohighlight">\(\mathcal{G}_i\)</span> from the total <span class="math notranslate nohighlight">\(\mathcal{G}_{\text{total}}\)</span>.</p></li>
+</ul>
+</li>
+<li><p><strong>Position and Force (Soft) Constraints Handling</strong></p>
+<ul class="simple">
+<li><p>Position and PTO force limits are treated as <strong>soft constraints</strong>.
+Occasional exceedances are permitted but penalized through reduced <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> values (see <a class="reference internal" href="model_control/control_problem.html"><span class="std std-doc"><strong>Control Problem Definition</strong></span></a>).</p></li>
+</ul>
+</li>
+<li><p><strong>Integrity and Evaluation Environment</strong></p>
+<ul class="simple">
+<li><p>All evaluations are performed on the <strong>official WAPPAC simulation platform</strong> provided in this documentation.
+These ensure identical simulation conditions for all participants.</p></li>
+<li><p><strong>No modifications</strong> to the simulation binaries, hydrodynamic model, solver settings, or wave data are permitted.</p></li>
+<li><p>Any attempt to alter or tamper with the simulation platform, inputs, or encrypted outputs constitutes a violation of competition integrity and results in <strong>immediate disqualification and reporting the participant</strong>.</p></li>
+</ul>
+</li>
+<li><p><strong>Unit System and Conventions</strong></p>
+<ul class="simple">
+<li><p>All physical quantities are expressed in <strong>SI units</strong>.</p></li>
+<li><p>Participants must ensure that their controller implementation adheres to the <strong>variable naming and normalization conventions</strong> defined in the documentation to maintain compatibility and correctness.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="quick-reference">
+<h2>Quick Reference<a class="headerlink" href="#quick-reference" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p><strong>Topic</strong></p></th>
+<th class="head text-left"><p><strong>Summary</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>Objective</strong></p></td>
+<td class="text-left"><p>Maximize the performance index <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> across three predefined sea-state scenarios</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Scoring</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\mathcal{G}_{\text{total}} = \mathcal{G}_1 + \mathcal{G}_2 + \mathcal{G}_3\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Hard Constraint</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(p_{pto}(t) = F_{pto}(t)\dot{x}(t) \ge 0\)</span> — violations <strong>disqualify</strong> corresponding sea state run</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Soft Constraints</strong></p></td>
+<td class="text-left"><p>Position and force limits are penalized within <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> (occasional violations permitted)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Reproducibility</strong></p></td>
+<td class="text-left"><p>Organizers re-run controllers under identical conditions using the official WAPPAC platform</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Fairness</strong></p></td>
+<td class="text-left"><p>All evaluations executed on uniform software, and sea-state datasets</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Units</strong></p></td>
+<td class="text-left"><p>All variables and parameters expressed in <strong>SI units</strong></p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<section id="related-sections-for-further-details">
+<h3>Related Sections for Further Details<a class="headerlink" href="#related-sections-for-further-details" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="model_control/modelling_framework.html"><span class="std std-doc"><strong>Modeling Framework</strong></span></a></p></li>
+<li><p><a class="reference internal" href="model_control/control_problem.html"><span class="std std-doc"><strong>Control Problem Definition</strong></span></a></p></li>
+<li><p><a class="reference internal" href="#./performance_index.md"><span class="xref myst"><strong>Performance Index &amp; Metrics</strong></span></a></p></li>
+<li><p><a class="reference internal" href="simulation_platform/index.html"><span class="std std-doc"><strong>Simulation Framework</strong></span></a></p></li>
+<li><p><a class="reference internal" href="submission.html"><span class="std std-doc"><strong>Submission Guidelines</strong></span></a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Evaluation Criteria &amp; Competition Rules</a><ul>
+<li><a class="reference internal" href="#evaluation-criteria">Evaluation Criteria</a><ul>
+<li><a class="reference internal" href="#key-time-intervals">Key Time Intervals</a></li>
+<li><a class="reference internal" href="#participants-final-competition-score">Participant’s Final Competition Score</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#competition-rules">Competition Rules</a></li>
+<li><a class="reference internal" href="#quick-reference">Quick Reference</a><ul>
+<li><a class="reference internal" href="#related-sections-for-further-details">Related Sections for Further Details</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="simulation_platform/running_outputs.html">
+                    <span class="icon">&lt;</span><span>Running Simulations &amp; Understanding Outputs</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="submission.html"><span>Submission Guidelines</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright .
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>
