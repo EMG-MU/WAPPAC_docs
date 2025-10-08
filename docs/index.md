@@ -1,7 +1,7 @@
 # WAPPAC Competition
 
 Welcome to the **WavePiston Passive Control (WAPPAC) competition** documentation.  
-Use the sidebar to navigate through the sections below.
+Use the sidebar to navigate through the sections below test.
 
 ```{toctree}
 :maxdepth: 2
