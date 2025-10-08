@@ -1,0 +1,16 @@
+/* _static/custom.css */
+
+/* 1. Import the fonts used by the Shibuya theme from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600;700&display=swap');
+
+/* 2. Apply the "Inter" font to the main body text and headings */
+/* We use 'body' and 'h1, h2, ...' to override the theme's defaults. */
+body, h1, h2, h3, h4, h5, h6, .heading {
+    font-family: "Inter", sans-serif;
+}
+
+/* 3. Apply the "Fira Code" font to all code blocks and inline code */
+/* The 'pre', 'code', 'kbd', and 'samp' selectors target these elements. */
+pre, code, kbd, samp {
+    font-family: "Fira Code", monospace;
+}
