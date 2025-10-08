@@ -15,6 +15,7 @@ rules_eval_criteria
 submission
 integrity
 support_contact
+developers
 ```
 
 [//]: # (```{include} home.md)

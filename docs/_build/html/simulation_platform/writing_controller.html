@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Writing Your Controller &#8212; WAPPAC Competition  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=9b2032db" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom_1.css" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>window.MathJax = {"TeX": {"equationNumbers": {"autoNumber": "all"}, "tags": "all"}, "chtml": {"displayAlign": "center", "displayIndent": "0em"}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Running Simulations &amp; Understanding Outputs" href="running_outputs.html" />
+    <link rel="prev" title="Simulation Input File" href="sim_input.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">WAPPAC Competition  documentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../home.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../competition_overview.html">Competition Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model_control/index.html">WavePiston Model &amp; Control Framework</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Using WAPPAC Simulation Platform</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="download_setup.html">Getting Started with WAPPAC Simulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sim_input.html">Simulation Input File</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Writing Your Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running_outputs.html">Running Simulations &amp; Understanding Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../rules_eval_criteria.html">Evaluation Criteria &amp; Competition Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../submission.html">Submission Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integrity.html">Integrity &amp; Fairness</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support_contact.html">Support &amp; Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers.html">Development Team</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="writing-your-controller">
+<h1>Writing Your Controller<a class="headerlink" href="#writing-your-controller" title="Link to this heading">¶</a></h1>
+<p>Each participant must implement their control algorithm in a Python file (by default, <code class="docutils literal notranslate"><span class="pre">my_controller.py</span></code>).
+This file defines the control strategy implemented by the simulation.</p>
+<p>Recall that the objective of your controller is to maximize <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> over the <strong>scoring interval</strong> <span class="math notranslate nohighlight">\(t \in [T_0, t_{end}]\)</span> by defining the control force <span class="math notranslate nohighlight">\(F_{pto}(t)\)</span> appropriately for <strong>all three predefined sea state scenarios</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\max_{F_{pto}(t)} \; \mathcal{G}\!\left(F_{pto}(t); t \in [T_0,t_{end}] \right) 
+= \frac{\bar{P}_{pto}}
+{2 + \frac{\left[|x(t)|\right]_{98}}{x_{\max}} 
+  + \frac{\left[|F_{pto}(t)|\right]_{98}}{F_{u,\max}} 
+  - \frac{\bar{P}_{pto}}{\left[p_{pto}(t)\right]_{98}}}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\text{s.t.}&amp; \quad \text{WavePiston dynamics,} \quad \\
+&amp; \quad p_{pto}(t) = F_{pto}(t) \dot{x}(t) \ge 0 \quad \forall t \in [t_{init},t_{end}]\end{split}\]</div>
+<p>For more details, refer to <a class="reference internal" href="../model_control/control_problem.html"><span class="std std-doc">Control Problem Definition</span></a>.</p>
+<hr class="docutils" />
+<section id="controller-function-interface">
+<h2>Controller Function Interface<a class="headerlink" href="#controller-function-interface" title="Link to this heading">¶</a></h2>
+<p>Your controller must define the following function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">my_controller</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">eta10</span><span class="p">):</span>
+    <span class="c1"># Your control logic here</span>
+    <span class="k">return</span> <span class="n">F_pto</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may rename the Python file, but the function name <strong>must</strong> be <code class="docutils literal notranslate"><span class="pre">my_controller</span></code>.</p>
+</div>
+<section id="function-arguments">
+<h3>Function Arguments<a class="headerlink" href="#function-arguments" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span></code></p></td>
+<td><p>float</p></td>
+<td><p>Sail position [m]</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">v</span></code></p></td>
+<td><p>float</p></td>
+<td><p>Sail velocity [m/s]</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">t</span></code></p></td>
+<td><p>float</p></td>
+<td><p>Current simulation time [s]</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">eta10</span></code></p></td>
+<td><p>float</p></td>
+<td><p>10 m up-wave surface elevation [m] (measured at <span class="math notranslate nohighlight">\(x=-10\)</span> m)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="function-output">
+<h3>Function Output<a class="headerlink" href="#function-output" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">F_pto</span></code></p></td>
+<td><p>float</p></td>
+<td><p>Control force [N] applied by the PTO system</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<hr class="docutils" />
+<section id="key-controller-design-considerations">
+<h2>Key Controller Design Considerations<a class="headerlink" href="#key-controller-design-considerations" title="Link to this heading">¶</a></h2>
+<p>Some important considerations for participants when defining their controller are summarized below, however, participants are encouraged to explore the full details in the corresponding sections in this documentation.
+For convenience, the key time intervals are also illustrated again in <a class="reference internal" href="#fig-startup-int-vs-scoring-int-writing-controller"><span class="std std-numref">Figure 8</span></a>:</p>
+<figure class="align-center" id="fig-startup-int-vs-scoring-int-writing-controller">
+<a class="reference internal image-reference" href="../_images/startup_int_vs_scoring_int.png"><img alt="../_images/startup_int_vs_scoring_int.png" src="../_images/startup_int_vs_scoring_int.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 8 </span><span class="caption-text">Key time intervals for the performance index evaluation.</span><a class="headerlink" href="#fig-startup-int-vs-scoring-int-writing-controller" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<section id="controller-definition">
+<h3>Controller Definition<a class="headerlink" href="#controller-definition" title="Link to this heading">¶</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Your control</strong> implementation (<code class="docutils literal notranslate"><span class="pre">my_controller</span></code> function) <strong>must</strong> be defined for the <strong>full simulation time span</strong> (<span class="math notranslate nohighlight">\(t\geq0\)</span>), regardless of whether the performance index is only evaluated along the scoring interval.</p>
+</div>
+<p>For more details, refer to <a class="reference internal" href="../model_control/control_problem.html"><span class="std std-doc">Control Problem Definition</span></a>.</p>
+</section>
+<section id="evaluation-criteria">
+<h3>Evaluation Criteria<a class="headerlink" href="#evaluation-criteria" title="Link to this heading">¶</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul class="simple">
+<li><p><strong>Performance Index (<span class="math notranslate nohighlight">\(\mathcal{G}\)</span>):</strong> evaluated during the <strong>scoring interval</strong> (<span class="math notranslate nohighlight">\(t \geq T_0 = 30\)</span> s).</p></li>
+<li><p><strong>Passivity constraint:</strong> <span class="math notranslate nohighlight">\(p_{pto} \geq 0\)</span> must hold at all times over the <strong>full simulation duration</strong> (<span class="math notranslate nohighlight">\(t \geq 0\)</span>).</p></li>
+</ul>
+</div>
+<p>For a complete self-contained description of the performance index, refer to <a class="reference internal" href="../rules_eval_criteria.html"><span class="std std-doc">Evaluation Criteria &amp; Competition Rules</span></a>.</p>
+</section>
+<section id="startup-ramp">
+<h3>Startup Ramp<a class="headerlink" href="#startup-ramp" title="Link to this heading">¶</a></h3>
+<p>The <strong>wave excitation force</strong> is gradually introduced via a smooth raised-cosine ramp:</p>
+<div class="math notranslate nohighlight">
+\[ramp(t) = 0.5 \left[ 1 - \cos\!\left(\frac{\pi t}{T_{ramp}}\right) \right]\]</div>
+<p>where <span class="math notranslate nohighlight">\(ramp(T_{ramp}=20) = 1\)</span>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Ramp duration is <span class="math notranslate nohighlight">\(\mathbf{T_{ramp}} = 20\)</span> seconds for all simulation runs.</p>
+</div>
+<p>For further details on the ramp implementation refer to <a class="reference internal" href="../model_control/numerical_implementation.html"><span class="std std-doc">Numerical Implementation</span></a>.</p>
+</section>
+<section id="control-update-scheme-zero-order-hold-zoh">
+<h3>Control Update Scheme (Zero-Order Hold, ZOH)<a class="headerlink" href="#control-update-scheme-zero-order-hold-zoh" title="Link to this heading">¶</a></h3>
+<p>Control force is updated at the simulation time step <span class="math notranslate nohighlight">\((\Delta t=0.5 \; \text{s})\)</span>. However, internally the solver takes sub-steps in which control force is held constant (see <a class="reference internal" href="../model_control/numerical_implementation.html"><span class="std std-doc">Numerical Implementation</span></a> for details).</p>
+</section>
+<section id="handling-up-wave-data-eta10">
+<h3>Handling Up-Wave Data (<code class="docutils literal notranslate"><span class="pre">eta10</span></code>)<a class="headerlink" href="#handling-up-wave-data-eta10" title="Link to this heading">¶</a></h3>
+<p>Up-wave measurement is only available during the <strong>scoring interval</strong>. For times <strong>before the scoring interval</strong> (<span class="math notranslate nohighlight">\(t &lt; 30\)</span> s), the up-wave signal <code class="docutils literal notranslate"><span class="pre">eta10</span></code> is set to <strong>NaN</strong>.
+Your controller must handle these values robustly, e.g., bypassing up-wave measurement when the measurement is unavailable.</p>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">my_controller</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">eta10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">eta10</span><span class="p">):</span>
+        <span class="c1"># Optional preview or estimation logic</span>
+        <span class="k">pass</span>
+    <span class="c1"># Example: simple proportional velocity control</span>
+    <span class="n">F_pto</span> <span class="o">=</span> <span class="mf">1e6</span> <span class="o">*</span> <span class="n">v</span>
+    <span class="k">return</span> <span class="n">F_pto</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="summary">
+<h3>✅ Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Implement your control law in a Python function named <code class="docutils literal notranslate"><span class="pre">my_controller</span></code>.</p></li>
+<li><p>Ensure the controller is <strong>operational and numerically stable</strong> for the full simulation duration.</p></li>
+<li><p>Respect the <strong>passivity constraint</strong> (<span class="math notranslate nohighlight">\(p_{pto} \geq 0\)</span>) at all times.</p></li>
+<li><p>Use the provided inputs (<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">v</span></code>, <code class="docutils literal notranslate"><span class="pre">t</span></code>, <code class="docutils literal notranslate"><span class="pre">eta10</span></code>) appropriately.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Writing Your Controller</a><ul>
+<li><a class="reference internal" href="#controller-function-interface">Controller Function Interface</a><ul>
+<li><a class="reference internal" href="#function-arguments">Function Arguments</a></li>
+<li><a class="reference internal" href="#function-output">Function Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#key-controller-design-considerations">Key Controller Design Considerations</a><ul>
+<li><a class="reference internal" href="#controller-definition">Controller Definition</a></li>
+<li><a class="reference internal" href="#evaluation-criteria">Evaluation Criteria</a></li>
+<li><a class="reference internal" href="#startup-ramp">Startup Ramp</a></li>
+<li><a class="reference internal" href="#control-update-scheme-zero-order-hold-zoh">Control Update Scheme (Zero-Order Hold, ZOH)</a></li>
+<li><a class="reference internal" href="#handling-up-wave-data-eta10">Handling Up-Wave Data (<code class="docutils literal notranslate"><span class="pre">eta10</span></code>)</a></li>
+<li><a class="reference internal" href="#summary">✅ Summary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="sim_input.html">
+                    <span class="icon">&lt;</span><span>Simulation Input File</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="running_outputs.html"><span>Running Simulations &amp; Understanding Outputs</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright .
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>
