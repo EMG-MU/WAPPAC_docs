@@ -13,3 +13,16 @@ sphinx-build -E docs docs/_build/html
 
 sphinx-autobuild docs docs/_build/html --open-browser
 
+
+# Initialize git if not already
+git init
+git add .
+git commit -m "Initial commit: Sphinx docs skeleton"
+
+# Link GitHub repo
+git remote add origin https://github.com/EMG-MU/WAPPAC_docs.git
+
+# Push to main branch
+git branch -M main
+git push -u origin main
+
