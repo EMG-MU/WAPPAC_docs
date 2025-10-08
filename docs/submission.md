@@ -3,7 +3,7 @@
 Participants must submit the following items via the official competition portal:
 **[Link to Submission Portal will be provided HERE soon...]()**
 
-### ✅ Submission Checklist
+### Submission Checklist
 
 | Item                        | Description                                                  |
 | --------------------------- | ------------------------------------------------------------ |
