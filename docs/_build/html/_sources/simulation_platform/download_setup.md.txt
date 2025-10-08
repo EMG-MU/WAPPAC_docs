@@ -8,7 +8,7 @@ You can get the platform via **GitHub**:
 * **Clone repository (recommended):**
 
 ```bash
-git clone https://github.com/WAPPAC/WAPPAC-simulation.git
+git clone https://github.com/EMG-MU/WAPPAC_comp_pub.git
 ```
 
 * **Download ZIP via GitHub interface:**
