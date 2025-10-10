@@ -12,9 +12,9 @@ Through this initiative, WAPPAC competition aims to **foster innovation** and **
 
 This competition is hosted by the **Centre for Ocean Energy Research (COER), Maynooth University**, and is supported by the European Union (EU) under Horizon funding (Grant Agreement No. 101147456 - SHY).
 
-```{figure} _static/figures/logos/COER_logo.png
+```{figure} _static/figures/logos/COER-MU.png
 :name: fig_COER_logo
-:width: 60%
+:width: 80%
 :align: center
 ```
 

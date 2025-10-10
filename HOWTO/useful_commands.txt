@@ -11,7 +11,7 @@
 --- Auto-build ---
 - See changes online in real time.
 
-sphinx-autobuild docs docs/_build/html --open-browser
+    sphinx-autobuild docs docs/_build/html --open-browser
 
 
 
