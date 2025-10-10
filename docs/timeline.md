@@ -1,4 +1,4 @@
-# Competition Timeline/Deadlines
+# Competition Timeline
 
 Important WAPPAC competition and dissemination are summarised below. Note that the conference for dissemination of results and findings will be finalised by the end of Q1 2026. 
 

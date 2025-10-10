@@ -10,11 +10,11 @@ Potential host conferences include:
 
 Selected competitors will be requested to submit abstracts and papers in line with the indicative conference deadlines as listed below.
 
-| **Conference**  | **Conference Date** | ** Submission dates **        |  
-|:----------------|:--------------------|-------------------------------|
+| **Conference**  | **Conference Date** | **Submission dates**        |  
+|:----------------|:--------------------|------------------------------|
 | *OMAE*          | June                | Abstract due previous October |
 | *ISOPE*         | June                | Abstract due previous October |
-| *ECC*           | June                | Papers due previous October   |     
-| *CCTA*          | August              | Papers due February           |      
+| *ECC*           | June                | Papers due previous October  |     
+| *CCTA*          | August              | Papers due February          |      
 
 **DISCLAIMER** These dates are indicative only based on previous conference schedules.
