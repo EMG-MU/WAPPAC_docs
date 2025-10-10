@@ -1,12 +1,13 @@
-
 # Home
+Welcome to the **WavePiston Passive Control (WAPPAC) competition documentation**.
+Use the sidebar to navigate through the documentation sections.
 
 ## WAPPAC Competition
 
 The **WavePiston Passive Control (WAPPAC) competition** is an open challenge to the wave energy and control community. Participants are invited to **develop passive control strategies** for the novel WavePiston wave energy converter (WEC).
 The goal is to **maximize captured energy while respecting WavePiston physical constraints**, with particular attention to the **PTO passivity constraint**.
 
-Through this initiative, WAPPAC competition aims to **foster innovation** and **advance** the **state of the art** in **wave energy control**.
+Through this initiative, WAPPAC competition aims to **foster innovation** and **advance** the **state of the art** in **wave energy control**. The WAPPAC competition results will be **announced** and **disseminated** through a **dedicated session** at an **international conference**.
 
 
 

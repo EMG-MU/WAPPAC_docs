@@ -7,8 +7,8 @@ following members of the **Centre for Ocean Energy Research (COER), Maynooth Uni
 - John V. Ringwood — john.ringwood@mu.ie
 
 
-```{figure} _static/figures/logos/COER_logo.png
-:width: 60%
+```{figure} _static/figures/logos/COER-MU.png
+:width: 80%
 :align: center
 ```
 
