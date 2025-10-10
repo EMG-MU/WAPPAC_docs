@@ -91,7 +91,7 @@ Ramp duration is $\mathbf{T_{ramp}} = 20$ seconds for all simulation runs.
 For further details on the ramp implementation refer to [Numerical Implementation](../model_control/numerical_implementation.md).
 
 ### Control Update Scheme (Zero-Order Hold, ZOH)
-Control force is updated at the simulation time step $(\Delta t=0.5 \; \text{s})$. However, internally the solver takes sub-steps in which control force is held constant (see [Numerical Implementation](../model_control/numerical_implementation.md) for details).
+Control force is updated at the simulation time step $(\Delta t=0.05 \; \text{s})$. However, internally the solver takes sub-steps in which control force is held constant (see [Numerical Implementation](../model_control/numerical_implementation.md) for details).
 
 ### Handling Up-Wave Data (`eta10`)
 
