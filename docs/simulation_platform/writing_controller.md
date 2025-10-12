@@ -1,9 +1,9 @@
 # Writing Your Controller
 
 Each participant must implement their control algorithm in a Python file (by default, `my_controller.py`).
-This file defines the control strategy implemented by the simulation.
+This file defines the control strategy executed by the WAPPAC simulator.
 
-Recall that the objective of your controller is to maximize $\mathcal{G}$ over the **scoring interval** $t \in [T_0, t_{end}]$ by defining the control force $F_{pto}(t)$ appropriately for **all three predefined sea state scenarios**:
+The controller’s goal is to **maximize** the performance index $\mathcal{G}$ over the **scoring interval** $t \in [T_0, t_{end}]$ by defining the control force $F_{pto}(t)$ appropriately for **all three sea-state scenarios**:
 
 ```{math}
 \max_{F_{pto}(t)} \; \mathcal{G}\!\left(F_{pto}(t); t \in [T_0,t_{end}] \right) 
@@ -12,11 +12,13 @@ Recall that the objective of your controller is to maximize $\mathcal{G}$ over t
   + \frac{\left[|F_{pto}(t)|\right]_{98}}{F_{u,\max}} 
   - \frac{\bar{P}_{pto}}{\left[p_{pto}(t)\right]_{98}}}
 ```
+
 ```{math}
 \text{s.t.}& \quad \text{WavePiston dynamics,} \quad \\
 & \quad p_{pto}(t) = F_{pto}(t) \dot{x}(t) \ge 0 \quad \forall t \in [t_{init},t_{end}]
 ```
-For more details, refer to [Control Problem Definition](../model_control/control_problem.md).
+
+For more details, see [Control Problem Definition](../model_control/control_problem.md).
 
 ---
 
@@ -26,12 +28,12 @@ Your controller must define the following function:
 
 ```python
 def my_controller(x, v, t, eta10):
-    # Your control logic here
+    # Your control logic here defining F_pto for the current time-step
     return F_pto
 ```
 
 ```{note}
-You may rename the Python file, but the function name **must** be `my_controller`.
+You may rename the Python file differently, but the function name **must** remain `my_controller`.
 ```
 
 ### Function Arguments
@@ -49,223 +51,178 @@ You may rename the Python file, but the function name **must** be `my_controller
 | -------- | ----- | ------------------------------------------- |
 | `F_pto`  | float | Control force [N] applied by the PTO system |
 
+---
 
-### Allowed and Restricted Features
+## Using External Packages
 
-When submitting your controller file (e.g. `my_controller.py`), the simulation platform automatically validates and executes it in a **restricted environment** to ensure fair, deterministic, and safe operation during the competition.
+Participants may include **custom or third-party Python packages** by placing them in the dedicated folder:
 
-The controller file:
-
-✅ **Can include**
-
-* Standard Python syntax, numerical operations, and logical flow.
-* Use of built-in libraries such as `math`, `numpy`, or lightweight numerical utilities.
-* Internal helper functions, state variables, or simple data structures (lists, arrays, etc.).
-* Optional pre-defined constants or initialization at the top of the file.
-
-🚫 **Cannot include**
-
-* Any file input/output operations (e.g. `open()`, reading or writing external data).
-* Imports of external packages not provided in the simulation environment.
-* Network access, subprocess calls, or operating system interactions.
-* Dynamic imports, multithreading, multiprocessing, or GPU usage.
-* Persistent data storage between runs — each simulation run is independent.
-
-```{note}
-Your controller must be fully self-contained and deterministic.  
-It should rely only on the inputs provided by the simulation platform (`x`, `v`, `t`, `eta10`).
+```
+WAPPAC_distribution/
+├── my_controller.py
+├── external_packages/
+│   └── [your custom packages here]
 ```
 
-This ensures that all controllers are executed under identical computational conditions and that the comparison between participants remains consistent and reproducible.
+> **Important:**
+> The folder name must remain exactly `external_packages/`.
+> WAPPAC automatically searches this directory at runtime to make its contents importable by your controller.
+
+### Installing a Custom Package Locally
+
+You can install a package directly into the `external_packages` folder:
+
+```bash
+python -m pip install --target ./external_packages control
+```
+
+This installs the package (e.g. `control`) locally without requiring system-wide installation.
+You can then import it normally:
+
+```python
+import control  # loaded from external_packages
+
+def my_controller(x, v, t, eta10):
+    # Control logic using the 'control' package
+    return F_pto
+```
+
+If your controller depends on additional packages, include a `requirements.txt` file in your submission.
+See [Submission Guidelines](./submission.md) for details.
+
+---
+
+## Allowed and Restricted Features
+
+The controller executes inside a controlled runtime to ensure **safety, fairness, and reproducibility** across participants.
+The environment is intentionally simple and deterministic, but still flexible for control design.
+
+### ✅ Allowed
+
+* Standard Python syntax, arithmetic, and logical operations.
+* Imports from:
+
+  * Core Python libraries (`math`, `json`, `random`, `os`, etc.).
+  * Common scientific libraries — the following are already **bundled inside WAPPAC binaries**, so there is **no need** to re-install them:
+
+    ```text
+    torch==2.8.0+cpu  
+    torchdiffeq==0.2.5  
+    numpy==2.3.3  
+    scipy==1.16.2  
+    matplotlib==3.10.6
+    ```
+* Additional **pure-Python** modules placed in `external_packages/`, provided they:
+
+  * do not rely on GPU computation or system-level privileges, and
+  * run fully offline (no internet access required).
+* Internal helper functions, persistent variables (within a single run), and lightweight data structures.
+* Optional initialization or pre-computed constants at file start.
+
+---
+
+### ⚠️ Restricted (and why)
+
+Restrictions are minimal and guided by the underlying WAPPAC simulation platform design.
+They are intended to guarantee consistent benchmarking rather than limit creativity! If you believe a reasonable use case requires exception, please contact the WAPPAC support team (see [Support & Contact](./support_contact.md)).
 
 
+| Restriction                                                          | Technical Rationale                                                                                                                                                                             |
+| -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **External file I/O** (beyond the provided folders)                  | Keeps results reproducible. All input/output should occur through `my_sim_input_file.json`, `sim_out/`, or the evaluation output directory.                                    |
+| **GPU or CUDA calls**                                                | Evaluations run on CPU for reproducibility and cross-platform consistency. The bundled Torch build is CPU-only.                                                                                 |
+| **External network or API calls** (HTTP, sockets, etc.)              | Ensures offline, deterministic, and fair evaluation. Official evaluation re-runs will be executed in a network-isolated environment; any code relying on networks will fail or be rejected. This is a **policy + operational** restriction. |
+| **Dynamic package installation during runtime** (`pip install` etc.) | While participants *can* include extra packages in `external_packages/`, installing or downloading new ones *at runtime* is discouraged to preserve reproducibility and avoid dependency drift. |
+| **Modification of internal WAPPAC modules**                          | Physics models, solvers, and evaluation logic are locked to ensure all participants run under identical conditions.                                                                             |
 
 ---
 
 ## Key Controller Design Considerations
-Some important considerations for participants when defining their controller are summarized below, however, participants are encouraged to explore the full details in the corresponding sections in this documentation.
-For convenience, the key time intervals are also illustrated again in {numref}`fig_startup_int_vs_scoring_int_writing_controller`:
+
+Participants should consider the following aspects when developing their control law.
+See related documentation for more detail.
 
 ```{figure} ../_static/figures/schematics/startup_int_vs_scoring_int.png
 :name: fig_startup_int_vs_scoring_int_writing_controller
 :width: 100%
 :align: center
-Key time intervals for the performance index evaluation.
+Key time intervals for performance evaluation.
 ```
 
 ### Controller Definition
+
 ```{important}
-**Your control** implementation (`my_controller` function) **must** be defined for the **full simulation time span** ($t\geq0$), regardless of whether the performance index is only evaluated along the scoring interval.
+Your control law (`my_controller`) must be defined for the **entire simulation duration** ($t \ge 0$), even though the performance index is computed only during the scoring interval.
 ```
-For more details, refer to [Control Problem Definition](../model_control/control_problem.md).
 
 ### Evaluation Criteria
 
 ```{important}
-- **Performance Index ($\mathcal{G}$):** evaluated during the **scoring interval** ($t \geq T_0 = 30$ s).  
-- **Passivity constraint:** $p_{pto} \geq 0$ must hold at all times over the **full simulation duration** ($t \geq 0$).
+- **Performance Index ($\mathcal{G}$):** evaluated during the scoring interval ($t \ge T_0 = 30$ s).  
+- **Passivity constraint:** $p_{pto} \ge 0$ must hold for the full simulation.
 ```
-For a complete self-contained description of the performance index, refer to [Evaluation Criteria & Competition Rules](../rules_eval_criteria.md).
+
+See [Evaluation Criteria & Competition Rules](../rules_eval_criteria.md) for a complete description.
+
+---
+
+### Evaluation Mode — Controller Adaptation Requirement
+
+During **Evaluation Mode** (`eval_flag = true`), the WAPPAC platform executes the **three official sea-state scenarios** (`wave_id = 1–3`) in a **aleatory order**.
+Controllers **do not receive any prior information** about which sea state is being simulated and should therefore adapt adequately to the prevailing conditions.
+
+Participants are encouraged to verify controller robustness under unknown sea states by running equivalent randomized tests in **development mode** (`eval_flag = false`).
+This capability is essential for achieving a consistent and high performance index across all evaluation cases.
+
+---
+
 ### Startup Ramp
 
-The **wave excitation force** is gradually introduced via a smooth raised-cosine ramp:
+The **wave excitation force** is introduced smoothly through a raised-cosine ramp:
 
 ```{math}
 ramp(t) = 0.5 \left[ 1 - \cos\!\left(\frac{\pi t}{T_{ramp}}\right) \right]
 ```
 
-where $ramp(T_{ramp}=20) = 1$.
+where $ramp(T_{ramp}=20)=1$. Refer to [Numerical Implementation](./numerical_implementation.md) for further details.
 
 ```{important}
-Ramp duration is $\mathbf{T_{ramp}} = 20$ seconds for all simulation runs.
+Ramp duration is fixed to $\mathbf{T_{ramp}} = 20$ s for all simulations across the three sea states scenarios.
 ```
-For further details on the ramp implementation refer to [Numerical Implementation](../model_control/numerical_implementation.md).
 
-### Control Update Scheme (Zero-Order Hold, ZOH)
-Control force is updated at the simulation time step $(\Delta t=0.05 \; \text{s})$. However, internally the solver takes sub-steps in which control force is held constant (see [Numerical Implementation](../model_control/numerical_implementation.md) for details).
+---
+
+### Control Update Scheme (Zero-Order Hold)
+
+The control force is updated at the beginning of each **simulation time step** ($\Delta t = 0.05\ \text{s}$).
+Internally, the solver performs **Runge–Kutta (RK4)** sub-steps while holding the control force constant (Zero-Order Hold).
+See [WavePiston Dynamics Numerical Integration](../model_control/numerical_implementation.md) for implementation details.
+
+---
 
 ### Handling Up-Wave Data (`eta10`)
 
-Up-wave measurement is only available during the **scoring interval**. For times **before the scoring interval** ($t < 30$ s), the up-wave signal `eta10` is set to **NaN**.
-Your controller must handle these values robustly, e.g., bypassing up-wave measurement when the measurement is unavailable.
+The signal `eta10` (10 m up-wave surface elevation) is available **only during the scoring interval**.
+For $t < 30$ s, `eta10` = `NaN`. Your controller must handle this robustly.
 
 Example:
 
 ```python
-import numpy as np
-
 def my_controller(x, v, t, eta10):
     if not np.isnan(eta10):
         # Optional preview or estimation logic
         pass
-    # Example: simple proportional velocity control
+    # Example: proportional-velocity control
     F_pto = 1e6 * v
     return F_pto
 ```
 
 ---
 
-### ✅ Summary
+## ✅ Summary
 
-* Implement your control law in a Python function named `my_controller`.
-* Ensure the controller is **operational and numerically stable** for the full simulation duration.
-* Respect the **passivity constraint** ($p_{pto} \geq 0$) at all times.
-* Use the provided inputs (`x`, `v`, `t`, `eta10`) appropriately.
-
-
-[//]: # (# Writing Your Controller)
-
-[//]: # ()
-[//]: # (Your control algorithm is implemented in `my_controller.py` Python file.  )
-
-[//]: # ()
-[//]: # (*   The **required function** signature is:)
-
-[//]: # (```python)
-
-[//]: # (def my_controller&#40;x, v, t, eta10&#41;:)
-
-[//]: # (    # Your code here)
-
-[//]: # (    return F_{pto})
-
-[//]: # (```)
-
-[//]: # (```{note})
-
-[//]: # (You can name Python file as you wish, however the function name inside **must** be `my_controller`.)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # ()
-[//]: # (*   **Inputs:**)
-
-[//]: # (    *   `x` &#40;float&#41;: WP sail position [m])
-
-[//]: # (    *   `v` &#40;float&#41;: WP sail velocity [m/s])
-
-[//]: # (    *   `t` &#40;float&#41;: Current simulation time [s])
-
-[//]: # (    *   `eta10` &#40;float&#41;: 10-meter up-wave elevation measurement [m] &#40;measured at $x=-10$ m&#41;.)
-
-[//]: # ()
-[//]: # (*   **Output:**)
-
-[//]: # (    *   `F_{pto}` &#40;float&#41;: Your calculated control force [N].)
-
-[//]: # ()
-[//]: # (### Important Controller Design Considerations)
-
-[//]: # ()
-[//]: # (#### **Evaluation criteria:**)
-
-[//]: # ()
-[//]: # (```{important})
-
-[//]: # (- **Performance Index** is evaluated along the so-called **scoring interval**: from $\mathbf{t \geq 30}$ **s** until the end of each simulation run.)
-
-[//]: # (- **Passivity constraint** &#40;$p_{pto} \geq 0$&#41; must be satisfied for the **full simulation perdiod** &#40;$t\geq0$&#41;.)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (####   **Startup Ramp:** )
-
-[//]: # (The **wave excitation force** is smoothly introduced using a raised cosine window:)
-
-[//]: # (```{math})
-
-[//]: # (ramp&#40;t&#41; = 0.5 \left[ 1.0 - \cos\!\left&#40;\frac{\pi t}{t_{ramp}}\right&#41; \right])
-
-[//]: # (```)
-
-[//]: # (where $ramp&#40;t_{ramp}=20&#41;=1$.)
-
-[//]: # ()
-[//]: # (```{important})
-
-[//]: # (**Ramp duration** &#40;influence on excitation force&#41; is of $\mathbf{20}$ **s** for all simulations runs.)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (####   **Zero-Order Hold &#40;ZOH&#41;:** )
-
-[//]: # (Control force is updated at the simulation time step $&#40;\Delta t=0.5 \; \text{s}&#41;$. However, internally the solver takes sub-steps in which control force is held constant.)
-
-[//]: # (```{important})
-
-[//]: # (**Your control** implementation &#40;`my_controller` function&#41; **must** be defined for the **full simulation time span** &#40;$t\geq0$&#41;, regardless performance index is only evaluated along the scoring interval.)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (####   **Handling Up-Wave Measurement &#40;`eta10`&#41; NaN values:**)
-
-[//]: # (For $\mathbf{t < 30}$ **s** &#40;outside the scoring interval&#41;, the signal `eta10` is NaN.)
-
-[//]: # (    Your controller must handle this gracefully when using `eta10` in `my_controller` function. )
-
-[//]: # ()
-[//]: # (Example:)
-
-[//]: # (```python)
-
-[//]: # (def my_controller&#40;x, v, t, eta10&#41;:)
-
-[//]: # (if not np.isnan&#40;eta10&#41;:)
-
-[//]: # (    # Optional wave preview logic)
-
-[//]: # (    pass)
-
-[//]: # (# Main control logic)
-
-[//]: # (F_{pto} = 1e6 * v  # Example of control force proportional to velocity)
-
-[//]: # (return F_{pto})
-
-[//]: # (```   )
-
-[//]: # ( )
+* Implement your control in a Python function named `my_controller`.
+* Ensure numerical stability and satisfaction of the **passivity constraint** ($p_{pto} \ge 0$) throughout the full simulation time span.
+* Use the provided inputs (`x`, `v`, `t`, `eta10`) for designing your control law.
+* External packages may be included via `external_packages/` and a list of them submitted later as `requirements.txt`.
+* The controller should adapt effectively to the **three sea-state scenarios** simulated in aleatory order during evaluation mode.

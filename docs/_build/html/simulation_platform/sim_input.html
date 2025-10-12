@@ -175,7 +175,7 @@ This file defines the <strong>wave conditions</strong>, <strong>simulation mode<
 <td><p>Identifier of the participant or team. Used to label simulation outputs.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">wave_id</span></code></p></td>
-<td><p>Selects the sea state scenario (1, 2, or 3). Each corresponds to a distinct, undisclosed sea condition as described in the competition documentation.</p></td>
+<td><p>Selects the sea state scenario (1, 2, or 3). Each corresponds to a distinct, undisclosed sea state scenario.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">wave_realiz_seed</span></code></p></td>
 <td><p>Controls the generation of the wave surface realization:<br>• <code class="docutils literal notranslate"><span class="pre">&quot;random&quot;</span></code> → A new stochastic realization is generated at each run.<br>• <em>Integer value</em> (e.g., <code class="docutils literal notranslate"><span class="pre">123</span></code>) → A fixed seed for reproducible simulations.<br><strong>Note:</strong> This setting is ignored when <code class="docutils literal notranslate"><span class="pre">eval_flag</span> <span class="pre">=</span> <span class="pre">true</span></code>.</p></td>
@@ -204,7 +204,12 @@ This file defines the <strong>wave conditions</strong>, <strong>simulation mode<
 <p>This mode is reserved for <strong>official performance evaluation</strong> and <strong>submission files generation</strong>.</p>
 <ul class="simple">
 <li><p>Automatically executes <strong>all three sea state scenarios</strong> (<code class="docutils literal notranslate"><span class="pre">wave_id</span> <span class="pre">=</span> <span class="pre">1–3</span></code>) using <strong>fixed, deterministic seeds</strong>.</p></li>
-<li><p>Produces <strong>encrypted evaluation output files</strong> in the <code class="docutils literal notranslate"><span class="pre">evaluation_outputs/</span></code> directory for submission.</p></li>
+<li><p><strong>Randomized execution order:</strong> The three sea states are simulated in a <strong>randomized order</strong> each time <code class="docutils literal notranslate"><span class="pre">eval_flag</span> <span class="pre">=</span> <span class="pre">true</span></code>.</p>
+<ul>
+<li><p>Participants must ensure that their <strong>controller adapts to the sea state dynamically</strong> without prior knowledge of which scenario is being evaluated.</p></li>
+</ul>
+</li>
+<li><p>Produces <strong>encrypted evaluation output files</strong> in the <code class="docutils literal notranslate"><span class="pre">evaluation_outputs/</span></code> directory (files for submission).</p></li>
 <li><p>The internal configuration is locked to ensure consistency and fairness across participants.</p></li>
 <li><p>No visualizations or detailed diagnostic outputs are generated. Only a console message is provided to inform the participant whether the <strong>passivity constraint</strong> is satisfied in each sea state scenario.</p></li>
 </ul>
@@ -215,6 +220,7 @@ This file defines the <strong>wave conditions</strong>, <strong>simulation mode<
 <ul class="simple">
 <li><p>Use <strong>Development Mode</strong> (<code class="docutils literal notranslate"><span class="pre">eval_flag</span> <span class="pre">=</span> <span class="pre">false</span></code>) for iterative testing your controller across the three different sea state scenarios, and performance index evaluation.</p></li>
 <li><p>Switch to <strong>Evaluation Mode</strong> (<code class="docutils literal notranslate"><span class="pre">eval_flag</span> <span class="pre">=</span> <span class="pre">true</span></code>) only when ready to generate submission files for official evaluation of the results.</p></li>
+<li><p><strong>Important:</strong> In evaluation mode, the order of the sea states is randomized. Ensure your controller handles each scenario <strong>robustly and without prior knowledge</strong> of which sea state is currently simulated.</p></li>
 </ul>
 </section>
 </section>
