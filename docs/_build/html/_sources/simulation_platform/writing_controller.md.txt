@@ -49,6 +49,37 @@ You may rename the Python file, but the function name **must** be `my_controller
 | -------- | ----- | ------------------------------------------- |
 | `F_pto`  | float | Control force [N] applied by the PTO system |
 
+
+### Allowed and Restricted Features
+
+When submitting your controller file (e.g. `my_controller.py`), the simulation platform automatically validates and executes it in a **restricted environment** to ensure fair, deterministic, and safe operation during the competition.
+
+The controller file:
+
+✅ **Can include**
+
+* Standard Python syntax, numerical operations, and logical flow.
+* Use of built-in libraries such as `math`, `numpy`, or lightweight numerical utilities.
+* Internal helper functions, state variables, or simple data structures (lists, arrays, etc.).
+* Optional pre-defined constants or initialization at the top of the file.
+
+🚫 **Cannot include**
+
+* Any file input/output operations (e.g. `open()`, reading or writing external data).
+* Imports of external packages not provided in the simulation environment.
+* Network access, subprocess calls, or operating system interactions.
+* Dynamic imports, multithreading, multiprocessing, or GPU usage.
+* Persistent data storage between runs — each simulation run is independent.
+
+```{note}
+Your controller must be fully self-contained and deterministic.  
+It should rely only on the inputs provided by the simulation platform (`x`, `v`, `t`, `eta10`).
+```
+
+This ensures that all controllers are executed under identical computational conditions and that the comparison between participants remains consistent and reproducible.
+
+
+
 ---
 
 ## Key Controller Design Considerations

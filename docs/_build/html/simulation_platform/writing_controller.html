@@ -223,6 +223,32 @@ This file defines the control strategy implemented by the simulation.</p>
 </tbody>
 </table>
 </section>
+<section id="allowed-and-restricted-features">
+<h3>Allowed and Restricted Features<a class="headerlink" href="#allowed-and-restricted-features" title="Link to this heading">¶</a></h3>
+<p>When submitting your controller file (e.g. <code class="docutils literal notranslate"><span class="pre">my_controller.py</span></code>), the simulation platform automatically validates and executes it in a <strong>restricted environment</strong> to ensure fair, deterministic, and safe operation during the competition.</p>
+<p>The controller file:</p>
+<p>✅ <strong>Can include</strong></p>
+<ul class="simple">
+<li><p>Standard Python syntax, numerical operations, and logical flow.</p></li>
+<li><p>Use of built-in libraries such as <code class="docutils literal notranslate"><span class="pre">math</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, or lightweight numerical utilities.</p></li>
+<li><p>Internal helper functions, state variables, or simple data structures (lists, arrays, etc.).</p></li>
+<li><p>Optional pre-defined constants or initialization at the top of the file.</p></li>
+</ul>
+<p>🚫 <strong>Cannot include</strong></p>
+<ul class="simple">
+<li><p>Any file input/output operations (e.g. <code class="docutils literal notranslate"><span class="pre">open()</span></code>, reading or writing external data).</p></li>
+<li><p>Imports of external packages not provided in the simulation environment.</p></li>
+<li><p>Network access, subprocess calls, or operating system interactions.</p></li>
+<li><p>Dynamic imports, multithreading, multiprocessing, or GPU usage.</p></li>
+<li><p>Persistent data storage between runs — each simulation run is independent.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your controller must be fully self-contained and deterministic.<br />
+It should rely only on the inputs provided by the simulation platform (<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">v</span></code>, <code class="docutils literal notranslate"><span class="pre">t</span></code>, <code class="docutils literal notranslate"><span class="pre">eta10</span></code>).</p>
+</div>
+<p>This ensures that all controllers are executed under identical computational conditions and that the comparison between participants remains consistent and reproducible.</p>
+</section>
 </section>
 <hr class="docutils" />
 <section id="key-controller-design-considerations">
@@ -319,6 +345,7 @@ Your controller must handle these values robustly, e.g., bypassing up-wave measu
 <li><a class="reference internal" href="#controller-function-interface">Controller Function Interface</a><ul>
 <li><a class="reference internal" href="#function-arguments">Function Arguments</a></li>
 <li><a class="reference internal" href="#function-output">Function Output</a></li>
+<li><a class="reference internal" href="#allowed-and-restricted-features">Allowed and Restricted Features</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#key-controller-design-considerations">Key Controller Design Considerations</a><ul>

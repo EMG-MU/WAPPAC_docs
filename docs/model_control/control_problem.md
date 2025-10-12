@@ -48,7 +48,7 @@ The objective is to maximize $\mathcal{G}$ over the **scoring interval** $t \in 
   - \frac{\bar{P}_{pto}}{\left[p_{pto}(t)\right]_{98}}}
 ```
 ```{math}
-\text{s.t.}& \quad \text{WavePiston dynamics,} \quad \\
+\text{s.t.}& \quad \text{WavePiston dynamics (1),} \quad \\
 & \quad p_{pto}(t) = F_{pto}(t) \dot{x}(t) \ge 0 \quad \forall t \in [t_{init},t_{end}]
 ```
 
