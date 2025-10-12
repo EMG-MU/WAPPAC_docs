@@ -24,7 +24,7 @@ The cloned repository will **not include the WAPPAC executables**, as these are 
 
 ---
 
-## File & Folder Structure
+## Files & Working Folder Structure
 
 After cloning or extracting the downloaded ZIP, your working directory should look like this:
 
