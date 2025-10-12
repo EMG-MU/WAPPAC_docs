@@ -153,18 +153,36 @@
 <h1>Numerical Implementation<a class="headerlink" href="#numerical-implementation" title="Link to this heading">¶</a></h1>
 <p>The <a class="reference internal" href="modelling_framework.html"><span class="std std-doc">model</span></a> and <a class="reference internal" href="control_problem.html"><span class="std std-doc">control</span></a> frameworks are implemented with a consistent numerical setup to ensure comparability across all control strategies submitted by participants. When developing your controller, the following implementation details should be carefully considered.</p>
 <hr class="docutils" />
-<section id="time-integration">
-<h2>Time Integration<a class="headerlink" href="#time-integration" title="Link to this heading">¶</a></h2>
+<section id="wavepiston-dynamics-numerical-integration">
+<h2>WavePiston Dynamics Numerical Integration<a class="headerlink" href="#wavepiston-dynamics-numerical-integration" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>The WavePiston dynamics, given by <a class="reference internal" href="modelling_framework.html#equation-eq-wp-hydrodyn">(1)</a>, are integrated using a <strong>4th-order Runge–Kutta (RK4)</strong> scheme.</p></li>
 <li><p>The solver operates with a <strong>fixed time step</strong> of <span class="math notranslate nohighlight">\(\Delta t = 0.05\)</span> s.</p></li>
 <li><p>Within each time step, RK4 performs <strong>four intermediate evaluations (stages)</strong> of the WavePiston dynamics function, modeled by <a class="reference internal" href="modelling_framework.html#equation-eq-wp-hydrodyn">(1)</a>, to estimate the state at the next time step:</p>
 <ul>
-<li><p>Evaluates WavePiston dynamics once at the beginning of the time step, twice at the midpoint, and once at the end of the time step.</p></li>
+<li><p>Evaluates WavePiston dynamics once at the beginning of the time step, twice at intermediate points, and once at the end of the time step.</p></li>
 </ul>
 </li>
+<li><p><strong>Excitation force</strong>: the excitation force is evaluated at each RK4 stage.</p></li>
 </ul>
+<section id="rk4-implementation-in-pytorch">
+<h3>RK4 Implementation in PyTorch<a class="headerlink" href="#rk4-implementation-in-pytorch" title="Link to this heading">¶</a></h3>
+<p>The WAPPAC simulation platforms relies on PyTorch <strong>modified RK4 scheme</strong> transcribed below from the official documentation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">rk4_alt_step_func</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">f0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">perturb</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Smaller error with slightly more compute.&quot;&quot;&quot;</span>
+    <span class="n">k1</span> <span class="o">=</span> <span class="n">f0</span>
+    <span class="k">if</span> <span class="n">k1</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">k1</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">perturb</span><span class="o">=</span><span class="n">Perturb</span><span class="o">.</span><span class="n">NEXT</span> <span class="k">if</span> <span class="n">perturb</span> <span class="k">else</span> <span class="n">Perturb</span><span class="o">.</span><span class="n">NONE</span><span class="p">)</span>
+    <span class="n">k2</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">t0</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">_one_third</span><span class="p">,</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">k1</span> <span class="o">*</span> <span class="n">_one_third</span><span class="p">)</span>
+    <span class="n">k3</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">t0</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">_two_thirds</span><span class="p">,</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">k2</span> <span class="o">-</span> <span class="n">k1</span> <span class="o">*</span> <span class="n">_one_third</span><span class="p">))</span>
+    <span class="n">k4</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">k1</span> <span class="o">-</span> <span class="n">k2</span> <span class="o">+</span> <span class="n">k3</span><span class="p">),</span> <span class="n">perturb</span><span class="o">=</span><span class="n">Perturb</span><span class="o">.</span><span class="n">PREV</span> <span class="k">if</span> <span class="n">perturb</span> <span class="k">else</span> <span class="n">Perturb</span><span class="o">.</span><span class="n">NONE</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="n">k2</span> <span class="o">+</span> <span class="n">k3</span><span class="p">)</span> <span class="o">+</span> <span class="n">k4</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">*</span> <span class="mf">0.125</span>
+</pre></div>
+</div>
+<p>For interested readers, the official implementation can be reviewed in the official <a class="reference external" href="https://github.com/rtqichen/torchdiffeq/blob/master/torchdiffeq/_impl/rk_common.py">torchdiffeq library</a>.</p>
 </section>
+</section>
+<hr class="docutils" />
 <section id="control-update">
 <h2>Control Update<a class="headerlink" href="#control-update" title="Link to this heading">¶</a></h2>
 <ul class="simple">
@@ -244,7 +262,10 @@ Also, <span class="math notranslate nohighlight">\(ramp(T_{\text{ramp}}) = 1\)</
             <div class="page_toc">
                 <ul>
 <li><a class="reference internal" href="#">Numerical Implementation</a><ul>
-<li><a class="reference internal" href="#time-integration">Time Integration</a></li>
+<li><a class="reference internal" href="#wavepiston-dynamics-numerical-integration">WavePiston Dynamics Numerical Integration</a><ul>
+<li><a class="reference internal" href="#rk4-implementation-in-pytorch">RK4 Implementation in PyTorch</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#control-update">Control Update</a></li>
 <li><a class="reference internal" href="#ramp-interval">Ramp Interval</a></li>
 <li><a class="reference internal" href="#up-wave-measurement">Up-wave Measurement</a><ul>

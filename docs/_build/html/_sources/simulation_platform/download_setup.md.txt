@@ -1,39 +1,53 @@
 # Getting Started with WAPPAC Simulator
 
-The **WAPPAC simulation platform** is distributed as a **precompiled package** containing ready-to-run executables and template files for both Linux and Windows systems.
+The **WAPPAC simulation platform** is distributed as a **precompiled package** containing ready-to-run executables, template files, and model data for both Linux and Windows systems.
 No manual installation or dependency setup is required.
 
-You can get the platform via **GitHub**:
+You can obtain the platform via **GitHub**:
 
-* **Clone repository (recommended):**
+## Download ZIP via GitHub Release
+
+WAPPAC executables are distributed as a **self-contained release**. The ZIP file **includes both binaries and source code**.
+Download the latest release from the [WAPPAC GitHub Releases](https://github.com/EMG-MU/WAPPAC_comp_pub/releases).
+
+## Clone Repository (Recommended)
 
 ```bash
 git clone https://github.com/EMG-MU/WAPPAC_comp_pub.git
 ```
 
-* **Download ZIP via GitHub interface:**
-  GitHub automatically packages the repository as a ZIP file if you choose **Download ZIP** from the repository page: [https://github.com/WAPPAC/WAPPAC-simulation](https://github.com/WAPPAC/WAPPAC-simulation)
+```{note}
+The cloned repository will **not include the WAPPAC executables**, as these are distributed separately via GitHub releases due to their file size.
+```
 
 > **Tip:** Cloning is recommended if you plan to pull updates or bug fixes from the repository during the competition.
 
 ---
 
-## File Structure
+## File & Folder Structure
 
-After cloning or extracting the downloaded ZIP, the directory will contain:
+After cloning or extracting the downloaded ZIP, your working directory should look like this:
 
 ```
 WAPPAC_distribution/
-├── WAPPAC                  # Linux simulation executable
-├── WAPPAC.exe              # Windows simulation executable
-├── my_controller.py        # Template for your control algorithm
-├── my_sim_input_file.json  # Template for simulation configuration
-└── exc_force_kernel.npz    # Excitation force kernel data
+├── WAPPAC                     # Linux simulation executable
+├── WAPPAC.exe                 # Windows simulation executable
+├── my_controller.py           # Template for your control algorithm
+├── my_sim_input_file.json     # Template for simulation configuration
+├── external_packages/         # Empty folder for custom Python packages
+└── model_data/
+    ├── exc_force_kernel.csv   # Excitation force kernel in frequency domain
+    └── rad_ss_mat.json        # Radiation state-space system matrices
 ```
 
-> **Note:**
-> The `exc_force_kernel.npz` file contains the frequency-domain excitation force kernel.
-> This dataset is **public** and **identical** for all participants to ensure consistency.
+> **Notes:**
+>
+> * The `external_packages/` folder is **empty by default**. Participants can add custom Python packages here to use in their controllers (for details, see [Writing Your Controller](./writing_controller.md)).
+>
+>   * If you use additional packages, you will be requested to submit a `requirements.txt` file listing all dependencies (refer to [Submission Guidelines](./submission.md)).
+> * The `model_data/` folder contains **public model information** provided to participants, including the excitation force kernel (`exc_force_kernel.csv`) and radiation system state-space matrces (`rad_ss_mat.json`).
+>
+>   * For additional model parametrization details, refer to [Model & Simulation Parametrization](./model_parametrization.md).
 
 ---
 
@@ -55,10 +69,10 @@ WAPPAC_distribution/
 * **Python:** Version ≥ 3.8 (required only for controller development)
 * **Linux users:** Ensure the following system libraries are installed (default on Ubuntu 20.04+):
 
-  ```bash
-  sudo apt update && sudo apt install -y \
-      libstdc++6 libgcc-s1 libfreetype6 libpng16-16 libjpeg8 zlib1g
-  ```
+```bash
+sudo apt update && sudo apt install -y \
+    libstdc++6 libgcc-s1 libfreetype6 libpng16-16 libjpeg8 zlib1g
+```
 
 ---
 
@@ -67,20 +81,22 @@ WAPPAC_distribution/
 1. **Download and extract** the WAPPAC package to your preferred working directory.
 2. On **Linux**, ensure execution permissions are set:
 
-   ```bash
-   chmod +x WAPPAC
-   ```
+```bash
+chmod +x WAPPAC
+```
+
 3. **Verify Python installation** (needed for your custom controller):
 
-   ```bash
-   python --version
-   ```
+```bash
+python --version
+```
+
 4. Review the provided templates:
 
-   * `my_controller.py` → implement your control algorithm.
-   * `my_sim_input_file.json` → define your simulation configuration.
-
----
+* `my_controller.py` → implement your control algorithm
+* `my_sim_input_file.json` → define your simulation configuration
+* `external_packages/` → add optional Python packages for your controller
+* `model_data/` → contains public model files
 
 ## Test Run
 
