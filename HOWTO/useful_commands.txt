@@ -28,3 +28,7 @@ git remote add origin https://github.com/EMG-MU/WAPPAC_docs.git
 git branch -M main
 git push -u origin main
 
+
+# Deletes everything in the current directory EXCEPT for the essential Git files (.git, .gitignore) and the .nojekyll file.
+Get-ChildItem -Force | Where-Object { $_.Name -notin @('.git', '.nojekyll') } | Remove-Item -Recurse -Force
+

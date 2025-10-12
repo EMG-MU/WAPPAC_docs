@@ -4,12 +4,34 @@ The [model](./modelling_framework.md) and [control](./control_problem.md) framew
 
 ---
 
-## Time Integration
+## WavePiston Dynamics Numerical Integration
 
 * The WavePiston dynamics, given by {eq}`eq_WP_hydrodyn`, are integrated using a **4th-order Runge–Kutta (RK4)** scheme.
 * The solver operates with a **fixed time step** of $\Delta t = 0.05$ s.
-* Within each time step, RK4 performs **four intermediate evaluations (stages)** of the WavePiston dynamics function, modeled by {eq}`eq_WP_hydrodyn`, to estimate the state at the next time step:  
-  * Evaluates WavePiston dynamics once at the beginning of the time step, twice at the midpoint, and once at the end of the time step.
+* Within each time step, RK4 performs **four intermediate evaluations (stages)** of the WavePiston dynamics function, modeled by {eq}`eq_WP_hydrodyn`, to estimate the state at the next time step:
+
+  * Evaluates WavePiston dynamics once at the beginning of the time step, twice at intermediate points, and once at the end of the time step.
+* **Excitation force**: the excitation force is evaluated at each RK4 stage.
+
+### RK4 Implementation in PyTorch
+
+The WAPPAC simulation platforms relies on PyTorch **modified RK4 scheme** transcribed below from the official documentation:
+
+```python
+def rk4_alt_step_func(func, t0, dt, t1, y0, f0=None, perturb=False):
+    """Smaller error with slightly more compute."""
+    k1 = f0
+    if k1 is None:
+        k1 = func(t0, y0, perturb=Perturb.NEXT if perturb else Perturb.NONE)
+    k2 = func(t0 + dt * _one_third, y0 + dt * k1 * _one_third)
+    k3 = func(t0 + dt * _two_thirds, y0 + dt * (k2 - k1 * _one_third))
+    k4 = func(t1, y0 + dt * (k1 - k2 + k3), perturb=Perturb.PREV if perturb else Perturb.NONE)
+    return (k1 + 3 * (k2 + k3) + k4) * dt * 0.125
+```
+
+For interested readers, the official implementation can be reviewed in the official [torchdiffeq library](https://github.com/rtqichen/torchdiffeq/blob/master/torchdiffeq/_impl/rk_common.py).
+
+---
 
 ## Control Update
 
@@ -37,18 +59,22 @@ The ramp function is defined as a raised cosine:
 ```{math}
 ramp(t) = 0.5 \left[1 - \cos\!\left(\frac{\pi t}{T_{\text{ramp}}}\right)\right], \quad t \in [t_{init}, T_{\text{ramp}}]
 ```
+
 This function multiplies the excitation force from zero to its full value over the interval $0 \le t \le T_{\text{ramp}}$. Thus, the attenuated excitation force is given by:
+
 ```{math}
 \tilde{F}_{exc} = ramp(t) F_{exc} 
 ```
-Note that the raised cosine time derivative is zero at both the start ($t=0$) and end $(t=T_{\text{ramp}})$ of the ramp, ensuring a smooth transition. 
-Also, $ramp(T_{\text{ramp}}) = 1$, so the excitation force reaches its full magnitude exactly at the end of the ramp interval. 
+
+Note that the raised cosine time derivative is zero at both the start ($t=0$) and end $(t=T_{\text{ramp}})$ of the ramp, ensuring a smooth transition.
+Also, $ramp(T_{\text{ramp}}) = 1$, so the excitation force reaches its full magnitude exactly at the end of the ramp interval.
 
 ```{note}
 - The **ramp interval duration** is **fixed** for every simulation at $T_{\text{ramp}} = 20$ s across all three predefined sea state scenarios.
 - For $t \ge T_{\text{ramp}}$ → $\tilde{F}_{exc} = F_{exc}$.
 - The ramp interval ends **before the scoring interval begins** ($T_{ramp}=20 < T_0 = 30$ s), mitigating transient effects of the artifical ramp-up function before start evaluating the performance index.
 ```
+
 ---
 
 ## Up-wave Measurement
