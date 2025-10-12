@@ -124,7 +124,7 @@
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../home.html">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../competition_overview.html">Competition Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../comp_overview/index.html">Competition Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model_control/index.html">WavePiston Model &amp; Control Framework</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Using WAPPAC Simulation Platform</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="download_setup.html">Getting Started with WAPPAC Simulator</a></li>
@@ -223,17 +223,43 @@ This file defines the control strategy implemented by the simulation.</p>
 </tbody>
 </table>
 </section>
+<section id="allowed-and-restricted-features">
+<h3>Allowed and Restricted Features<a class="headerlink" href="#allowed-and-restricted-features" title="Link to this heading">¶</a></h3>
+<p>When submitting your controller file (e.g. <code class="docutils literal notranslate"><span class="pre">my_controller.py</span></code>), the simulation platform automatically validates and executes it in a <strong>restricted environment</strong> to ensure fair, deterministic, and safe operation during the competition.</p>
+<p>The controller file:</p>
+<p>✅ <strong>Can include</strong></p>
+<ul class="simple">
+<li><p>Standard Python syntax, numerical operations, and logical flow.</p></li>
+<li><p>Use of built-in libraries such as <code class="docutils literal notranslate"><span class="pre">math</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, or lightweight numerical utilities.</p></li>
+<li><p>Internal helper functions, state variables, or simple data structures (lists, arrays, etc.).</p></li>
+<li><p>Optional pre-defined constants or initialization at the top of the file.</p></li>
+</ul>
+<p>🚫 <strong>Cannot include</strong></p>
+<ul class="simple">
+<li><p>Any file input/output operations (e.g. <code class="docutils literal notranslate"><span class="pre">open()</span></code>, reading or writing external data).</p></li>
+<li><p>Imports of external packages not provided in the simulation environment.</p></li>
+<li><p>Network access, subprocess calls, or operating system interactions.</p></li>
+<li><p>Dynamic imports, multithreading, multiprocessing, or GPU usage.</p></li>
+<li><p>Persistent data storage between runs — each simulation run is independent.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your controller must be fully self-contained and deterministic.<br />
+It should rely only on the inputs provided by the simulation platform (<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">v</span></code>, <code class="docutils literal notranslate"><span class="pre">t</span></code>, <code class="docutils literal notranslate"><span class="pre">eta10</span></code>).</p>
+</div>
+<p>This ensures that all controllers are executed under identical computational conditions and that the comparison between participants remains consistent and reproducible.</p>
+</section>
 </section>
 <hr class="docutils" />
 <section id="key-controller-design-considerations">
 <h2>Key Controller Design Considerations<a class="headerlink" href="#key-controller-design-considerations" title="Link to this heading">¶</a></h2>
 <p>Some important considerations for participants when defining their controller are summarized below, however, participants are encouraged to explore the full details in the corresponding sections in this documentation.
-For convenience, the key time intervals are also illustrated again in <a class="reference internal" href="#fig-startup-int-vs-scoring-int-writing-controller"><span class="std std-numref">Figure 8</span></a>:</p>
+For convenience, the key time intervals are also illustrated again in <a class="reference internal" href="#fig-startup-int-vs-scoring-int-writing-controller"><span class="std std-numref">Figure 10</span></a>:</p>
 <figure class="align-center" id="fig-startup-int-vs-scoring-int-writing-controller">
 <a class="reference internal image-reference" href="../_images/startup_int_vs_scoring_int.png"><img alt="../_images/startup_int_vs_scoring_int.png" src="../_images/startup_int_vs_scoring_int.png" style="width: 100%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 8 </span><span class="caption-text">Key time intervals for the performance index evaluation.</span><a class="headerlink" href="#fig-startup-int-vs-scoring-int-writing-controller" title="Link to this image">¶</a></p>
+<p><span class="caption-number">Figure 10 </span><span class="caption-text">Key time intervals for the performance index evaluation.</span><a class="headerlink" href="#fig-startup-int-vs-scoring-int-writing-controller" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <section id="controller-definition">
@@ -269,7 +295,7 @@ For convenience, the key time intervals are also illustrated again in <a class="
 </section>
 <section id="control-update-scheme-zero-order-hold-zoh">
 <h3>Control Update Scheme (Zero-Order Hold, ZOH)<a class="headerlink" href="#control-update-scheme-zero-order-hold-zoh" title="Link to this heading">¶</a></h3>
-<p>Control force is updated at the simulation time step <span class="math notranslate nohighlight">\((\Delta t=0.5 \; \text{s})\)</span>. However, internally the solver takes sub-steps in which control force is held constant (see <a class="reference internal" href="../model_control/numerical_implementation.html"><span class="std std-doc">Numerical Implementation</span></a> for details).</p>
+<p>Control force is updated at the simulation time step <span class="math notranslate nohighlight">\((\Delta t=0.05 \; \text{s})\)</span>. However, internally the solver takes sub-steps in which control force is held constant (see <a class="reference internal" href="../model_control/numerical_implementation.html"><span class="std std-doc">Numerical Implementation</span></a> for details).</p>
 </section>
 <section id="handling-up-wave-data-eta10">
 <h3>Handling Up-Wave Data (<code class="docutils literal notranslate"><span class="pre">eta10</span></code>)<a class="headerlink" href="#handling-up-wave-data-eta10" title="Link to this heading">¶</a></h3>
@@ -319,6 +345,7 @@ Your controller must handle these values robustly, e.g., bypassing up-wave measu
 <li><a class="reference internal" href="#controller-function-interface">Controller Function Interface</a><ul>
 <li><a class="reference internal" href="#function-arguments">Function Arguments</a></li>
 <li><a class="reference internal" href="#function-output">Function Output</a></li>
+<li><a class="reference internal" href="#allowed-and-restricted-features">Allowed and Restricted Features</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#key-controller-design-considerations">Key Controller Design Considerations</a><ul>

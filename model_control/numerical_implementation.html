@@ -124,7 +124,7 @@
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../home.html">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../competition_overview.html">Competition Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../comp_overview/index.html">Competition Overview</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">WavePiston Model &amp; Control Framework</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelling_framework.html">Modeling Framework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="control_problem.html">Control Problem Definition</a></li>
@@ -180,12 +180,12 @@
 <hr class="docutils" />
 <section id="ramp-interval">
 <h2>Ramp Interval<a class="headerlink" href="#ramp-interval" title="Link to this heading">¶</a></h2>
-<p>To reduce large transients at the start of the simulation—which could induce sail position drift and premature constraint violations—the <strong>wave excitation force is gradually applied</strong> during the <strong>ramp interval</strong>, illustrated in <a class="reference internal" href="#fig-ramp-interval"><span class="std std-numref">Figure 6</span></a>.</p>
+<p>To reduce large transients at the start of the simulation—which could induce sail position drift and premature constraint violations—the <strong>wave excitation force is gradually applied</strong> during the <strong>ramp interval</strong>, illustrated in <a class="reference internal" href="#fig-ramp-interval"><span class="std std-numref">Figure 8</span></a>.</p>
 <figure class="align-center" id="fig-ramp-interval">
 <a class="reference internal image-reference" href="../_images/ramp_interval.png"><img alt="../_images/ramp_interval.png" src="../_images/ramp_interval.png" style="width: 100%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 6 </span><span class="caption-text">Ramp interval versus scoring interval.</span><a class="headerlink" href="#fig-ramp-interval" title="Link to this image">¶</a></p>
+<p><span class="caption-number">Figure 8 </span><span class="caption-text">Ramp interval versus scoring interval.</span><a class="headerlink" href="#fig-ramp-interval" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>The ramp function is defined as a raised cosine:</p>
@@ -208,12 +208,12 @@ Also, <span class="math notranslate nohighlight">\(ramp(T_{\text{ramp}}) = 1\)</
 <hr class="docutils" />
 <section id="up-wave-measurement">
 <h2>Up-wave Measurement<a class="headerlink" href="#up-wave-measurement" title="Link to this heading">¶</a></h2>
-<p>Participants have access to the <strong>up-wave surface elevation measurement</strong> located at <span class="math notranslate nohighlight">\(x=-10\)</span> m (see <a class="reference internal" href="#fig-wavepiston-sch-sensor"><span class="std std-numref">Figure 7</span></a>):</p>
+<p>Participants have access to the <strong>up-wave surface elevation measurement</strong> located at <span class="math notranslate nohighlight">\(x=-10\)</span> m (see <a class="reference internal" href="#fig-wavepiston-sch-sensor"><span class="std std-numref">Figure 9</span></a>):</p>
 <figure class="align-center" id="fig-wavepiston-sch-sensor">
 <a class="reference internal image-reference" href="../_images/WavePiston_sch.png"><img alt="../_images/WavePiston_sch.png" src="../_images/WavePiston_sch.png" style="width: 100%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 7 </span><span class="caption-text">Schematic of the one-sail WavePiston device and up-wave surface elevation measurement.</span><a class="headerlink" href="#fig-wavepiston-sch-sensor" title="Link to this image">¶</a></p>
+<p><span class="caption-number">Figure 9 </span><span class="caption-text">Schematic of the one-sail WavePiston device and up-wave surface elevation measurement.</span><a class="headerlink" href="#fig-wavepiston-sch-sensor" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <section id="handling-up-wave-measurement">

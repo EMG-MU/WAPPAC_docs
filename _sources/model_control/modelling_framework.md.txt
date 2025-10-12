@@ -38,7 +38,7 @@ The hydrodynamics of the simplified WavePiston device can be described using **C
 
 ```{math}
 :label: eq_WP_hydrodyn
-M \ddot{x}(t) + F_r(t) + \frac{1}{2} \rho A C_D \, \dot{x} |\dot{x}|
+M \ddot{x}(t) + F_r(t) + \frac{1}{2} \rho A_{sail} C_D \, \dot{x} |\dot{x}|
 = F_{ex}(t) - F_{pto}(t),
 ```
 
