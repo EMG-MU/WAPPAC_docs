@@ -92,6 +92,41 @@ See [Submission Guidelines](./submission.md) for details.
 
 ---
 
+## Including Auxiliary Controller Modules
+
+If your implementation uses additional local modules (other Python scripts), include them alongside `my_controller.py`.
+
+```{important}
+A dedicated folder named `control_helpers/` (or similar) is optional but **strongly encouraged** to organize all auxiliary controller-related files (e.g., parameter definitions, sub-functions, or model abstractions).
+```
+
+```
+WAPPAC_distribution/
+├── external_packages/
+│   └── [your custom packages here]
+├── my_controller.py
+├── control_helpers/
+    ├── my_filters.py
+    ├── my_optimizer.py
+    └── helper_functions.py
+```
+
+All import paths should refer to this folder, e.g.:
+
+```python
+from control_helpers.my_filters import moving_average
+import control  # loaded from external_packages
+
+def my_controller(x, v, t, eta10):
+    # Control logic using the 'control' package and 'my_filters' module
+    return F_pto
+```
+
+Make sure all file paths and imports are **relative** and **self-contained** — **no absolute or OS-specific paths** or **online resources** should be present.
+
+
+---
+
 ## Allowed and Restricted Features
 
 The controller executes inside a controlled runtime to ensure **safety, fairness, and reproducibility** across participants.
@@ -216,7 +251,6 @@ def my_controller(x, v, t, eta10):
     F_pto = 1e6 * v
     return F_pto
 ```
-
 ---
 
 ## ✅ Summary
