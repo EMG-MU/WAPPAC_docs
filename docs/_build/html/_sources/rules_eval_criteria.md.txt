@@ -94,7 +94,7 @@ In case of a **tie**, the organizers may apply secondary criteria such as lowest
 
    * All evaluations are executed on the **official, precompiled WAPPAC binaries**, which run in a **network-isolated, CPU-only environment**.
      Internet access, external API calls, or runtime package installations are not permitted during evaluation.
-     Any attempt to perform such actions will cause evaluation failure or disqualification.
+     Any attempt to perform such actions will cause evaluation failure. Controllers must run fully self-contained, and not rely on internet or LAN communication (local function calls or internal APIs are, of course, allowed).
    * **No modifications** to the simulation binaries, hydrodynamic model, solver settings, or wave data are permitted.
    * Any attempt to alter or tamper with the simulation platform, inputs, or encrypted outputs constitutes a violation of competition integrity and results in **immediate disqualification and reporting the participant**.
 
