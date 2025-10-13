@@ -3,7 +3,8 @@
 The **WAPPAC Simulation Platform** and associated competition framework are developed and maintained by the
 following members of the **Centre for Ocean Energy Research (COER), Maynooth University, Ireland**.
 - Eugenio M. Gelos — eugenio.gelos@mu.ie  
-- Colm J. Fitzgerald — colm.fitzgerald@mu.ie  
+- Colm J. Fitzgerald — colm.fitzgerald@mu.ie 
+- CarrieAnne Barry - CarrieAnne.Barry@mu.ie
 - John V. Ringwood — john.ringwood@mu.ie
 
 
