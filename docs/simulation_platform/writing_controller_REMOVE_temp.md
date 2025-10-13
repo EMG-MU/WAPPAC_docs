@@ -87,7 +87,7 @@ def my_controller(x, v, t, eta10):
 ```
 
 If your controller depends on external packages, include a `requirements.txt` file in your submission listing them.
-Refer to [Submission Guidelines](./submission.md) for details.
+Refer to [Submission Guidelines](../submission.md) for details.
 
 ---
 
@@ -163,7 +163,7 @@ Participants can check their controller robustness to varying sea states scenari
 
 ### Startup Ramp
 
-The **wave excitation force** is gradually introduced (attenuated) via a smooth raised-cosine ramp (refer to [Numerical Implementation](./numerical_implementation.md) for further details):
+The **wave excitation force** is gradually introduced (attenuated) via a smooth raised-cosine ramp (refer to [Numerical Implementation](../model_control/numerical_implementation.md) for further details):
 
 ```{math}
 ramp(t) = 0.5 \left[ 1 - \cos\!\left(\frac{\pi t}{T_{ramp}}\right) \right]

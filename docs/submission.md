@@ -170,7 +170,7 @@ Your submission must be **self-contained and reproducible**.
 
 ### Related Sections
 
-* [**Writing Your Controller**](./simulation_platform/writing_your_controller.md)
+* [**Writing Your Controller**](./simulation_platform/writing_controller.md)
 * [**Simulation Input File**](./simulation_platform/sim_input.md)
 * [**Evaluation Criteria & Competition Rules**](./rules_eval_criteria.md)
 * [**Control Problem Definition**](./model_control/control_problem.md)
