@@ -2,19 +2,13 @@
 
 Important WAPPAC competition and dissemination dates are summarized below. Note that the conference for dissemination of results and findings will be finalized by the end of Q1 2026. 
 
-* Competition release/launch: **October 13<sup>th</sup>, 2025**
-* Submission due: **February 28<sup>th</sup>, 2026**
-* Preliminary results announcement: **April 30<sup>th</sup>, 2026**
-* Conference papers due: Autumn 2026
-* Conference date: June–August 2027
-
-| **Event**                                | **Date**                       |
-|:-----------------------------------------|:-------------------------------|
-| *Competition release/launch*             | October 13<sup>th</sup>, 2025 |
-| *Submission of Control Results deadline* | February 28<sup>th</sup>, 2026 |
-| *Preliminary results announcement*       | April 30<sup>th</sup>, 2026    |
-| *Conference papers due*                  | Autumn 2026                     |
-| *Conference date*                        | June–August 2027                |
+| **Event**                              | **Date**         |
+|:---------------------------------------|:-----------------|
+| Competition release/launch             | 14 October 2025  |
+| Submission of Control Results deadline | 28 February 2026 |
+| Preliminary results announcement       | 30 April 2026    |
+| Conference papers due                  | Autumn 2026      |
+| Conference date                        | June–August 2027 |
 
 ---
 
