@@ -88,7 +88,7 @@ def my_controller(x, v, t, eta10):
 ```
 
 If your controller depends on additional packages, include a `requirements.txt` file in your submission.
-See [Submission Guidelines](./submission.md) for details.
+See [Submission Guidelines](../submission.md) for details.
 
 ---
 
@@ -159,7 +159,7 @@ The environment is intentionally simple and deterministic, but still flexible fo
 ### ⚠️ Restricted (and why)
 
 Restrictions are minimal and guided by the underlying WAPPAC simulation platform design.
-They are intended to guarantee consistent benchmarking rather than limit creativity! If you believe a reasonable use case requires exception, please contact the WAPPAC support team (see [Support & Contact](./support_contact.md)).
+They are intended to guarantee consistent benchmarking rather than limit creativity! If you believe a reasonable use case requires exception, please contact the WAPPAC support team (see [Support & Contact](../support_contact.md)).
 
 
 | Restriction                                                          | Technical Rationale                                                                                                                                                                             |
@@ -219,7 +219,7 @@ The **wave excitation force** is introduced smoothly through a raised-cosine ram
 ramp(t) = 0.5 \left[ 1 - \cos\!\left(\frac{\pi t}{T_{ramp}}\right) \right]
 ```
 
-where $ramp(T_{ramp}=20)=1$. Refer to [Numerical Implementation](./numerical_implementation.md) for further details.
+where $ramp(T_{ramp}=20)=1$. Refer to [Numerical Implementation](../model_control/numerical_implementation.md) for further details.
 
 ```{important}
 Ramp duration is fixed to $\mathbf{T_{ramp}} = 20$ s for all simulations across the three sea states scenarios.
