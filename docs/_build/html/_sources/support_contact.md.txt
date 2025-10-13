@@ -5,7 +5,8 @@ The team is committed to maintaining a **reliable**, **secure**, and **transpare
 
 **Contact Channels:**
 
-* 📧 **Email:** [what to put here??](mailto:support@wappac.org)
+* **Email:** [eugenio.gelos@mu.ie](mailto:support@wappac.org) - [colm.fitzgerald@mu.ie](mailto:support@wappac.org)
+
   Use this address for **technical assistance**, **bug or security reports**, and **formal competition-related inquiries**.
 
 When contacting us, please include:

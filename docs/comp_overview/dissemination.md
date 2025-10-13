@@ -1,20 +1,20 @@
-# Dissemination platform
+# Dissemination Platform
 
-The WAPPAC competition results will be **announced** and **disseminated** through a **dedicated session** at an **international conference**. The highest ranking competitors will submit conference papers describing their entries and control strategy development and present at the special session. The WAPPAC development team at COER will present an overall paper outlining the simulation platform, competition organisation, submission evaluation, and (most importantly!) the competition results ( :tada: )!!
+The WAPPAC competition results will be **announced** and **disseminated** through a **dedicated session** at an **international conference**. Top-ranking competitors will be invited to submit conference papers describing their entries, control strategy development, and present their work during the special session. The WAPPAC development team at COER will also present an overall paper outlining the simulation platform, competition organization, submission evaluation, and the competition results 🎉.
 
 Potential host conferences include: 
-- International Conference on Ocean, Offshore and Arctic Engineering (OMAE), June 2027 
-- International Society of Offshore and Polar Engineers, June 2027
-- ECC (European Control Conference), June 2027
+- European Control Conference (ECC), June 2027
 - IEEE Conference on Control Technology and Applications (CCTA), August 2027
+- International Conference on Ocean, Offshore and Arctic Engineering (OMAE), June 2027 
+- International Society of Offshore and Polar Engineers (ISOPE), June 2027
 
-Selected competitors will be requested to submit abstracts and papers in line with the indicative conference deadlines as listed below.
+Selected competitors will be requested to submit abstracts and papers in line with the indicative conference deadlines listed below:
 
-| **Conference**  | **Conference Date** | **Submission dates**        |  
-|:----------------|:--------------------|------------------------------|
-| *OMAE*          | June                | Abstract due previous October |
-| *ISOPE*         | June                | Abstract due previous October |
-| *ECC*           | June                | Papers due previous October  |     
-| *CCTA*          | August              | Papers due February          |      
+| **Conference**  | **Conference Date** | **Submission Dates**                  |  
+|:----------------|:------------------|:------------------------------------|
+| ECC             | June 2027         | Papers due previous October          |     
+| CCTA            | August 2027       | Papers due February                  |  
+| OMAE            | June 2027         | Abstract due previous October        |
+| ISOPE           | June 2027         | Abstract due previous October        |
 
-**DISCLAIMER:** These dates are indicative only based on previous conference schedules.
+> **DISCLAIMER:** These dates are indicative only, based on previous conference schedules.
