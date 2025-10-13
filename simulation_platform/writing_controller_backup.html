@@ -17,9 +17,7 @@
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Running Simulations &amp; Understanding Outputs" href="running_outputs.html" />
-    <link rel="prev" title="Simulation Input File" href="sim_input.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
 <div id="top_nav">
@@ -122,17 +120,11 @@
     
       <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../home.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../comp_overview/index.html">Competition Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model_control/index.html">WavePiston Model &amp; Control Framework</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Using WAPPAC Simulation Platform</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="download_setup.html">Getting Started with WAPPAC Simulator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sim_input.html">Simulation Input File</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Writing Your Controller</a></li>
-<li class="toctree-l2"><a class="reference internal" href="running_outputs.html">Running Simulations &amp; Understanding Outputs</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Using WAPPAC Simulation Platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rules_eval_criteria.html">Evaluation Criteria &amp; Competition Rules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../submission.html">Submission Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../integrity.html">Integrity &amp; Fairness</a></li>
@@ -152,8 +144,8 @@
   <section class="tex2jax_ignore mathjax_ignore" id="writing-your-controller">
 <h1>Writing Your Controller<a class="headerlink" href="#writing-your-controller" title="Link to this heading">¶</a></h1>
 <p>Each participant must implement their control algorithm in a Python file (by default, <code class="docutils literal notranslate"><span class="pre">my_controller.py</span></code>).
-This file defines the control strategy executed by the WAPPAC simulator.</p>
-<p>The controller’s goal is to <strong>maximize</strong> the performance index <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> over the <strong>scoring interval</strong> <span class="math notranslate nohighlight">\(t \in [T_0, t_{end}]\)</span> by defining the control force <span class="math notranslate nohighlight">\(F_{pto}(t)\)</span> appropriately for <strong>all three sea-state scenarios</strong>:</p>
+This file defines the control strategy implemented by the simulation.</p>
+<p>Recall that the objective of your controller is to maximize <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> over the <strong>scoring interval</strong> <span class="math notranslate nohighlight">\(t \in [T_0, t_{end}]\)</span> by defining the control force <span class="math notranslate nohighlight">\(F_{pto}(t)\)</span> appropriately for <strong>all three predefined sea state scenarios</strong>:</p>
 <div class="math notranslate nohighlight">
 \[\max_{F_{pto}(t)} \; \mathcal{G}\!\left(F_{pto}(t); t \in [T_0,t_{end}] \right) 
 = \frac{\bar{P}_{pto}}
@@ -163,19 +155,19 @@ This file defines the control strategy executed by the WAPPAC simulator.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\text{s.t.}&amp; \quad \text{WavePiston dynamics,} \quad \\
 &amp; \quad p_{pto}(t) = F_{pto}(t) \dot{x}(t) \ge 0 \quad \forall t \in [t_{init},t_{end}]\end{split}\]</div>
-<p>For more details, see <a class="reference internal" href="../model_control/control_problem.html"><span class="std std-doc">Control Problem Definition</span></a>.</p>
+<p>For more details, refer to <a class="reference internal" href="../model_control/control_problem.html"><span class="std std-doc">Control Problem Definition</span></a>.</p>
 <hr class="docutils" />
 <section id="controller-function-interface">
 <h2>Controller Function Interface<a class="headerlink" href="#controller-function-interface" title="Link to this heading">¶</a></h2>
 <p>Your controller must define the following function:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">my_controller</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">eta10</span><span class="p">):</span>
-    <span class="c1"># Your control logic here defining F_pto for the current time-step</span>
+    <span class="c1"># Your control logic here</span>
     <span class="k">return</span> <span class="n">F_pto</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You may rename the Python file differently, but the function name <strong>must</strong> remain <code class="docutils literal notranslate"><span class="pre">my_controller</span></code>.</p>
+<p>You may rename the Python file, but the function name <strong>must</strong> be <code class="docutils literal notranslate"><span class="pre">my_controller</span></code>.</p>
 </div>
 <section id="function-arguments">
 <h3>Function Arguments<a class="headerlink" href="#function-arguments" title="Link to this heading">¶</a></h3>
@@ -223,218 +215,107 @@ This file defines the control strategy executed by the WAPPAC simulator.</p>
 </tbody>
 </table>
 </section>
-</section>
-<hr class="docutils" />
-<section id="using-external-packages">
-<h2>Using External Packages<a class="headerlink" href="#using-external-packages" title="Link to this heading">¶</a></h2>
-<p>Participants may include <strong>custom or third-party Python packages</strong> by placing them in the dedicated folder:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>WAPPAC_distribution/
-├── my_controller.py
-├── external_packages/
-│   └── [your custom packages here]
-</pre></div>
-</div>
-<blockquote>
-<div><p><strong>Important:</strong>
-The folder name must remain exactly <code class="docutils literal notranslate"><span class="pre">external_packages/</span></code>.
-WAPPAC automatically searches this directory at runtime to make its contents importable by your controller.</p>
-</div></blockquote>
-<section id="installing-a-custom-package-locally">
-<h3>Installing a Custom Package Locally<a class="headerlink" href="#installing-a-custom-package-locally" title="Link to this heading">¶</a></h3>
-<p>You can install a package directly into the <code class="docutils literal notranslate"><span class="pre">external_packages</span></code> folder:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--target<span class="w"> </span>./external_packages<span class="w"> </span>control
-</pre></div>
-</div>
-<p>This installs the package (e.g. <code class="docutils literal notranslate"><span class="pre">control</span></code>) locally without requiring system-wide installation.
-You can then import it normally:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">control</span>  <span class="c1"># loaded from external_packages</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">my_controller</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">eta10</span><span class="p">):</span>
-    <span class="c1"># Control logic using the &#39;control&#39; package</span>
-    <span class="k">return</span> <span class="n">F_pto</span>
-</pre></div>
-</div>
-<p>If your controller depends on additional packages, include a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file in your submission.
-See <a class="reference internal" href="#./submission.md"><span class="xref myst">Submission Guidelines</span></a> for details.</p>
-</section>
-</section>
-<hr class="docutils" />
-<section id="including-auxiliary-controller-modules">
-<h2>Including Auxiliary Controller Modules<a class="headerlink" href="#including-auxiliary-controller-modules" title="Link to this heading">¶</a></h2>
-<p>If your implementation uses additional local modules (other Python scripts), include them alongside <code class="docutils literal notranslate"><span class="pre">my_controller.py</span></code>.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>A dedicated folder named <code class="docutils literal notranslate"><span class="pre">control_helpers/</span></code> (or similar) is optional but <strong>strongly encouraged</strong> to organize all auxiliary controller-related files (e.g., parameter definitions, sub-functions, or model abstractions).</p>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>WAPPAC_distribution/
-├── external_packages/
-│   └── [your custom packages here]
-├── my_controller.py
-├── control_helpers/
-    ├── my_filters.py
-    ├── my_optimizer.py
-    └── helper_functions.py
-</pre></div>
-</div>
-<p>All import paths should refer to this folder, e.g.:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">control_helpers.my_filters</span><span class="w"> </span><span class="kn">import</span> <span class="n">moving_average</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">control</span>  <span class="c1"># loaded from external_packages</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">my_controller</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">eta10</span><span class="p">):</span>
-    <span class="c1"># Control logic using the &#39;control&#39; package and &#39;my_filters&#39; module</span>
-    <span class="k">return</span> <span class="n">F_pto</span>
-</pre></div>
-</div>
-<p>Make sure all file paths and imports are <strong>relative</strong> and <strong>self-contained</strong> — <strong>no absolute or OS-specific paths</strong> or <strong>online resources</strong> should be present.</p>
-</section>
-<hr class="docutils" />
 <section id="allowed-and-restricted-features">
-<h2>Allowed and Restricted Features<a class="headerlink" href="#allowed-and-restricted-features" title="Link to this heading">¶</a></h2>
-<p>The controller executes inside a controlled runtime to ensure <strong>safety, fairness, and reproducibility</strong> across participants.
-The environment is intentionally simple and deterministic, but still flexible for control design.</p>
-<section id="allowed">
-<h3>✅ Allowed<a class="headerlink" href="#allowed" title="Link to this heading">¶</a></h3>
-<ul>
-<li><p>Standard Python syntax, arithmetic, and logical operations.</p></li>
-<li><p>Imports from:</p>
-<ul>
-<li><p>Core Python libraries (<code class="docutils literal notranslate"><span class="pre">math</span></code>, <code class="docutils literal notranslate"><span class="pre">json</span></code>, <code class="docutils literal notranslate"><span class="pre">random</span></code>, <code class="docutils literal notranslate"><span class="pre">os</span></code>, etc.).</p></li>
-<li><p>Common scientific libraries — the following are already <strong>bundled inside WAPPAC binaries</strong>, so there is <strong>no need</strong> to re-install them:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>torch==2.8.0+cpu  
-torchdiffeq==0.2.5  
-numpy==2.3.3  
-scipy==1.16.2  
-matplotlib==3.10.6
-</pre></div>
-</div>
-</li>
-</ul>
-</li>
-<li><p>Additional <strong>pure-Python</strong> modules placed in <code class="docutils literal notranslate"><span class="pre">external_packages/</span></code>, provided they:</p>
+<h3>Allowed and Restricted Features<a class="headerlink" href="#allowed-and-restricted-features" title="Link to this heading">¶</a></h3>
+<p>When submitting your controller file (e.g. <code class="docutils literal notranslate"><span class="pre">my_controller.py</span></code>), the simulation platform automatically validates and executes it in a <strong>restricted environment</strong> to ensure fair, deterministic, and safe operation during the competition.</p>
+<p>The controller file:</p>
+<p>✅ <strong>Can include</strong></p>
 <ul class="simple">
-<li><p>do not rely on GPU computation or system-level privileges, and</p></li>
-<li><p>run fully offline (no internet access required).</p></li>
+<li><p>Standard Python syntax, numerical operations, and logical flow.</p></li>
+<li><p>Use of built-in libraries such as <code class="docutils literal notranslate"><span class="pre">math</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, or lightweight numerical utilities.</p></li>
+<li><p>Internal helper functions, state variables, or simple data structures (lists, arrays, etc.).</p></li>
+<li><p>Optional pre-defined constants or initialization at the top of the file.</p></li>
 </ul>
-</li>
-<li><p>Internal helper functions, persistent variables (within a single run), and lightweight data structures.</p></li>
-<li><p>Optional initialization or pre-computed constants at file start.</p></li>
+<p>🚫 <strong>Cannot include</strong></p>
+<ul class="simple">
+<li><p>Any file input/output operations (e.g. <code class="docutils literal notranslate"><span class="pre">open()</span></code>, reading or writing external data).</p></li>
+<li><p>Imports of external packages not provided in the simulation environment.</p></li>
+<li><p>Network access, subprocess calls, or operating system interactions.</p></li>
+<li><p>Dynamic imports, multithreading, multiprocessing, or GPU usage.</p></li>
+<li><p>Persistent data storage between runs — each simulation run is independent.</p></li>
 </ul>
-</section>
-<hr class="docutils" />
-<section id="restricted-and-why">
-<h3>⚠️ Restricted (and why)<a class="headerlink" href="#restricted-and-why" title="Link to this heading">¶</a></h3>
-<p>Restrictions are minimal and guided by the underlying WAPPAC simulation platform design.
-They are intended to guarantee consistent benchmarking rather than limit creativity! If you believe a reasonable use case requires exception, please contact the WAPPAC support team (see <a class="reference internal" href="#./support_contact.md"><span class="xref myst">Support &amp; Contact</span></a>).</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Restriction</p></th>
-<th class="head"><p>Technical Rationale</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>External file I/O</strong> (beyond the provided folders)</p></td>
-<td><p>Keeps results reproducible. All input/output should occur through <code class="docutils literal notranslate"><span class="pre">my_sim_input_file.json</span></code>, <code class="docutils literal notranslate"><span class="pre">sim_out/</span></code>, or the evaluation output directory.</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>GPU or CUDA calls</strong></p></td>
-<td><p>Evaluations run on CPU for reproducibility and cross-platform consistency. The bundled Torch build is CPU-only.</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>External network or API calls</strong> (HTTP, sockets, etc.)</p></td>
-<td><p>Ensures offline, deterministic, and fair evaluation. Official evaluation re-runs will be executed in a network-isolated environment; any code relying on networks will fail or be rejected. This is a <strong>policy + operational</strong> restriction.</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Dynamic package installation during runtime</strong> (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> etc.)</p></td>
-<td><p>While participants <em>can</em> include extra packages in <code class="docutils literal notranslate"><span class="pre">external_packages/</span></code>, installing or downloading new ones <em>at runtime</em> is discouraged to preserve reproducibility and avoid dependency drift.</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>Modification of internal WAPPAC modules</strong></p></td>
-<td><p>Physics models, solvers, and evaluation logic are locked to ensure all participants run under identical conditions.</p></td>
-</tr>
-</tbody>
-</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your controller must be fully self-contained and deterministic.<br />
+It should rely only on the inputs provided by the simulation platform (<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">v</span></code>, <code class="docutils literal notranslate"><span class="pre">t</span></code>, <code class="docutils literal notranslate"><span class="pre">eta10</span></code>).</p>
+</div>
+<p>This ensures that all controllers are executed under identical computational conditions and that the comparison between participants remains consistent and reproducible.</p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="key-controller-design-considerations">
 <h2>Key Controller Design Considerations<a class="headerlink" href="#key-controller-design-considerations" title="Link to this heading">¶</a></h2>
-<p>Participants should consider the following aspects when developing their control law.
-See related documentation for more detail.</p>
+<p>Some important considerations for participants when defining their controller are summarized below, however, participants are encouraged to explore the full details in the corresponding sections in this documentation.
+For convenience, the key time intervals are also illustrated again in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig_startup_int_vs_scoring_int_writing_controller</span></code>:</p>
 <figure class="align-center" id="fig-startup-int-vs-scoring-int-writing-controller">
 <a class="reference internal image-reference" href="../_images/startup_int_vs_scoring_int.png"><img alt="../_images/startup_int_vs_scoring_int.png" src="../_images/startup_int_vs_scoring_int.png" style="width: 100%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 10 </span><span class="caption-text">Key time intervals for performance evaluation.</span><a class="headerlink" href="#fig-startup-int-vs-scoring-int-writing-controller" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Key time intervals for the performance index evaluation.</span><a class="headerlink" href="#fig-startup-int-vs-scoring-int-writing-controller" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <section id="controller-definition">
 <h3>Controller Definition<a class="headerlink" href="#controller-definition" title="Link to this heading">¶</a></h3>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Your control law (<code class="docutils literal notranslate"><span class="pre">my_controller</span></code>) must be defined for the <strong>entire simulation duration</strong> (<span class="math notranslate nohighlight">\(t \ge 0\)</span>), even though the performance index is computed only during the scoring interval.</p>
+<p><strong>Your control</strong> implementation (<code class="docutils literal notranslate"><span class="pre">my_controller</span></code> function) <strong>must</strong> be defined for the <strong>full simulation time span</strong> (<span class="math notranslate nohighlight">\(t\geq0\)</span>), regardless of whether the performance index is only evaluated along the scoring interval.</p>
 </div>
+<p>For more details, refer to <a class="reference internal" href="../model_control/control_problem.html"><span class="std std-doc">Control Problem Definition</span></a>.</p>
 </section>
 <section id="evaluation-criteria">
 <h3>Evaluation Criteria<a class="headerlink" href="#evaluation-criteria" title="Link to this heading">¶</a></h3>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ul class="simple">
-<li><p><strong>Performance Index (<span class="math notranslate nohighlight">\(\mathcal{G}\)</span>):</strong> evaluated during the scoring interval (<span class="math notranslate nohighlight">\(t \ge T_0 = 30\)</span> s).</p></li>
-<li><p><strong>Passivity constraint:</strong> <span class="math notranslate nohighlight">\(p_{pto} \ge 0\)</span> must hold for the full simulation.</p></li>
+<li><p><strong>Performance Index (<span class="math notranslate nohighlight">\(\mathcal{G}\)</span>):</strong> evaluated during the <strong>scoring interval</strong> (<span class="math notranslate nohighlight">\(t \geq T_0 = 30\)</span> s).</p></li>
+<li><p><strong>Passivity constraint:</strong> <span class="math notranslate nohighlight">\(p_{pto} \geq 0\)</span> must hold at all times over the <strong>full simulation duration</strong> (<span class="math notranslate nohighlight">\(t \geq 0\)</span>).</p></li>
 </ul>
 </div>
-<p>See <a class="reference internal" href="../rules_eval_criteria.html"><span class="std std-doc">Evaluation Criteria &amp; Competition Rules</span></a> for a complete description.</p>
+<p>For a complete self-contained description of the performance index, refer to <a class="reference internal" href="../rules_eval_criteria.html"><span class="std std-doc">Evaluation Criteria &amp; Competition Rules</span></a>.</p>
 </section>
-<hr class="docutils" />
-<section id="evaluation-mode-controller-adaptation-requirement">
-<h3>Evaluation Mode — Controller Adaptation Requirement<a class="headerlink" href="#evaluation-mode-controller-adaptation-requirement" title="Link to this heading">¶</a></h3>
-<p>During <strong>Evaluation Mode</strong> (<code class="docutils literal notranslate"><span class="pre">eval_flag</span> <span class="pre">=</span> <span class="pre">true</span></code>), the WAPPAC platform executes the <strong>three official sea-state scenarios</strong> (<code class="docutils literal notranslate"><span class="pre">wave_id</span> <span class="pre">=</span> <span class="pre">1–3</span></code>) in a <strong>aleatory order</strong>.
-Controllers <strong>do not receive any prior information</strong> about which sea state is being simulated and should therefore adapt adequately to the prevailing conditions.</p>
-<p>Participants are encouraged to verify controller robustness under unknown sea states by running equivalent randomized tests in <strong>development mode</strong> (<code class="docutils literal notranslate"><span class="pre">eval_flag</span> <span class="pre">=</span> <span class="pre">false</span></code>).
-This capability is essential for achieving a consistent and high performance index across all evaluation cases.</p>
-</section>
-<hr class="docutils" />
 <section id="startup-ramp">
 <h3>Startup Ramp<a class="headerlink" href="#startup-ramp" title="Link to this heading">¶</a></h3>
-<p>The <strong>wave excitation force</strong> is introduced smoothly through a raised-cosine ramp:</p>
+<p>The <strong>wave excitation force</strong> is gradually introduced via a smooth raised-cosine ramp:</p>
 <div class="math notranslate nohighlight">
 \[ramp(t) = 0.5 \left[ 1 - \cos\!\left(\frac{\pi t}{T_{ramp}}\right) \right]\]</div>
-<p>where <span class="math notranslate nohighlight">\(ramp(T_{ramp}=20)=1\)</span>. Refer to <a class="reference internal" href="#./numerical_implementation.md"><span class="xref myst">Numerical Implementation</span></a> for further details.</p>
+<p>where <span class="math notranslate nohighlight">\(ramp(T_{ramp}=20) = 1\)</span>.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Ramp duration is fixed to <span class="math notranslate nohighlight">\(\mathbf{T_{ramp}} = 20\)</span> s for all simulations across the three sea states scenarios.</p>
+<p>Ramp duration is <span class="math notranslate nohighlight">\(\mathbf{T_{ramp}} = 20\)</span> seconds for all simulation runs.</p>
 </div>
+<p>For further details on the ramp implementation refer to <a class="reference internal" href="../model_control/numerical_implementation.html"><span class="std std-doc">Numerical Implementation</span></a>.</p>
 </section>
-<hr class="docutils" />
-<section id="control-update-scheme-zero-order-hold">
-<h3>Control Update Scheme (Zero-Order Hold)<a class="headerlink" href="#control-update-scheme-zero-order-hold" title="Link to this heading">¶</a></h3>
-<p>The control force is updated at the beginning of each <strong>simulation time step</strong> (<span class="math notranslate nohighlight">\(\Delta t = 0.05\ \text{s}\)</span>).
-Internally, the solver performs <strong>Runge–Kutta (RK4)</strong> sub-steps while holding the control force constant (Zero-Order Hold).
-See <a class="reference internal" href="../model_control/numerical_implementation.html"><span class="std std-doc">WavePiston Dynamics Numerical Integration</span></a> for implementation details.</p>
+<section id="control-update-scheme-zero-order-hold-zoh">
+<h3>Control Update Scheme (Zero-Order Hold, ZOH)<a class="headerlink" href="#control-update-scheme-zero-order-hold-zoh" title="Link to this heading">¶</a></h3>
+<p>Control force is updated at the simulation time step <span class="math notranslate nohighlight">\((\Delta t=0.05 \; \text{s})\)</span>. However, internally the solver takes sub-steps in which control force is held constant (see <a class="reference internal" href="../model_control/numerical_implementation.html"><span class="std std-doc">Numerical Implementation</span></a> for details).</p>
 </section>
-<hr class="docutils" />
 <section id="handling-up-wave-data-eta10">
 <h3>Handling Up-Wave Data (<code class="docutils literal notranslate"><span class="pre">eta10</span></code>)<a class="headerlink" href="#handling-up-wave-data-eta10" title="Link to this heading">¶</a></h3>
-<p>The signal <code class="docutils literal notranslate"><span class="pre">eta10</span></code> (10 m up-wave surface elevation) is available <strong>only during the scoring interval</strong>.
-For <span class="math notranslate nohighlight">\(t &lt; 30\)</span> s, <code class="docutils literal notranslate"><span class="pre">eta10</span></code> = <code class="docutils literal notranslate"><span class="pre">NaN</span></code>. Your controller must handle this robustly.</p>
+<p>Up-wave measurement is only available during the <strong>scoring interval</strong>. For times <strong>before the scoring interval</strong> (<span class="math notranslate nohighlight">\(t &lt; 30\)</span> s), the up-wave signal <code class="docutils literal notranslate"><span class="pre">eta10</span></code> is set to <strong>NaN</strong>.
+Your controller must handle these values robustly, e.g., bypassing up-wave measurement when the measurement is unavailable.</p>
 <p>Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">my_controller</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">eta10</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">my_controller</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">eta10</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">eta10</span><span class="p">):</span>
         <span class="c1"># Optional preview or estimation logic</span>
         <span class="k">pass</span>
-    <span class="c1"># Example: proportional-velocity control</span>
+    <span class="c1"># Example: simple proportional velocity control</span>
     <span class="n">F_pto</span> <span class="o">=</span> <span class="mf">1e6</span> <span class="o">*</span> <span class="n">v</span>
     <span class="k">return</span> <span class="n">F_pto</span>
 </pre></div>
 </div>
 </section>
-</section>
 <hr class="docutils" />
 <section id="summary">
-<h2>✅ Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h3>✅ Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Implement your control in a Python function named <code class="docutils literal notranslate"><span class="pre">my_controller</span></code>.</p></li>
-<li><p>Ensure numerical stability and satisfaction of the <strong>passivity constraint</strong> (<span class="math notranslate nohighlight">\(p_{pto} \ge 0\)</span>) throughout the full simulation time span.</p></li>
-<li><p>Use the provided inputs (<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">v</span></code>, <code class="docutils literal notranslate"><span class="pre">t</span></code>, <code class="docutils literal notranslate"><span class="pre">eta10</span></code>) for designing your control law.</p></li>
-<li><p>External packages may be included via <code class="docutils literal notranslate"><span class="pre">external_packages/</span></code> and a list of them submitted later as <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p></li>
-<li><p>The controller should adapt effectively to the <strong>three sea-state scenarios</strong> simulated in aleatory order during evaluation mode.</p></li>
+<li><p>Implement your control law in a Python function named <code class="docutils literal notranslate"><span class="pre">my_controller</span></code>.</p></li>
+<li><p>Ensure the controller is <strong>operational and numerically stable</strong> for the full simulation duration.</p></li>
+<li><p>Respect the <strong>passivity constraint</strong> (<span class="math notranslate nohighlight">\(p_{pto} \geq 0\)</span>) at all times.</p></li>
+<li><p>Use the provided inputs (<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">v</span></code>, <code class="docutils literal notranslate"><span class="pre">t</span></code>, <code class="docutils literal notranslate"><span class="pre">eta10</span></code>) appropriately.</p></li>
 </ul>
+</section>
 </section>
 </section>
 
@@ -456,28 +337,18 @@ For <span class="math notranslate nohighlight">\(t &lt; 30\)</span> s, <code cla
 <li><a class="reference internal" href="#controller-function-interface">Controller Function Interface</a><ul>
 <li><a class="reference internal" href="#function-arguments">Function Arguments</a></li>
 <li><a class="reference internal" href="#function-output">Function Output</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#using-external-packages">Using External Packages</a><ul>
-<li><a class="reference internal" href="#installing-a-custom-package-locally">Installing a Custom Package Locally</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#including-auxiliary-controller-modules">Including Auxiliary Controller Modules</a></li>
-<li><a class="reference internal" href="#allowed-and-restricted-features">Allowed and Restricted Features</a><ul>
-<li><a class="reference internal" href="#allowed">✅ Allowed</a></li>
-<li><a class="reference internal" href="#restricted-and-why">⚠️ Restricted (and why)</a></li>
+<li><a class="reference internal" href="#allowed-and-restricted-features">Allowed and Restricted Features</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#key-controller-design-considerations">Key Controller Design Considerations</a><ul>
 <li><a class="reference internal" href="#controller-definition">Controller Definition</a></li>
 <li><a class="reference internal" href="#evaluation-criteria">Evaluation Criteria</a></li>
-<li><a class="reference internal" href="#evaluation-mode-controller-adaptation-requirement">Evaluation Mode — Controller Adaptation Requirement</a></li>
 <li><a class="reference internal" href="#startup-ramp">Startup Ramp</a></li>
-<li><a class="reference internal" href="#control-update-scheme-zero-order-hold">Control Update Scheme (Zero-Order Hold)</a></li>
+<li><a class="reference internal" href="#control-update-scheme-zero-order-hold-zoh">Control Update Scheme (Zero-Order Hold, ZOH)</a></li>
 <li><a class="reference internal" href="#handling-up-wave-data-eta10">Handling Up-Wave Data (<code class="docutils literal notranslate"><span class="pre">eta10</span></code>)</a></li>
+<li><a class="reference internal" href="#summary">✅ Summary</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#summary">✅ Summary</a></li>
 </ul>
 </li>
 </ul>
@@ -492,14 +363,9 @@ For <span class="math notranslate nohighlight">\(t &lt; 30\)</span> s, <code cla
         <div class="button_nav">
             <div class="left">
                 
-                <a href="sim_input.html">
-                    <span class="icon">&lt;</span><span>Simulation Input File</span></a>
-                
             </div>
 
             <div class="right">
-                
-                    <a href="running_outputs.html"><span>Running Simulations &amp; Understanding Outputs</span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>

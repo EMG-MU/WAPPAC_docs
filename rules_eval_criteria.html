@@ -192,7 +192,8 @@ s.t.&amp; \qquad \text{WavePiston dynamics,} \\
 <hr class="docutils" />
 <section id="participants-final-competition-score">
 <h3>Participant’s Final Competition Score<a class="headerlink" href="#participants-final-competition-score" title="Link to this heading">¶</a></h3>
-<p>Each of the three predefined sea states is evaluated independently, producing scores <span class="math notranslate nohighlight">\(\mathcal{G}_1\)</span>, <span class="math notranslate nohighlight">\(\mathcal{G}_2\)</span>, and <span class="math notranslate nohighlight">\(\mathcal{G}_3\)</span>. The <strong>final competition score</strong> is computed as:</p>
+<p>Each of the three predefined sea states is evaluated independently, producing scores <span class="math notranslate nohighlight">\(\mathcal{G}_1\)</span>, <span class="math notranslate nohighlight">\(\mathcal{G}_2\)</span>, and <span class="math notranslate nohighlight">\(\mathcal{G}_3\)</span>.
+The <strong>final competition score</strong> is computed as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-perf-index-total">
 <span class="eqno">(3)<a class="headerlink" href="#equation-eq-perf-index-total" title="Link to this equation">¶</a></span>\[\mathcal{G}_{\text{total}} \;=\; \mathcal{G}_1 \;+\; \mathcal{G}_2 \;+\; \mathcal{G}_3\]</div>
 <p>The participant achieving the highest <span class="math notranslate nohighlight">\(\mathcal{G}_{\text{total}}\)</span> will be declared the <strong>winner of the WAPPAC Competition</strong>.
@@ -205,34 +206,35 @@ In case of a <strong>tie</strong>, the organizers may apply secondary criteria s
 <ol class="arabic simple">
 <li><p><strong>Evaluation Mode &amp; Reproducibility</strong></p>
 <ul class="simple">
-<li><p>Final evaluation is performed by setting <code class="docutils literal notranslate"><span class="pre">eval_flag</span> <span class="pre">=</span> <span class="pre">true</span></code> in <code class="docutils literal notranslate"><span class="pre">my_sim_input_file.json</span></code> (refer to <a class="reference internal" href="simulation_platform/sim_input.html"><span class="std std-doc">Simulation Input File</span></a>).
-This sequentially generates three <strong>encrypted</strong> <code class="docutils literal notranslate"><span class="pre">.enc</span></code> files (one per sea state) corresponding to the official evaluation runs.
-Performance indices are computed according to <a class="reference internal" href="#equation-eq-perf-index-total">(3)</a> and the rules in this section.</p></li>
-<li><p>The three encrypted outputs produced in Evaluation Mode are the <strong>official submission files</strong>.
-Participants must submit these files along with all items listed in <a class="reference internal" href="submission.html"><span class="std std-doc"><strong>Submission Guidelines</strong></span></a>.</p></li>
-<li><p>The <strong>COER team will re-run</strong> each participant’s controller on the <strong>official WAPPAC simulation platform</strong>, using identical numerical solvers, hydrodynamic models, and fixed seeds.
+<li><p>Final evaluation is performed by setting <code class="docutils literal notranslate"><span class="pre">eval_flag</span> <span class="pre">=</span> <span class="pre">true</span></code> in <code class="docutils literal notranslate"><span class="pre">my_sim_input_file.json</span></code> (see <a class="reference internal" href="simulation_platform/sim_input.html"><span class="std std-doc">Simulation Input File</span></a>).
+This automatically executes all three <strong>official sea-state scenarios</strong> in a <strong>randomized order</strong>, each using fixed internal seeds.
+The controller is not informed of which scenario is active and must therefore adapt its response accordingly.</p></li>
+<li><p>The process generates three <strong>encrypted output files</strong> (one per sea state) in the <code class="docutils literal notranslate"><span class="pre">evaluation_outputs/</span></code> directory.
+These files are the <strong>official submission</strong>.</p></li>
+<li><p>The <strong>COER team will re-run</strong> each participant’s controller using the <strong>official WAPPAC simulation platform</strong>, under identical solvers, hydrodynamic models, and conditions.
 This ensures <strong>reproducibility and fairness</strong> across all submissions.</p></li>
-<li><p>Any missing, non-functional, or non-reproducible controller for a given sea state will result in exclusion of that sea state’s score <span class="math notranslate nohighlight">\(\mathcal{G}_i\)</span> from the total <span class="math notranslate nohighlight">\(\mathcal{G}_{\text{total}}\)</span>.
-If fewer than three valid evaluations are obtained, only valid ones are counted — however, <strong>incomplete submissions may be deemed invalid</strong> at the organizers’ discretion.</p></li>
+<li><p>Any missing, non-functional, or non-reproducible controller for a given sea state will result in the <strong>exclusion</strong> of that sea state’s score <span class="math notranslate nohighlight">\(\mathcal{G}_i\)</span> from <span class="math notranslate nohighlight">\(\mathcal{G}_{\text{total}}\)</span>.
+Therefore, only valid evaluations are counted, however, incomplete submissions may be deemed invalid at the organizers’ discretion.</p></li>
 </ul>
 </li>
 <li><p><strong>Passivity (Hard) Constraint Handling</strong></p>
 <ul class="simple">
 <li><p>The PTO power must remain <strong>non-negative</strong> throughout the entire simulation:
-<span class="math notranslate nohighlight">\(p_{pto}(t) = F_{pto}(t)\dot{x}(t) \ge 0 \, \forall t\)</span>.</p></li>
-<li><p>Any violation of this constraint leads to <strong>exclusion</strong> of the affected sea state score <span class="math notranslate nohighlight">\(\mathcal{G}_i\)</span> from the total <span class="math notranslate nohighlight">\(\mathcal{G}_{\text{total}}\)</span>.</p></li>
+<span class="math notranslate nohighlight">\(p_{pto}(t) = F_{pto}(t)\dot{x}(t) \ge 0 \; \forall t\)</span>.</p></li>
+<li><p>Any violation of this constraint leads to <strong>exclusion</strong> of the affected sea-state score <span class="math notranslate nohighlight">\(\mathcal{G}_i\)</span> from the total <span class="math notranslate nohighlight">\(\mathcal{G}_{\text{total}}\)</span>.</p></li>
 </ul>
 </li>
 <li><p><strong>Position and Force (Soft) Constraints Handling</strong></p>
 <ul class="simple">
 <li><p>Position and PTO force limits are treated as <strong>soft constraints</strong>.
-Occasional exceedances are permitted but penalized through reduced <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> values (see <a class="reference internal" href="model_control/control_problem.html"><span class="std std-doc"><strong>Control Problem Definition</strong></span></a>).</p></li>
+Occasional exceedances are permitted but penalized within <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> (see <a class="reference internal" href="model_control/control_problem.html"><span class="std std-doc"><strong>Control Problem Definition</strong></span></a>).</p></li>
 </ul>
 </li>
 <li><p><strong>Integrity and Evaluation Environment</strong></p>
 <ul class="simple">
-<li><p>All evaluations are performed on the <strong>official WAPPAC simulation platform</strong> provided in this documentation.
-These ensure identical simulation conditions for all participants.</p></li>
+<li><p>All evaluations are executed on the <strong>official, precompiled WAPPAC binaries</strong>, which run in a <strong>network-isolated, CPU-only environment</strong>.
+Internet access, external API calls, or runtime package installations are not permitted during evaluation.
+Any attempt to perform such actions will cause evaluation failure. Controllers must run fully self-contained, and not rely on internet or LAN communication (local function calls or internal APIs are, of course, allowed).</p></li>
 <li><p><strong>No modifications</strong> to the simulation binaries, hydrodynamic model, solver settings, or wave data are permitted.</p></li>
 <li><p>Any attempt to alter or tamper with the simulation platform, inputs, or encrypted outputs constitutes a violation of competition integrity and results in <strong>immediate disqualification and reporting the participant</strong>.</p></li>
 </ul>
@@ -240,7 +242,7 @@ These ensure identical simulation conditions for all participants.</p></li>
 <li><p><strong>Unit System and Conventions</strong></p>
 <ul class="simple">
 <li><p>All physical quantities are expressed in <strong>SI units</strong>.</p></li>
-<li><p>Participants must ensure that their controller implementation adheres to the <strong>variable naming and normalization conventions</strong> defined in the documentation to maintain compatibility and correctness.</p></li>
+<li><p>Participants must ensure their controller adheres to the <strong>variable naming and normalization conventions</strong> defined in the documentation for compatibility and correctness.</p></li>
 </ul>
 </li>
 </ol>
@@ -256,22 +258,28 @@ These ensure identical simulation conditions for all participants.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-left"><p><strong>Objective</strong></p></td>
-<td class="text-left"><p>Maximize the performance index <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> across three predefined sea-state scenarios</p></td>
+<td class="text-left"><p>Maximize the performance index <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> across three sea-state scenarios</p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p><strong>Scoring</strong></p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(\mathcal{G}_{\text{total}} = \mathcal{G}_1 + \mathcal{G}_2 + \mathcal{G}_3\)</span></p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p><strong>Hard Constraint</strong></p></td>
-<td class="text-left"><p><span class="math notranslate nohighlight">\(p_{pto}(t) = F_{pto}(t)\dot{x}(t) \ge 0\)</span> — violations <strong>disqualify</strong> corresponding sea state run</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(p_{pto}(t) = F_{pto}(t)\dot{x}(t) \ge 0\)</span> — violations <strong>disqualify</strong> the corresponding run</p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p><strong>Soft Constraints</strong></p></td>
-<td class="text-left"><p>Position and force limits are penalized within <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> (occasional violations permitted)</p></td>
+<td class="text-left"><p>Position and force limits are penalized within <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> (occasional exceedances allowed)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Evaluation Order</strong></p></td>
+<td class="text-left"><p>Sea states are simulated in <strong>aleatory order</strong> during <code class="docutils literal notranslate"><span class="pre">eval_flag</span> <span class="pre">=</span> <span class="pre">true</span></code>; controller should be able to adapt.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Environment</strong></p></td>
+<td class="text-left"><p>Offline, CPU-only; <strong>no network/API access or runtime installs</strong> allowed during evaluation.</p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p><strong>Reproducibility</strong></p></td>
-<td class="text-left"><p>Organizers re-run controllers under identical conditions using the official WAPPAC platform</p></td>
+<td class="text-left"><p>Organizers will re-run controllers using the official WAPPAC binaries under fixed conditions</p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p><strong>Fairness</strong></p></td>
-<td class="text-left"><p>All evaluations executed on uniform software, and sea-state datasets</p></td>
+<td class="text-left"><p>All participants evaluated under identical physics, solvers, and wave data</p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p><strong>Units</strong></p></td>
 <td class="text-left"><p>All variables and parameters expressed in <strong>SI units</strong></p></td>

@@ -143,10 +143,11 @@
             
   <section class="tex2jax_ignore mathjax_ignore" id="submission-guidelines">
 <h1>Submission Guidelines<a class="headerlink" href="#submission-guidelines" title="Link to this heading">¶</a></h1>
-<p>Participants must submit the following items via the official competition portal:
-<strong><a class="reference internal" href="#"><span class="xref myst">Link to Submission Portal will be provided HERE soon…</span></a></strong></p>
+<p>Participants must submit the following items via the official competition portal:<br />
+<strong><a class="reference internal" href="#"><span class="xref myst">🔗 Link to Submission Portal will be provided here soon…</span></a></strong></p>
+<hr class="docutils" />
 <section id="submission-checklist">
-<h2>Submission Checklist<a class="headerlink" href="#submission-checklist" title="Link to this heading">¶</a></h2>
+<h2>✅ <strong>Submission Checklist</strong><a class="headerlink" href="#submission-checklist" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
@@ -154,56 +155,190 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>🔒 <strong>Encrypted files</strong></p></td>
-<td><p>Three <code class="docutils literal notranslate"><span class="pre">.enc</span></code> files from <code class="docutils literal notranslate"><span class="pre">evaluation_outputs/</span></code></p></td>
+<tr class="row-even"><td><p>🔒 <strong>Encrypted output files</strong></p></td>
+<td><p>The three <code class="docutils literal notranslate"><span class="pre">.enc</span></code> files from <code class="docutils literal notranslate"><span class="pre">evaluation_outputs/</span></code>, obtained after running your controller in <strong>Evaluation Mode</strong> (<code class="docutils literal notranslate"><span class="pre">eval_flag=true</span></code>).</p></td>
 </tr>
 <tr class="row-odd"><td><p>🧠 <strong>Controller script</strong></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">my_controller.py</span></code> (plus any auxiliary scripts, if needed)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">my_controller.py</span></code> (and any additional helper modules placed under <code class="docutils literal notranslate"><span class="pre">control_helpers/</span></code>).</p></td>
 </tr>
 <tr class="row-even"><td><p>📄 <strong>Controller report</strong></p></td>
-<td><p>Summary document describing your control strategy</p></td>
+<td><p>A concise document describing your control strategy and main design choices.</p></td>
 </tr>
-<tr class="row-odd"><td><p>📦 <strong>Self-contained</strong></p></td>
-<td><p>All files necessary for reproducibility are included</p></td>
+<tr class="row-odd"><td><p>📋 <strong>requirements.txt</strong></p></td>
+<td><p>List of <strong>any additional pure-Python packages</strong> used by your controller (see details below).</p></td>
+</tr>
+<tr class="row-even"><td><p>🔁 <strong>Self-contained submission</strong></p></td>
+<td><p>All items necessary for reproducibility must be included — except large package folders.</p></td>
 </tr>
 </tbody>
 </table>
-<hr class="docutils" />
 </section>
+<section id="recommended-submission-structure">
+<h2>📁 Recommended Submission Structure<a class="headerlink" href="#recommended-submission-structure" title="Link to this heading">¶</a></h2>
+<p>Please see the following example structure for submission:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>submission_package/
+├── my_controller.py
+├── control_helpers/
+│   ├── my_filters.py
+│   ├── my_optimizer.py
+│   └── helper_functions.py
+├── requirements.txt
+├── controller_report.pdf
+└── evaluation_outputs/
+    ├── waveID_1_2026_02_10_12_48_compressed.enc.enc
+    ├── waveID_2_2026_02_10_12_48_compressed.enc.enc
+    └── waveID_3_2026_02_10_12_48_compressed.enc.enc
+</pre></div>
+</div>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>File/Folder</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">my_controller.py</span></code></p></td>
+<td><p>Main controller script — entry point used by WAPPAC to run your control algorithm.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">control_helpers/</span></code></p></td>
+<td><p>(Optional, recommended) Folder containing auxiliary control-related modules such as filters, optimizers, and utility functions.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></p></td>
+<td><p>List of additional <strong>pure-Python</strong> dependencies (not bundled with WAPPAC). Enables COER team to recreate your environment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">controller_report.pdf</span></code></p></td>
+<td><p>Short report (max ~3 pages) explaining control concept, methodology, and main design decisions.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">evaluation_outputs/</span></code></p></td>
+<td><p>Folder automatically generated after Evaluation Mode runs. Must contain three encrypted <code class="docutils literal notranslate"><span class="pre">.enc</span></code> files (one per sea-state scenario).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">waveID_*.enc</span></code></p></td>
+<td><p>Encrypted output files containing your evaluated performance data. Generated automatically — do not edit manually.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Below you will find detailed descriptions of each item.</p>
+</section>
+<hr class="docutils" />
 <section id="encrypted-evaluation-files">
-<h2>1. Encrypted Evaluation Files<a class="headerlink" href="#encrypted-evaluation-files" title="Link to this heading">¶</a></h2>
-<p>Submit the three encrypted files (<code class="docutils literal notranslate"><span class="pre">.enc</span></code>) generated in your <code class="docutils literal notranslate"><span class="pre">evaluation_outputs/</span></code> directory after running the simulation in <strong>Evaluation Mode</strong> (<code class="docutils literal notranslate"><span class="pre">&quot;eval_flag&quot;:</span> <span class="pre">true</span></code>).
-Each file corresponds to one of the three official sea-state evaluations.</p>
+<h2>1. 🔒 Encrypted Evaluation Files<a class="headerlink" href="#encrypted-evaluation-files" title="Link to this heading">¶</a></h2>
+<p>Submit the three encrypted files (<code class="docutils literal notranslate"><span class="pre">.enc</span></code>) found in your <code class="docutils literal notranslate"><span class="pre">evaluation_outputs/</span></code> directory.<br />
+These files are automatically produced after running the WAPPAC simulator with:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;eval_flag&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</pre></div>
+</div>
+<p>Each file corresponds to one of the <strong>three official sea-state scenarios</strong> used in evaluation.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>All three <code class="docutils literal notranslate"><span class="pre">.enc</span></code> files are required for a valid submission.
-Incomplete submissions may be deemed invalid at the organizers’ discretion.</p>
+<p>All three <code class="docutils literal notranslate"><span class="pre">.enc</span></code> files are required for a valid submission. Incomplete or mismatched outputs when re-running participans’ controllers may be deemed invalid.</p>
 </div>
-<hr class="docutils" />
 </section>
+<hr class="docutils" />
 <section id="controller-script">
-<h2>2. Controller Script<a class="headerlink" href="#controller-script" title="Link to this heading">¶</a></h2>
-<p>Include the final version of your <strong>controller implementation</strong> (e.g., <code class="docutils literal notranslate"><span class="pre">my_controller.py</span></code>) used to produce the encrypted results.</p>
-<p>If your controller depends on additional scripts, configuration files, or helper modules, include <strong>all supporting files</strong> within the same submission package <strong>to ensure full reproducibility</strong>.</p>
-<p>Your submission must be <strong>self-contained</strong> — all files required to reproduce your results must be included.
-The controllers will be <strong>re-executed by the organizers</strong> using the official WAPPAC simulation platform.</p>
-<p>Submissions that cannot reproduce the results encoded in the <code class="docutils literal notranslate"><span class="pre">.enc</span></code> files, or that fail to execute correctly, may be <strong>excluded from evaluation</strong>.</p>
-<hr class="docutils" />
+<h2>2. 🧠 Controller Script<a class="headerlink" href="#controller-script" title="Link to this heading">¶</a></h2>
+<p>Include the final version of your controller script used to generate the encrypted outputs, typically named:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_controller</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>If your implementation uses additional local modules (other Python scripts), include them alongside <code class="docutils literal notranslate"><span class="pre">my_controller.py</span></code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>A dedicated folder named <code class="docutils literal notranslate"><span class="pre">control_helpers/</span></code> (or similar) is optional but <strong>strongly encouraged</strong> to organize all auxiliary controller-related files (e.g., parameter definitions, sub-functions, or model abstractions).</p>
+</div>
+<p>All import paths should refer <strong>only</strong> to this folder, e.g.:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">control_helpers.my_filters</span><span class="w"> </span><span class="kn">import</span> <span class="n">moving_average</span>
+</pre></div>
+</div>
+<p>All file paths and imports should be <strong>relative</strong> and <strong>self-contained</strong> — <strong>no absolute or OS-specific paths</strong> or <strong>online resources</strong>.</p>
+<blockquote>
+<div><p><strong>Note:</strong> Controllers will be re-run on the official WAPPAC simulation platform to verify results under identical conditions.</p>
+</div></blockquote>
 </section>
-<section id="controller-report">
-<h2>3. Controller Report<a class="headerlink" href="#controller-report" title="Link to this heading">¶</a></h2>
-<p>Provide a concise <strong>Controller Report</strong> describing your control strategy.
-The report should include:</p>
+<hr class="docutils" />
+<section id="requirements-file-for-external-packages">
+<h2>3. 📋 Requirements File for External Packages<a class="headerlink" href="#requirements-file-for-external-packages" title="Link to this heading">¶</a></h2>
+<p>If your controller uses <strong>additional Python packages</strong> beyond those bundled with WAPPAC simlation platform,
+you must specify them in a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Do <strong>not upload</strong> the <code class="docutils literal notranslate"><span class="pre">external_packages/</span></code> folder or the actual package source files —
+these can be large and are unnecessary for evaluation.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> allows the COER evaluation team to reproduce your software environment.</p>
+<section id="example">
+<h3>✅ Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h3>
+<p>If your controller relies on additional packages, such as <code class="docutils literal notranslate"><span class="pre">control</span></code>, <code class="docutils literal notranslate"><span class="pre">cvxpy</span></code>, or <code class="docutils literal notranslate"><span class="pre">sympy</span></code>,
+your <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> should look like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">control</span><span class="o">==</span><span class="mf">0.10.1</span>
+<span class="n">cvxpy</span><span class="o">==</span><span class="mf">1.5.2</span>
+<span class="n">sympy</span><span class="o">==</span><span class="mf">1.13.0</span>
+</pre></div>
+</div>
+<p>Place this file in the same directory as your controller:</p>
+<blockquote>
+<div><p><strong>Important:</strong></p>
 <ul class="simple">
-<li><p>A brief overview of your control approach and methodology</p></li>
-<li><p>Key assumptions or simplifications</p></li>
-<li><p>Description of tuning parameters and their rationale</p></li>
-<li><p>Summary of controller structure and computational requirements (if applicable)</p></li>
+<li><p>Only include <strong>pure-Python packages</strong> compatible with CPU execution.</p></li>
+<li><p>All packages must be installable from <strong>PyPI</strong> via standard <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code>.</p></li>
+<li><p>Custom binary libraries or GPU-dependent code are <strong>not permitted</strong>.</p></li>
+<li><p>Internet access is <strong>disabled</strong> during official evaluation runs — the COER team will recreate your environment offline using the provided <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="core-packages-already-included-in-wappac">
+<h3>Core Packages Already Included in WAPPAC<a class="headerlink" href="#core-packages-already-included-in-wappac" title="Link to this heading">¶</a></h3>
+<p>Do <strong>not</strong> list or re-install the following packages — they are pre-bundled with the official simulator:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">==</span><span class="mf">2.8.0</span><span class="o">+</span><span class="n">cpu</span>  
+<span class="n">torchdiffeq</span><span class="o">==</span><span class="mf">0.2.5</span>  
+<span class="n">numpy</span><span class="o">==</span><span class="mf">2.3.3</span>  
+<span class="n">scipy</span><span class="o">==</span><span class="mf">1.16.2</span>  
+<span class="n">matplotlib</span><span class="o">==</span><span class="mf">3.10.6</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="controller-report">
+<h2>4. 📄 Controller Report<a class="headerlink" href="#controller-report" title="Link to this heading">¶</a></h2>
+<p>Provide a concise <strong>Controller Report</strong> describing your control strategy and methodology.</p>
+<p>Recommended structure (max 3 pages):</p>
+<ul class="simple">
+<li><p>Overview of your control concept</p></li>
+<li><p>Description of tuning parameters and overall control design</p></li>
+<li><p>Outline of controller structure and algorithmic flow</p></li>
+<li><p>Discussion of key assumptions or limitations</p></li>
+<li><p>Notes on computational complexity (if applicable)</p></li>
 </ul>
 <p>This document should be clear enough for the organizers to understand and verify the conceptual basis of your design.</p>
 </section>
-</section>
 <hr class="docutils" />
+<section id="reproducibility-and-verification">
+<h2>5. 🔁 Reproducibility and Verification<a class="headerlink" href="#reproducibility-and-verification" title="Link to this heading">¶</a></h2>
+<p>Your submission must be <strong>self-contained and reproducible</strong>.</p>
+<ul class="simple">
+<li><p>Controllers will be re-executed by the COER team on the official WAPPAC platform.</p></li>
+<li><p>Execution will occur in a <strong>CPU-only</strong>, <strong>offline</strong> environment with fixed seeds and solver settings.</p></li>
+<li><p>The reproduced encrypted results must match the ones you submitted.</p></li>
+<li><p>If your controller fails to reproduce its own <code class="docutils literal notranslate"><span class="pre">.enc</span></code> files or cannot execute correctly, the submission may be <strong>excluded from final evaluation</strong>.</p></li>
+<li><p>Ensure your code runs without requiring user input or manual file browsing dialogs.</p></li>
+</ul>
+<blockquote>
+<div><p>💡 <strong>Tip:</strong> Before submitting, test your controller locally in Evaluation Mode to confirm that all three <code class="docutils literal notranslate"><span class="pre">.enc</span></code> files are produced correctly under the provided simulator version.</p>
+</div></blockquote>
+<hr class="docutils" />
+<hr class="docutils" />
+<section id="related-sections">
+<h3>Related Sections<a class="headerlink" href="#related-sections" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="#./writing_your_controller.md"><span class="xref myst"><strong>Writing Your Controller</strong></span></a></p></li>
+<li><p><a class="reference internal" href="simulation_platform/sim_input.html"><span class="std std-doc"><strong>Simulation Input File</strong></span></a></p></li>
+<li><p><a class="reference internal" href="#./evaluation_criteria.md"><span class="xref myst"><strong>Evaluation Criteria &amp; Competition Rules</strong></span></a></p></li>
+<li><p><a class="reference internal" href="model_control/control_problem.html"><span class="std std-doc"><strong>Control Problem Definition</strong></span></a></p></li>
+</ul>
+<p>``</p>
+</section>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -220,10 +355,20 @@ The report should include:</p>
             <div class="page_toc">
                 <ul>
 <li><a class="reference internal" href="#">Submission Guidelines</a><ul>
-<li><a class="reference internal" href="#submission-checklist">Submission Checklist</a></li>
-<li><a class="reference internal" href="#encrypted-evaluation-files">1. Encrypted Evaluation Files</a></li>
-<li><a class="reference internal" href="#controller-script">2. Controller Script</a></li>
-<li><a class="reference internal" href="#controller-report">3. Controller Report</a></li>
+<li><a class="reference internal" href="#submission-checklist">✅ <strong>Submission Checklist</strong></a></li>
+<li><a class="reference internal" href="#recommended-submission-structure">📁 Recommended Submission Structure</a></li>
+<li><a class="reference internal" href="#encrypted-evaluation-files">1. 🔒 Encrypted Evaluation Files</a></li>
+<li><a class="reference internal" href="#controller-script">2. 🧠 Controller Script</a></li>
+<li><a class="reference internal" href="#requirements-file-for-external-packages">3. 📋 Requirements File for External Packages</a><ul>
+<li><a class="reference internal" href="#example">✅ Example</a></li>
+<li><a class="reference internal" href="#core-packages-already-included-in-wappac">Core Packages Already Included in WAPPAC</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#controller-report">4. 📄 Controller Report</a></li>
+<li><a class="reference internal" href="#reproducibility-and-verification">5. 🔁 Reproducibility and Verification</a><ul>
+<li><a class="reference internal" href="#related-sections">Related Sections</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

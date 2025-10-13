@@ -19,7 +19,7 @@ This file defines the **wave conditions**, **simulation mode**, and **reproducib
 | Parameter          | Description                                                                                                                                                                                                                                                                     |
 | ------------------ |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `participant_name` | Identifier of the participant or team. Used to label simulation outputs.                                                                                                                                                                                                        |
-| `wave_id`          | Selects the sea state scenario (1, 2, or 3). Each corresponds to a distinct, undisclosed sea state scenario.                                                                                                                      |
+| `wave_id`          | Selects the sea state scenario (1, 2, or 3). Each corresponds to a distinct, undisclosed sea condition as described in the competition documentation.                                                                                                                           |
 | `wave_realiz_seed` | Controls the generation of the wave surface realization:<br>• `"random"` → A new stochastic realization is generated at each run.<br>• *Integer value* (e.g., `123`) → A fixed seed for reproducible simulations.<br>**Note:** This setting is ignored when `eval_flag = true`. |
 | `eval_flag`        | Determines the **simulation mode** (see below).                                                                                                                                                                                                                                 |
 
@@ -42,10 +42,7 @@ This mode is intended for **testing and tuning** of your control strategy.
 This mode is reserved for **official performance evaluation** and **submission files generation**.
 
 * Automatically executes **all three sea state scenarios** (`wave_id = 1–3`) using **fixed, deterministic seeds**.
-* **Randomized execution order:** The three sea states are simulated in a **randomized order** each time `eval_flag = true`.
-
-  * Participants must ensure that their **controller adapts to the sea state dynamically** without prior knowledge of which scenario is being evaluated.
-* Produces **encrypted evaluation output files** in the `evaluation_outputs/` directory (files for submission).
+* Produces **encrypted evaluation output files** in the `evaluation_outputs/` directory for submission.
 * The internal configuration is locked to ensure consistency and fairness across participants.
 * No visualizations or detailed diagnostic outputs are generated. Only a console message is provided to inform the participant whether the **passivity constraint** is satisfied in each sea state scenario.
 
@@ -53,4 +50,3 @@ This mode is reserved for **official performance evaluation** and **submission f
 
 * Use **Development Mode** (`eval_flag = false`) for iterative testing your controller across the three different sea state scenarios, and performance index evaluation.
 * Switch to **Evaluation Mode** (`eval_flag = true`) only when ready to generate submission files for official evaluation of the results.
-* **Important:** In evaluation mode, the order of the sea states is randomized. Ensure your controller handles each scenario **robustly and without prior knowledge** of which sea state is currently simulated.
