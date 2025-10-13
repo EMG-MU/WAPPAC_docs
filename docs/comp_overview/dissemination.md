@@ -10,11 +10,11 @@ Potential host conferences include:
 
 Selected competitors will be requested to submit abstracts and papers in line with the indicative conference deadlines listed below:
 
-| **Conference**  | **Conference Date** | **Submission Dates**                  |  
-|:----------------|:------------------|:------------------------------------|
-| ECC             | June 2027         | Papers due previous October          |     
-| CCTA            | August 2027       | Papers due February                  |  
-| OMAE            | June 2027         | Abstract due previous October        |
-| ISOPE           | June 2027         | Abstract due previous October        |
+| **Conference**  | **Provisional Conference Date** | **Submission Dates**          |  
+|:----------------|:--------------------------------|:------------------------------|
+| ECC             | June 2027                       | Papers due previous October   |     
+| CCTA            | August 2027                     | Papers due February same year |  
+| OMAE            | June 2027                       | Abstract due previous October |
+| ISOPE           | June 2027                       | Abstract due previous October |
 
 > **DISCLAIMER:** These dates are indicative only, based on previous conference schedules.
