@@ -8,7 +8,10 @@ You can obtain the platform via **GitHub**:
 ## Download ZIP via GitHub Release
 
 WAPPAC executables are distributed as a **self-contained release**. The ZIP file **includes both binaries and source code**.
-Download the latest release from the [WAPPAC GitHub Releases](https://github.com/EMG-MU/WAPPAC_comp_pub/releases).
+
+```{important}
+**Download** the **latest release** from the [WAPPAC GitHub Releases](https://github.com/EMG-MU/WAPPAC_comp_pub/releases).
+```
 
 ## Clone Repository (Recommended)
 
