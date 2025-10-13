@@ -44,10 +44,10 @@ WAPPAC_distribution/
 >
 > * The `external_packages/` folder is **empty by default**. Participants can add custom Python packages here to use in their controllers (for details, see [Writing Your Controller](./writing_controller.md)).
 >
->   * If you use additional packages, you will be requested to submit a `requirements.txt` file listing all dependencies (refer to [Submission Guidelines](./submission.md)).
+>   * If you use additional packages, you will be requested to submit a `requirements.txt` file listing all dependencies (refer to [Submission Guidelines](../submission.md)).
 > * The `model_data/` folder contains **public model information** provided to participants, including the excitation force kernel (`exc_force_kernel.csv`) and radiation system state-space matrces (`rad_ss_mat.json`).
 >
->   * For additional model parametrization details, refer to [Model & Simulation Parametrization](./model_parametrization.md).
+>   * For additional model parametrization details, refer to [Model & Simulation Parametrization](../model_control/model_parametrization.md).
 
 ---
 

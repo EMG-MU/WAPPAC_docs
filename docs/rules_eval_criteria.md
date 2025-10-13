@@ -125,6 +125,6 @@ In case of a **tie**, the organizers may apply secondary criteria such as lowest
 
 * [**Modeling Framework**](./model_control/modelling_framework.md)
 * [**Control Problem Definition**](./model_control/control_problem.md)
-* [**Performance Index & Metrics**](./performance_index.md)
+* [**Performance Index & Metrics**](./model_control/control_problem.md)
 * [**Simulation Framework**](./simulation_platform/index.md)
 * [**Submission Guidelines**](./submission.md)

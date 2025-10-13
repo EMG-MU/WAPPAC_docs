@@ -91,7 +91,7 @@ All file paths and imports should be **relative** and **self-contained** — **n
 
 ## 3. 📋 Requirements File for External Packages
 
-If your controller uses **additional Python packages** beyond those bundled with WAPPAC simlation platform,
+If your controller uses **additional Python packages** beyond those bundled with WAPPAC simulation platform,
 you must specify them in a `requirements.txt` file.
 
 ```{important}
@@ -170,9 +170,9 @@ Your submission must be **self-contained and reproducible**.
 
 ### Related Sections
 
-* [**Writing Your Controller**](./writing_your_controller.md)
+* [**Writing Your Controller**](./simulation_platform/writing_your_controller.md)
 * [**Simulation Input File**](./simulation_platform/sim_input.md)
-* [**Evaluation Criteria & Competition Rules**](./evaluation_criteria.md)
+* [**Evaluation Criteria & Competition Rules**](./rules_eval_criteria.md)
 * [**Control Problem Definition**](./model_control/control_problem.md)
 
 ``
