@@ -4,7 +4,7 @@ Important WAPPAC competition and dissemination dates are summarized below. Note 
 
 | **Event**                              | **Date**         |
 |:---------------------------------------|:-----------------|
-| Competition release/launch             | 13 October 2025  |
+| Competition release/launch             | 14 October 2025  |
 | Submission of Control Results deadline | 28 February 2026 |
 | Preliminary results announcement       | 30 April 2026    |
 | Conference papers due                  | Autumn 2026      |
