@@ -29,7 +29,7 @@ def rk4_alt_step_func(func, t0, dt, t1, y0, f0=None, perturb=False):
     return (k1 + 3 * (k2 + k3) + k4) * dt * 0.125
 ```
 
-For interested readers, the official implementation can be reviewed in the official [torchdiffeq library](https://github.com/rtqichen/torchdiffeq/blob/master/torchdiffeq/_impl/rk_common.py).
+For interested readers, the official implementation can be reviewed in [torchdiffeq library](https://github.com/rtqichen/torchdiffeq/blob/master/torchdiffeq/_impl/rk_common.py).
 
 ---
 

@@ -153,12 +153,15 @@
 <p>The WAPPAC Competition challenges participants to design a <strong>passive control strategy</strong> that maximizes a <strong>performance index</strong> balancing absorbed power, physical constraints, and capacity factor.</p>
 <p>All controllers are evaluated using the <strong>official WAPPAC simulation platform</strong>, under <strong>identical numerical setups, model configurations, and sea-state data</strong> to ensure fairness and reproducibility.</p>
 <p>The <strong>performance index</strong> <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> to be maximized across three predefined sea states is:</p>
-<div class="math notranslate nohighlight" id="equation-eq-perf-g">
-<span class="eqno">(2)<a class="headerlink" href="#equation-eq-perf-g" title="Link to this equation">¶</a></span>\[\begin{split}\max_{F_{pto}(t)} \; \mathcal{G}\!\left(F_{pto}(t)\right) \;=&amp;\; 
-\frac{\overline{P}_{pto}}
-{\,2 \;+\; \dfrac{|x(t)|_{98}}{x_{\max}} \;+\; \dfrac{|F_{pto}(t)|_{98}}{F_{u,\max}} \;-\; \dfrac{\overline{P}_{pto}}{|p_{pto}(t)|_{98}}\,} \\[4pt]
-s.t.&amp; \qquad \text{WavePiston dynamics,} \\ 
-&amp; \qquad p_{pto}(t) = F_{pto}(t)\dot{x}(t) \ge 0\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\max_{F_{pto}(t)} \; \mathcal{G}\!\left(F_{pto}(t); t \in [T_0,t_{end}] \right) 
+= \frac{\bar{P}_{pto}}
+{2 + \frac{\left[|x(t)|\right]_{98}}{x_{\max}} 
+  + \frac{\left[|F_{pto}(t)|\right]_{98}}{F_{u,\max}} 
+  - \frac{\bar{P}_{pto}}{\left[p_{pto}(t)\right]_{98}}}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\text{s.t.}&amp; \quad \text{WavePiston dynamics (1),} \quad \\
+&amp; \quad p_{pto}(t) = F_{pto}(t) \dot{x}(t) \ge 0 \quad \forall t \in [t_{init},t_{end}]\end{split}\]</div>
 <p>A full derivation and explanation of <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> and its terms are provided in <a class="reference internal" href="model_control/control_problem.html"><span class="std std-doc"><strong>Control Problem Definition</strong></span></a>.</p>
 <hr class="docutils" />
 <section id="key-time-intervals">
@@ -195,7 +198,7 @@ s.t.&amp; \qquad \text{WavePiston dynamics,} \\
 <p>Each of the three predefined sea states is evaluated independently, producing scores <span class="math notranslate nohighlight">\(\mathcal{G}_1\)</span>, <span class="math notranslate nohighlight">\(\mathcal{G}_2\)</span>, and <span class="math notranslate nohighlight">\(\mathcal{G}_3\)</span>.
 The <strong>final competition score</strong> is computed as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-perf-index-total">
-<span class="eqno">(3)<a class="headerlink" href="#equation-eq-perf-index-total" title="Link to this equation">¶</a></span>\[\mathcal{G}_{\text{total}} \;=\; \mathcal{G}_1 \;+\; \mathcal{G}_2 \;+\; \mathcal{G}_3\]</div>
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-perf-index-total" title="Link to this equation">¶</a></span>\[\mathcal{G}_{\text{total}} \;=\; \mathcal{G}_1 \;+\; \mathcal{G}_2 \;+\; \mathcal{G}_3\]</div>
 <p>The participant achieving the highest <span class="math notranslate nohighlight">\(\mathcal{G}_{\text{total}}\)</span> will be declared the <strong>winner of the WAPPAC Competition</strong>.
 In case of a <strong>tie</strong>, the organizers may apply secondary criteria such as lowest computational cost or earliest valid submission.</p>
 </section>
@@ -208,9 +211,9 @@ In case of a <strong>tie</strong>, the organizers may apply secondary criteria s
 <ul class="simple">
 <li><p>Final evaluation is performed by setting <code class="docutils literal notranslate"><span class="pre">eval_flag</span> <span class="pre">=</span> <span class="pre">true</span></code> in <code class="docutils literal notranslate"><span class="pre">my_sim_input_file.json</span></code> (see <a class="reference internal" href="simulation_platform/sim_input.html"><span class="std std-doc">Simulation Input File</span></a>).
 This automatically executes all three <strong>official sea-state scenarios</strong> in a <strong>randomized order</strong>, each using fixed internal seeds.
-The controller is not informed of which scenario is active and must therefore adapt its response accordingly.</p></li>
+The controller is not informed of which scenario is active and should therefore adapt its response accordingly.</p></li>
 <li><p>The process generates three <strong>encrypted output files</strong> (one per sea state) in the <code class="docutils literal notranslate"><span class="pre">evaluation_outputs/</span></code> directory.
-These files are the <strong>official submission</strong>.</p></li>
+These files are part of the <strong>official submission</strong> documents.</p></li>
 <li><p>The <strong>COER team will re-run</strong> each participant’s controller using the <strong>official WAPPAC simulation platform</strong>, under identical solvers, hydrodynamic models, and conditions.
 This ensures <strong>reproducibility and fairness</strong> across all submissions.</p></li>
 <li><p>Any missing, non-functional, or non-reproducible controller for a given sea state will result in the <strong>exclusion</strong> of that sea state’s score <span class="math notranslate nohighlight">\(\mathcal{G}_i\)</span> from <span class="math notranslate nohighlight">\(\mathcal{G}_{\text{total}}\)</span>.
@@ -236,7 +239,7 @@ Occasional exceedances are permitted but penalized within <span class="math notr
 Internet access, external API calls, or runtime package installations are not permitted during evaluation.
 Any attempt to perform such actions will cause evaluation failure. Controllers must run fully self-contained, and not rely on internet or LAN communication (local function calls or internal APIs are, of course, allowed).</p></li>
 <li><p><strong>No modifications</strong> to the simulation binaries, hydrodynamic model, solver settings, or wave data are permitted.</p></li>
-<li><p>Any attempt to alter or tamper with the simulation platform, inputs, or encrypted outputs constitutes a violation of competition integrity and results in <strong>immediate disqualification and reporting the participant</strong>.</p></li>
+<li><p>Any attempt to alter or tamper with the simulation platform, inputs, or encrypted outputs constitutes a violation of the competition integrity and results in <strong>immediate disqualification and reporting the participant</strong>.</p></li>
 </ul>
 </li>
 <li><p><strong>Unit System and Conventions</strong></p>

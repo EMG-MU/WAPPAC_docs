@@ -212,9 +212,9 @@
 <section id="behavior">
 <h3>Behavior<a class="headerlink" href="#behavior" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>All <strong>three sea states (Wave IDs 1–3)</strong> are simulated sequentially.</p></li>
-<li><p>Fixed deterministic seeds are used; your <code class="docutils literal notranslate"><span class="pre">wave_realiz_seed</span></code> is ignored.</p></li>
-<li><p>No detailed outputs (<code class="docutils literal notranslate"><span class="pre">.npz</span></code> or <code class="docutils literal notranslate"><span class="pre">.pdf</span></code>) are generated.</p></li>
+<li><p>All <strong>three sea states (Wave IDs 1–3)</strong> are simulated in <strong>aleatory order</strong>. Controllers <strong>do not receive any prior information</strong> about which sea state is being simulated and should therefore adapt adequately to the prevailing conditions.</p></li>
+<li><p><strong>Fixed</strong> deterministic seeds are used; your <code class="docutils literal notranslate"><span class="pre">wave_realiz_seed</span></code> is ignored.</p></li>
+<li><p><strong>No</strong> detailed outputs (<code class="docutils literal notranslate"><span class="pre">.npz</span></code> or <code class="docutils literal notranslate"><span class="pre">.pdf</span></code>) are generated.</p></li>
 <li><p>Compliance with the <strong>passivity constraint</strong> is printed in the console.</p></li>
 </ul>
 </section>

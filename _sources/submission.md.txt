@@ -174,5 +174,3 @@ Your submission must be **self-contained and reproducible**.
 * [**Simulation Input File**](./simulation_platform/sim_input.md)
 * [**Evaluation Criteria & Competition Rules**](./rules_eval_criteria.md)
 * [**Control Problem Definition**](./model_control/control_problem.md)
-
-``

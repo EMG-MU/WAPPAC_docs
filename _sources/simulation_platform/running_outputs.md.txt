@@ -65,9 +65,9 @@ Use this mode **only when ready to generate official submission files**.
 
 ### Behavior
 
-* All **three sea states (Wave IDs 1–3)** are simulated sequentially.
-* Fixed deterministic seeds are used; your `wave_realiz_seed` is ignored.
-* No detailed outputs (`.npz` or `.pdf`) are generated.
+* All **three sea states (Wave IDs 1–3)** are simulated in **aleatory order**. Controllers **do not receive any prior information** about which sea state is being simulated and should therefore adapt adequately to the prevailing conditions.
+* **Fixed** deterministic seeds are used; your `wave_realiz_seed` is ignored.
+* **No** detailed outputs (`.npz` or `.pdf`) are generated.
 * Compliance with the **passivity constraint** is printed in the console.
 
 ### Outputs
