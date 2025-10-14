@@ -50,7 +50,7 @@ where:
 * $F_{ex}(t)$: wave excitation force
 * $F_{pto}(t)$: PTO control force
 * $\rho$: seawater density
-* $A$: sail area
+* $A_{sail}$: sail area
 * $C_D$: viscous drag coefficient
 
 The radiation force $F_r(t)$ is approximated using a finite-order state-space model:
