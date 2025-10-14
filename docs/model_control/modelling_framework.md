@@ -75,3 +75,9 @@ p_{pto}(t) = F_{pto}(t) \dot{x}(t) \ge 0 \; \forall t
 ```
 
 This **passivity constraint** introduces a nonlinear constraint on the control strategies and is a critical factor in designing feasible, high-performance controllers for the competition.
+
+---
+
+## Up-wave Measurement
+
+Participants have access to the **up-wave surface elevation measurement** located at $x=-10$ m, see the schematic representation in {numref}`fig_wavepiston_sch`. Linear wave theory is used for modelling the wave surface elevation. Please refer to [Numerical Implementation](./numerical_implementation.md) for further details.

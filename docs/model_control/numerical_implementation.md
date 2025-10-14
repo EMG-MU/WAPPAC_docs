@@ -79,14 +79,8 @@ Also, $ramp(T_{\text{ramp}}) = 1$, so the excitation force reaches its full magn
 
 ## Up-wave Measurement
 
-Participants have access to the **up-wave surface elevation measurement** located at $x=-10$ m (see {numref}`fig_wavepiston_sch_sensor`):
+Linear wave theory is used for modelling the wave surface elevation, using a seawater depth of $d=10000$ m (~ Inf), and density of $\rho=1025$ $\text{kg/}\text{m}^3$.
 
-```{figure} ../_static/figures/schematics/WavePiston_sch.png
-:name: fig_wavepiston_sch_sensor
-:width: 100%
-:align: center
-Schematic of the one-sail WavePiston device and up-wave surface elevation measurement.
-```
 
 ### Handling Up-wave Measurement
 
