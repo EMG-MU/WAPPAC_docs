@@ -126,7 +126,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../home.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../comp_overview/index.html">Competition Overview</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">WavePiston Model &amp; Control Framework</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="modelling_framework.html">Modeling Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modeling_framework.html">Modeling Framework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="control_problem.html">Control Problem Definition</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Numerical Implementation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="model_parametrization.html">Model &amp; Simulation Parametrization</a></li>
@@ -151,14 +151,14 @@
             
   <section class="tex2jax_ignore mathjax_ignore" id="numerical-implementation">
 <h1>Numerical Implementation<a class="headerlink" href="#numerical-implementation" title="Link to this heading">¶</a></h1>
-<p>The <a class="reference internal" href="modelling_framework.html"><span class="std std-doc">model</span></a> and <a class="reference internal" href="control_problem.html"><span class="std std-doc">control</span></a> frameworks are implemented with a consistent numerical setup to ensure comparability across all control strategies submitted by participants. When developing your controller, the following implementation details should be carefully considered.</p>
+<p>The <a class="reference internal" href="modeling_framework.html"><span class="std std-doc">model</span></a> and <a class="reference internal" href="control_problem.html"><span class="std std-doc">control</span></a> frameworks are implemented with a consistent numerical setup to ensure comparability across all control strategies submitted by participants. When developing your controller, the following implementation details should be carefully considered.</p>
 <hr class="docutils" />
 <section id="wavepiston-dynamics-numerical-integration">
 <h2>WavePiston Dynamics Numerical Integration<a class="headerlink" href="#wavepiston-dynamics-numerical-integration" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>The WavePiston dynamics, given by <a class="reference internal" href="modelling_framework.html#equation-eq-wp-hydrodyn">(1)</a>, are integrated using a <strong>4th-order Runge–Kutta (RK4)</strong> scheme.</p></li>
+<li><p>The WavePiston dynamics, given by <a class="reference internal" href="modeling_framework.html#equation-eq-wp-hydrodyn">(1)</a>, are integrated using a <strong>4th-order Runge–Kutta (RK4)</strong> scheme.</p></li>
 <li><p>The solver operates with a <strong>fixed time step</strong> of <span class="math notranslate nohighlight">\(\Delta t = 0.05\)</span> s.</p></li>
-<li><p>Within each time step, RK4 performs <strong>four intermediate evaluations (stages)</strong> of the WavePiston dynamics function, modeled by <a class="reference internal" href="modelling_framework.html#equation-eq-wp-hydrodyn">(1)</a>, to estimate the state at the next time step:</p>
+<li><p>Within each time step, RK4 performs <strong>four intermediate evaluations (stages)</strong> of the WavePiston dynamics function, modeled by <a class="reference internal" href="modeling_framework.html#equation-eq-wp-hydrodyn">(1)</a>, to estimate the state at the next time step:</p>
 <ul>
 <li><p>Evaluates WavePiston dynamics once at the beginning of the time step, twice at intermediate points, and once at the end of the time step.</p></li>
 </ul>
@@ -226,7 +226,7 @@ Also, <span class="math notranslate nohighlight">\(ramp(T_{\text{ramp}}) = 1\)</
 <hr class="docutils" />
 <section id="up-wave-measurement">
 <h2>Up-wave Measurement<a class="headerlink" href="#up-wave-measurement" title="Link to this heading">¶</a></h2>
-<p>Linear wave theory is used for modelling the wave surface elevation, using a seawater depth of <span class="math notranslate nohighlight">\(d=10000\)</span> m (~ Inf), and density of <span class="math notranslate nohighlight">\(\rho=1025\)</span> <span class="math notranslate nohighlight">\(\text{kg/}\text{m}^3\)</span>.</p>
+<p>Linear wave theory is used for modeling the wave surface elevation, using a seawater depth of <span class="math notranslate nohighlight">\(d=10000\)</span> m (~ Inf), and density of <span class="math notranslate nohighlight">\(\rho=1025\)</span> <span class="math notranslate nohighlight">\(\text{kg/}\text{m}^3\)</span>.</p>
 <section id="handling-up-wave-measurement">
 <h3>Handling Up-wave Measurement<a class="headerlink" href="#handling-up-wave-measurement" title="Link to this heading">¶</a></h3>
 <div class="admonition important">

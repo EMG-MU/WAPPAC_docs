@@ -80,4 +80,4 @@ This **passivity constraint** introduces a nonlinear constraint on the control s
 
 ## Up-wave Measurement
 
-Participants have access to the **up-wave surface elevation measurement** located at $x=-10$ m, see the schematic representation in {numref}`fig_wavepiston_sch`. Linear wave theory is used for modelling the wave surface elevation. Please refer to [Numerical Implementation](./numerical_implementation.md) for further details.
+Participants have access to the **up-wave surface elevation measurement** located at $x=-10$ m, see the schematic representation in {numref}`fig_wavepiston_sch`. Linear wave theory is used for modeling the wave surface elevation. Please refer to [Numerical Implementation](./numerical_implementation.md) for further details.
