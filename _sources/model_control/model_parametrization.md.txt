@@ -48,6 +48,15 @@ Although the excitation force time series $F_{ex}(t)$ is **not directly provided
 
 In summary, while direct excitation force data remain undisclosed, participants are equipped with sufficient information to implement **observer-based** or **model-driven estimators** as part of their control strategy.
 
+**Note:**
+Linear wave theory is used for modelling the wave surface elevation, using the following associated parameters:
+
+Variable                     | Description                           | Value / Units                                                                                                                                                                                     |
+|:-----------------------------| :------------------------------------ |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| $\rho$                        | Seawater density                      | 1025 kg/m^3                                                                                                                                                                                           |
+| $d$                   | Seawater depth      | 10000 m (~Inf)                                                                                                                                                                                       |
+
+
 ---
 
 ## Simulation Parametrization
