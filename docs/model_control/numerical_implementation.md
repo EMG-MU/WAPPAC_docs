@@ -1,6 +1,6 @@
 # Numerical Implementation
 
-The [model](./modelling_framework.md) and [control](./control_problem.md) frameworks are implemented with a consistent numerical setup to ensure comparability across all control strategies submitted by participants. When developing your controller, the following implementation details should be carefully considered.
+The [model](./modeling_framework.md) and [control](./control_problem.md) frameworks are implemented with a consistent numerical setup to ensure comparability across all control strategies submitted by participants. When developing your controller, the following implementation details should be carefully considered.
 
 ---
 
@@ -79,7 +79,7 @@ Also, $ramp(T_{\text{ramp}}) = 1$, so the excitation force reaches its full magn
 
 ## Up-wave Measurement
 
-Linear wave theory is used for modelling the wave surface elevation, using a seawater depth of $d=10000$ m (~ Inf), and density of $\rho=1025$ $\text{kg/}\text{m}^3$.
+Linear wave theory is used for modeling the wave surface elevation, using a seawater depth of $d=10000$ m (~ Inf), and density of $\rho=1025$ $\text{kg/}\text{m}^3$.
 
 
 ### Handling Up-wave Measurement

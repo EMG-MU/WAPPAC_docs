@@ -5,7 +5,7 @@ This section presents the **modeling framework** of the WavePiston device, the *
 ```{toctree}
 :maxdepth: 1
 
-modelling_framework
+modeling_framework
 control_problem
 numerical_implementation
 model_parametrization
