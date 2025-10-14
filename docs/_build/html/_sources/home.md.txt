@@ -1,7 +1,6 @@
 # Home
 Welcome to the **WavePiston Passive Control (WAPPAC) competition documentation**.
 Use the sidebar to navigate through the documentation sections.
-test
 
 ## WAPPAC Competition
 
