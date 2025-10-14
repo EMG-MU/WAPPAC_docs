@@ -15,12 +15,15 @@ All controllers are evaluated using the **official WAPPAC simulation platform**,
 The **performance index** $\mathcal{G}$ to be maximized across three predefined sea states is:
 
 ```{math}
-:label: eq_perf_G
-\max_{F_{pto}(t)} \; \mathcal{G}\!\left(F_{pto}(t)\right) \;=&\; 
-\frac{\overline{P}_{pto}}
-{\,2 \;+\; \dfrac{|x(t)|_{98}}{x_{\max}} \;+\; \dfrac{|F_{pto}(t)|_{98}}{F_{u,\max}} \;-\; \dfrac{\overline{P}_{pto}}{|p_{pto}(t)|_{98}}\,} \\[4pt]
-s.t.& \qquad \text{WavePiston dynamics,} \\ 
-& \qquad p_{pto}(t) = F_{pto}(t)\dot{x}(t) \ge 0
+\max_{F_{pto}(t)} \; \mathcal{G}\!\left(F_{pto}(t); t \in [T_0,t_{end}] \right) 
+= \frac{\bar{P}_{pto}}
+{2 + \frac{\left[|x(t)|\right]_{98}}{x_{\max}} 
+  + \frac{\left[|F_{pto}(t)|\right]_{98}}{F_{u,\max}} 
+  - \frac{\bar{P}_{pto}}{\left[p_{pto}(t)\right]_{98}}}
+```
+```{math}
+\text{s.t.}& \quad \text{WavePiston dynamics (1),} \quad \\
+& \quad p_{pto}(t) = F_{pto}(t) \dot{x}(t) \ge 0 \quad \forall t \in [t_{init},t_{end}]
 ```
 
 A full derivation and explanation of $\mathcal{G}$ and its terms are provided in [**Control Problem Definition**](./model_control/control_problem.md).
@@ -71,9 +74,9 @@ In case of a **tie**, the organizers may apply secondary criteria such as lowest
 
    * Final evaluation is performed by setting `eval_flag = true` in `my_sim_input_file.json` (see [Simulation Input File](./simulation_platform/sim_input.md)).
      This automatically executes all three **official sea-state scenarios** in a **randomized order**, each using fixed internal seeds.
-     The controller is not informed of which scenario is active and must therefore adapt its response accordingly.
+     The controller is not informed of which scenario is active and should therefore adapt its response accordingly.
    * The process generates three **encrypted output files** (one per sea state) in the `evaluation_outputs/` directory.
-     These files are the **official submission**.
+     These files are part of the **official submission** documents.
    * The **COER team will re-run** each participant’s controller using the **official WAPPAC simulation platform**, under identical solvers, hydrodynamic models, and conditions.
      This ensures **reproducibility and fairness** across all submissions.
    * Any missing, non-functional, or non-reproducible controller for a given sea state will result in the **exclusion** of that sea state’s score $\mathcal{G}_i$ from $\mathcal{G}_{\text{total}}$.
@@ -96,7 +99,7 @@ In case of a **tie**, the organizers may apply secondary criteria such as lowest
      Internet access, external API calls, or runtime package installations are not permitted during evaluation.
      Any attempt to perform such actions will cause evaluation failure. Controllers must run fully self-contained, and not rely on internet or LAN communication (local function calls or internal APIs are, of course, allowed).
    * **No modifications** to the simulation binaries, hydrodynamic model, solver settings, or wave data are permitted.
-   * Any attempt to alter or tamper with the simulation platform, inputs, or encrypted outputs constitutes a violation of competition integrity and results in **immediate disqualification and reporting the participant**.
+   * Any attempt to alter or tamper with the simulation platform, inputs, or encrypted outputs constitutes a violation of the competition integrity and results in **immediate disqualification and reporting the participant**.
 
 5. **Unit System and Conventions**
 
