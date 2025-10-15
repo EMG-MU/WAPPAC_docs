@@ -44,30 +44,21 @@ For interested readers, the official implementation can be reviewed in [torchdif
 ---
 
 ## Numerical Representation Limitations
+The WAPPAC simulator is a **numerical approximation** of a continuous physical system. **Controllers** that **lead to very fast dynamics**, approaching or exceeding the simulation's time step, **may yield numerically unstable or physically unrealistic** results. 
 
-The WAPPAC simulator provides a **numerical approximation** of a continuous-time physical system. Controllers that induce **rapid or discontinuous dynamics**, with response times close to or faster than the simulation timestep, can lead to **numerically unstable** or **non-physical** results.
 
 ```{important}
-**The continuous system approximation breaks down when control-induced changes occur faster than the simulation timestep.**
+**Accurate approximation of the continous system breaks down near the simulation time-step.**
 ```
+For instance, when the controller applies a force that generates a velocity change comparable to (or larger than) current velocity in one step, the discrete system no longer approximates the continuous one well.
+As a rule of thumb For physically meaningful sampling, you can consider that the $\Delta v$ caused by control over a step to be significantly smaller than representative velocities of the system:
 
-### Discretization Rule of Thumb
+$$ \Delta v \approx \frac{F_{pto}(t)}{M \Delta t} $$
 
-To maintain physical realism, the change in velocity caused by the applied PTO force over a single step should be **small compared to the current velocity**:
+For instance, if current velocity $v_i$ is sufficiently small, the $\Delta v$ can easily reverses its sign.
 
-$$
-\Delta v \approx \frac{F_{\text{pto}},\Delta t}{M}
-$$
 
-If $ \Delta v $ is of the same order or larger than the typical velocity magnitude, the discrete update may **overshoot** or even **reverse velocity direction** within one step, leading to non-realistic oscillatory behavior.
-
-### Consequences
-
-Results showing **non-realistic** behavior due to **numerical issues**, will be carefully reviewed and may be **excluded from evaluation**.
-
-Participants are encouraged to design controllers that **avoid impulsive or discontinuous** actions and ensure smooth, physically consistent responses. Practical guidelines and examples are provided in [Writing Your Controller](./writing_controller.md).
-
----
+Please consider the effects of discretization when **designing your control algrotuhm**. **Submission** results that show this numerical issue **will not** be considered (refer to [Writing Your Controller](./writing_controller.md) for further details and a example). 
 
 ## Ramp Interval
 
