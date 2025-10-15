@@ -286,12 +286,12 @@ This adjustment preserves the intended Coulomb damping effect while ensuring a s
 Other alternatives participants may consider include:
 
 * Introducing a **smoothed control law**, for instance replacing the discontinuous sign function with a continuous approximation such as
-  `F_pto = -C_pto * np.tanh(v / v_ref)`,
+  `F_pto = C_pto * np.tanh(v / v_ref)`,
   where `v_ref` defines a small transition range.
 * Updating the control law at a slower rate (multiple $\Delta t$ **Zero-Order Hold**) to reduce abrupt changes between successive time steps.
 * Incorporating mild **viscous damping** or rate limiting in the force computation.
 
-These strategies could help achieving consistent and more realistic dynamic responses while maintaining the intended overall control strategy. **Participants mustbe aware of numerical limitations** when designing their controllers.
+These strategies could help achieving consistent and more realistic dynamic responses while maintaining the intended overall control strategy. **Participants must be aware of numerical limitations** of the WAPPAC platform when designing their controllers.
 
 ---
 
