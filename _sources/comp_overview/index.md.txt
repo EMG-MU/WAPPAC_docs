@@ -9,5 +9,6 @@ This section provides a general overview of the competition. Quick-access links 
 
 motivation
 dissemination
+registration
 timeline
 ```

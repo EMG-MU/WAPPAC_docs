@@ -1,10 +1,30 @@
 # Home
-Welcome to the **WavePiston Passive Control (WAPPAC) competition documentation**.
-Use the sidebar to navigate through the documentation sections.
+
+Welcome to the **WavePiston Passive Control (WAPPAC) competition documentation**.  
+
+**Registration is now open!** 🌊
+
+Researchers, students, and professionals in the field of **wave energy** and **control systems** are warmly invited to participate.  
+
+```{important}
+Please [**fill out the registration form here**](https://docs.google.com/forms/d/e/1FAIpQLSc1JRCtbhVDxnm0jyLhFsNW3xCky19vAwDF8hb4oVD_XSU2Jg/viewform?usp=dialog) for the WAPPAC Competition. Registered participants will receive **competition updates**, **technical announcements**, and other **important information**.
+```
+
+For further information please refer to section [Registration for WAPPAC Competition](./comp_overview/registration.md) in this website.
+
+
+[//]: # (**Each participant**, whether competing individually or as part of a team, **must** submit a separate registration to ensure effective communication and acknowledgment of participation.)
+
+[//]: # (Before you begin experimenting, please **take a moment to register** for the competition by following the instructions in [Registration for WAPPAC competition]&#40;#registration-for-wappac-competition&#41; 🌊.)
+
+[//]: # ()
+[//]: # (Registered participants will receive **competition updates**, **technical announcements**, and other **important information** directly via email.)
+
+---
 
 ## WAPPAC Competition
 
-The **WavePiston Passive Control (WAPPAC) competition** is an open challenge to the wave energy and control community. Participants are invited to **develop passive control strategies** for the novel WavePiston wave energy converter (WEC).
+The **WavePiston Passive Control (WAPPAC) competition** is an open challenge offered to the wave energy and control community. Participants are invited to **develop passive control strategies** for the novel WavePiston wave energy converter (WEC).
 The goal is to **maximize captured energy while respecting WavePiston physical constraints**, with particular attention to the **PTO passivity constraint**.
 
 Through this initiative, WAPPAC competition aims to **foster innovation** and **advance** the **state of the art** in **wave energy control**. The WAPPAC competition results will be **announced** and **disseminated** through a **dedicated session** at an **international conference**.
@@ -22,6 +42,42 @@ This competition is hosted by the **Centre for Ocean Energy Research (COER), May
 Learn more about COER work: [coer.maynoothuniversity.ie](https://coer.maynoothuniversity.ie/)
 
 ---
+
+
+[//]: # (## Registration for WAPPAC competition)
+
+[//]: # (Registration for the **WavePiston Passive Control &#40;WAPPAC&#41; Competition 2025** is **now open**!!)
+
+[//]: # ()
+[//]: # (Researchers, students, and professionals in the field of **wave energy** and **control systems** are warmly invited to participate.)
+
+[//]: # ()
+[//]: # (To join, **please complete** the official registration form linked below. )
+
+[//]: # ()
+[//]: # ()
+[//]: # ([//]: # &#40;**Each participant**, whether competing individually or as part of a team, **must** submit a separate registration to ensure effective communication and acknowledgment of participation.&#41;)
+[//]: # ()
+[//]: # (```{important})
+
+[//]: # (**Follow** [**this link**]&#40;https://docs.google.com/forms/d/e/1FAIpQLSc1JRCtbhVDxnm0jyLhFsNW3xCky19vAwDF8hb4oVD_XSU2Jg/viewform?usp=dialog&#41; for **registering** for the **WAPPAC Competition**.)
+
+[//]: # (```)
+
+[//]: # (For further information please refer to section [Registration to WAPPAC competition]&#40;./comp_overview/registration.md&#41;.)
+
+
+[//]: # (**Privacy Note:**  )
+
+[//]: # (The information collected through the registration form is **for internal use by the WAPPAC competition organizers only**. It will be used to manage participant communications, updates, and evaluation processes. Data will be handled **confidentially** and **will not be shared or disclosed** outside the WAPPAC organization.)
+
+[//]: # ()
+[//]: # (For any questions regarding registration or participation, please contact the organizing team:)
+
+[//]: # ([eugenio.gelos@mu.ie]&#40;mailto:eugenio.gelos@mu.ie&#41; — [colm.fitzgerald@mu.ie]&#40;mailto:colm.fitzgerald@mu.ie&#41;)
+
+[//]: # (---)
+
 
 ## WavePiston Device
 
