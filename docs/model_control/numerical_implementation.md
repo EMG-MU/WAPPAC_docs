@@ -48,7 +48,7 @@ For interested readers, the official implementation can be reviewed in [torchdif
 The WAPPAC simulator provides a **numerical approximation** of a continuous-time physical system. Controllers that induce **rapid or discontinuous dynamics**, with response times close to or faster than the simulation timestep, can lead to **numerically unstable** or **non-physical** results.
 
 ```{important}
-**The continuous system approximation breaks down when control-induced changes occur faster than the simulation timestep.**
+**The continuous system approximation breaks when control-induced changes occur faster than the simulation timestep.**
 ```
 
 ### Discretization Rule of Thumb

@@ -48,7 +48,7 @@ The WAPPAC simulator is a **numerical approximation** of a continuous physical s
 
 
 ```{important}
-**Accurate approximation of the continous system breaks down near the simulation time-step.**
+**Accurate approximation of the continous system breaks near the simulation time-step.**
 ```
 For instance, when the controller applies a force that generates a velocity change comparable to (or larger than) current velocity in one step, the discrete system no longer approximates the continuous one well.
 As a rule of thumb For physically meaningful sampling, you can consider that the $\Delta v$ caused by control over a step to be significantly smaller than representative velocities of the system:
