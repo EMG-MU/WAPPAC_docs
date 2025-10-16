@@ -17,9 +17,7 @@
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Model &amp; Simulation Parametrization" href="model_parametrization.html" />
-    <link rel="prev" title="Control Problem Definition" href="control_problem.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
 <div id="top_nav">
@@ -122,16 +120,10 @@
     
       <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../home.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../comp_overview/index.html">Competition Overview</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">WavePiston Model &amp; Control Framework</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="modeling_framework.html">Modeling Framework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="control_problem.html">Control Problem Definition</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Numerical Implementation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="model_parametrization.html">Model &amp; Simulation Parametrization</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">WavePiston Model &amp; Control Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simulation_platform/index.html">Using WAPPAC Simulation Platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rules_eval_criteria.html">Evaluation Criteria &amp; Competition Rules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../submission.html">Submission Guidelines</a></li>
@@ -198,51 +190,26 @@
 <hr class="docutils" />
 <section id="numerical-representation-limitations">
 <h2>Numerical Representation Limitations<a class="headerlink" href="#numerical-representation-limitations" title="Link to this heading">¶</a></h2>
-<p>The WAPPAC simulator provides a <strong>numerical approximation</strong> of a continuous-time physical system. Controllers that induce <strong>rapid or discontinuous dynamics</strong>, with response times close to or faster than the simulation timestep, can lead to <strong>numerically unstable</strong> or <strong>dynamically inconsistent</strong> behavior that no longer represents a <strong>physically meaningful response</strong>.</p>
+<p>The WAPPAC simulator is a <strong>numerical approximation</strong> of a continuous physical system. <strong>Controllers</strong> that <strong>lead to very fast dynamics</strong>, approaching or exceeding the simulation’s time step, <strong>may yield numerically unstable or physically unrealistic</strong> results.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p><strong>The continuous system approximation may break down when control-induced changes occur close to or faster than the simulation timestep.</strong></p>
+<p><strong>Accurate approximation of the continous system breaks near the simulation time-step.</strong></p>
 </div>
-<p>Excellent — your intuition is right.
-Terms like <em>“non-physical”</em> can sound too strong or even misleading in this numerical modeling context.
-The simulator doesn’t simulate “unphysical laws,” it just may lose <strong>numerical or physical representativeness</strong>.
-So, a more accurate phrasing is to emphasize <strong>numerical consistency</strong> and <strong>physical meaning</strong> rather than “non-physical results.”</p>
-<p>Here’s your refined and <strong>ready-to-paste improved version</strong>, with precise and rigorous wording:</p>
-</section>
-<hr class="docutils" />
-<section id="id1">
-<h2>Numerical Representation Limitations<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
-<p>The WAPPAC simulator provides a <strong>numerical approximation</strong> of a continuous-time physical system.
-Controllers that induce <strong>rapid or discontinuous dynamics</strong>, with response times close to or faster than the simulation timestep, may lead to <strong>numerically unstable</strong> or <strong>dynamically inconsistent</strong> behavior that no longer represents a <strong>physically meaningful response</strong>.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>The continuous system <strong>approximation breaks</strong> when control-induced changes occur <strong>close to or faster</strong> than the simulation <strong>timestep</strong>.</p>
-</div>
-<section id="rapid-dynamics-limitation">
-<h3>Rapid Dynamics Limitation<a class="headerlink" href="#rapid-dynamics-limitation" title="Link to this heading">¶</a></h3>
-<p>As a rule of thumb to maintain a <strong>physically meaningful simulation</strong>, the change in velocity caused by the applied PTO force over a single time step</p>
+<p>For instance, when the controller applies a force that generates a velocity change comparable to (or larger than) current velocity in one step, the discrete system no longer approximates the continuous one well.
+As a rule of thumb For physically meaningful sampling, you can consider that the <span class="math notranslate nohighlight">\(\Delta v\)</span> caused by control over a step to be significantly smaller than representative velocities of the system:</p>
 <div class="math notranslate nohighlight">
-\[
-\Delta v \approx \frac{F_{\text{pto}},\Delta t}{M}
-\]</div>
-<p>should remain <strong>small compared to the typical device velocity</strong>.
-If <span class="math notranslate nohighlight">\(\Delta v\)</span> becomes of the same order or larger than the typical velocity magnitude, the discrete update may <strong>overshoot</strong> or <strong>invert the motion direction</strong> within one step, leading to <strong>numerically inconsistent</strong> or <strong>unrealistic oscillatory behavior</strong>.</p>
+\[ \Delta v \approx \frac{F_{pto}(t)}{M \Delta t} \]</div>
+<p>For instance, if current velocity <span class="math notranslate nohighlight">\(v_i\)</span> is sufficiently small, the <span class="math notranslate nohighlight">\(\Delta v\)</span> can easily reverses its sign.</p>
+<p>Please consider the effects of discretization when <strong>designing your control algrotuhm</strong>. <strong>Submission</strong> results that show this numerical issue <strong>will not</strong> be considered (refer to <a class="reference internal" href="#./writing_controller.md"><span class="xref myst">Writing Your Controller</span></a> for further details and a example).</p>
 </section>
-<section id="consequences">
-<h3>Consequences<a class="headerlink" href="#consequences" title="Link to this heading">¶</a></h3>
-<p>Results showing <strong>unrealistic</strong> behavior due to <strong>numerical issues</strong>, will be carefully reviewed and may be <strong>excluded from evaluation</strong>.</p>
-<p>Participants are encouraged to design controllers that <strong>avoid impulsive or discontinuous</strong> actions and ensure smooth, realistic device responses. Practical guidelines and examples are provided in <a class="reference internal" href="../simulation_platform/writing_controller.html"><span class="std std-doc">Writing Your Controller</span></a>.</p>
-</section>
-</section>
-<hr class="docutils" />
 <section id="ramp-interval">
 <h2>Ramp Interval<a class="headerlink" href="#ramp-interval" title="Link to this heading">¶</a></h2>
-<p>To reduce large transients at the start of the simulation—which could induce sail position drift and premature constraint violations—the <strong>wave excitation force is gradually applied</strong> during the <strong>ramp interval</strong>, illustrated in <a class="reference internal" href="#fig-ramp-interval"><span class="std std-numref">Figure 8</span></a>.</p>
+<p>To reduce large transients at the start of the simulation—which could induce sail position drift and premature constraint violations—the <strong>wave excitation force is gradually applied</strong> during the <strong>ramp interval</strong>, illustrated in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig_ramp_interval</span></code>.</p>
 <figure class="align-center" id="fig-ramp-interval">
 <a class="reference internal image-reference" href="../_images/ramp_interval.png"><img alt="../_images/ramp_interval.png" src="../_images/ramp_interval.png" style="width: 100%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 8 </span><span class="caption-text">Ramp interval versus scoring interval.</span><a class="headerlink" href="#fig-ramp-interval" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Ramp interval versus scoring interval.</span><a class="headerlink" href="#fig-ramp-interval" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>The ramp function is defined as a raised cosine:</p>
@@ -300,11 +267,6 @@ Also, <span class="math notranslate nohighlight">\(ramp(T_{\text{ramp}}) = 1\)</
 </li>
 <li><a class="reference internal" href="#control-update">Control Update</a></li>
 <li><a class="reference internal" href="#numerical-representation-limitations">Numerical Representation Limitations</a></li>
-<li><a class="reference internal" href="#id1">Numerical Representation Limitations</a><ul>
-<li><a class="reference internal" href="#rapid-dynamics-limitation">Rapid Dynamics Limitation</a></li>
-<li><a class="reference internal" href="#consequences">Consequences</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#ramp-interval">Ramp Interval</a></li>
 <li><a class="reference internal" href="#up-wave-measurement">Up-wave Measurement</a><ul>
 <li><a class="reference internal" href="#handling-up-wave-measurement">Handling Up-wave Measurement</a></li>
@@ -324,14 +286,9 @@ Also, <span class="math notranslate nohighlight">\(ramp(T_{\text{ramp}}) = 1\)</
         <div class="button_nav">
             <div class="left">
                 
-                <a href="control_problem.html">
-                    <span class="icon">&lt;</span><span>Control Problem Definition</span></a>
-                
             </div>
 
             <div class="right">
-                
-                    <a href="model_parametrization.html"><span>Model &amp; Simulation Parametrization</span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>

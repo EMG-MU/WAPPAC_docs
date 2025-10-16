@@ -58,7 +58,11 @@ These files are automatically produced after running the WAPPAC simulator with:
 Each file corresponds to one of the **three official sea-state scenarios** used in evaluation.
 
 ```{important}
-All three `.enc` files are required for a valid submission. Incomplete or mismatched outputs when re-running participans' controllers may be deemed invalid.
+All **three** `.enc` files are **required** for a **valid submission**. Incomplete or mismatched outputs when re-running participants' controllers may be deemed invalid.
+```
+
+```{note}
+Results exhibiting **numerical instability** or **unrealistic dynamics** (see [Numerical Implementation](./model_control/numerical_implementation.md) and [Writing Your Controller](./simulation_platform/writing_controller.md)) may be subject to **manual** review. If the reported performance is determined to arise from **numerical artifacts** rather than consistent dynamic behavior, the corresponding **results** will be **excluded** from the official **evaluation**, ensuring fairness and compliance with the physical modeling assumptions and numerical limits of the WAPPAC platform.
 ```
 
 ---

@@ -204,6 +204,17 @@ In case of a <strong>tie</strong>, the organizers may apply secondary criteria s
 </section>
 </section>
 <hr class="docutils" />
+<section id="numerical-consistency-requirement">
+<h2>Numerical Consistency Requirement<a class="headerlink" href="#numerical-consistency-requirement" title="Link to this heading">¶</a></h2>
+<p>The WAPPAC simulator represents a <strong>numerical approximation</strong> of a continuous-time physical system, subject to inherent limitations introduced by the discretization of the governing equations.
+Controllers that induce time responses approaching or exceeding the simulation timestep may <strong>surpass the model numerical resolution</strong>, leading to <strong>unrealistic</strong> dynamics.</p>
+<p>Performance scores obtained from <strong>numerically inconsistent</strong> or <strong>non-physically meaningful simulations</strong> will <strong>not be considered valid for evaluation</strong>.
+Controllers must be <strong>stable</strong> and yield <strong>consistent dynamic behavior</strong> across the predefined sea states to be eligible for scoring.</p>
+<p>For practical guidance on maintaining numerical consistency and mitigating these effects, refer to
+<a class="reference internal" href="model_control/numerical_implementation.html"><span class="std std-doc"><strong>Numerical Implementation</strong></span></a> and
+<a class="reference internal" href="simulation_platform/writing_controller.html"><span class="std std-doc"><strong>Writing Your Controller</strong></span></a>.</p>
+</section>
+<hr class="docutils" />
 <section id="competition-rules">
 <h2>Competition Rules<a class="headerlink" href="#competition-rules" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
@@ -238,8 +249,12 @@ Occasional exceedances are permitted but penalized within <span class="math notr
 <li><p>All evaluations are executed on the <strong>official, precompiled WAPPAC binaries</strong>, which run in a <strong>network-isolated, CPU-only environment</strong>.
 Internet access, external API calls, or runtime package installations are not permitted during evaluation.
 Any attempt to perform such actions will cause evaluation failure. Controllers must run fully self-contained, and not rely on internet or LAN communication (local function calls or internal APIs are, of course, allowed).</p></li>
-<li><p><strong>No modifications</strong> to the simulation binaries, hydrodynamic model, solver settings, or wave data are permitted.</p></li>
+<li><p>Results exhibiting <strong>numerical instability</strong> or <strong>unrealistic dynamics</strong> (see <a class="reference internal" href="model_control/numerical_implementation.html"><span class="std std-doc"><strong>Numerical Implementation</strong></span></a> and <a class="reference internal" href="simulation_platform/writing_controller.html"><span class="std std-doc"><strong>Writing Your Controller</strong></span></a>) may be subject to <strong>manual review</strong>. If the reported performance is determined to arise from <strong>numerical artifacts</strong> rather than consistent dynamic behavior, the corresponding results will be <strong>excluded from the official evaluation</strong>, regardless of their performance index. This ensures fairness and consistency with the <strong>intended physical modeling assumptions</strong> and the <strong>numerical limitations</strong> of the WAPPAC simulation platform.</p></li>
+<li><p><strong>No modifications</strong> to the simulation binaries, hydrodynamic model, solver settings, or wave data are permitted.</p>
+<ul>
 <li><p>Any attempt to alter or tamper with the simulation platform, inputs, or encrypted outputs constitutes a violation of the competition integrity and results in <strong>immediate disqualification and reporting the participant</strong>.</p></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><p><strong>Unit System and Conventions</strong></p>
@@ -323,6 +338,7 @@ Any attempt to perform such actions will cause evaluation failure. Controllers m
 <li><a class="reference internal" href="#participants-final-competition-score">Participant’s Final Competition Score</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#numerical-consistency-requirement">Numerical Consistency Requirement</a></li>
 <li><a class="reference internal" href="#competition-rules">Competition Rules</a></li>
 <li><a class="reference internal" href="#quick-reference">Quick Reference</a><ul>
 <li><a class="reference internal" href="#related-sections-for-further-details">Related Sections for Further Details</a></li>

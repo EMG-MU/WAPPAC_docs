@@ -230,7 +230,11 @@ These files are automatically produced after running the WAPPAC simulator with:<
 <p>Each file corresponds to one of the <strong>three official sea-state scenarios</strong> used in evaluation.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>All three <code class="docutils literal notranslate"><span class="pre">.enc</span></code> files are required for a valid submission. Incomplete or mismatched outputs when re-running participans’ controllers may be deemed invalid.</p>
+<p>All <strong>three</strong> <code class="docutils literal notranslate"><span class="pre">.enc</span></code> files are <strong>required</strong> for a <strong>valid submission</strong>. Incomplete or mismatched outputs when re-running participants’ controllers may be deemed invalid.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Results exhibiting <strong>numerical instability</strong> or <strong>unrealistic dynamics</strong> (see <a class="reference internal" href="model_control/numerical_implementation.html"><span class="std std-doc">Numerical Implementation</span></a> and <a class="reference internal" href="simulation_platform/writing_controller.html"><span class="std std-doc">Writing Your Controller</span></a>) may be subject to <strong>manual</strong> review. If the reported performance is determined to arise from <strong>numerical artifacts</strong> rather than consistent dynamic behavior, the corresponding <strong>results</strong> will be <strong>excluded</strong> from the official <strong>evaluation</strong>, ensuring fairness and compliance with the physical modeling assumptions and numerical limits of the WAPPAC platform.</p>
 </div>
 </section>
 <hr class="docutils" />
