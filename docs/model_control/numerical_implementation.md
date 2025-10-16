@@ -45,25 +45,44 @@ For interested readers, the official implementation can be reviewed in [torchdif
 
 ## Numerical Representation Limitations
 
-The WAPPAC simulator provides a **numerical approximation** of a continuous-time physical system. Controllers that induce **rapid or discontinuous dynamics**, with response times close to or faster than the simulation timestep, can lead to **numerically unstable** or **non-physical** results.
+The WAPPAC simulator provides a **numerical approximation** of a continuous-time physical system. Controllers that induce **rapid or discontinuous dynamics**, with response times close to or faster than the simulation timestep, can lead to **numerically unstable** or **dynamically inconsistent** behavior that no longer represents a **physically meaningful response**.
 
 ```{important}
-**The continuous system approximation breaks when control-induced changes occur close to or faster than the simulation timestep.**
+**The continuous system approximation may break down when control-induced changes occur close to or faster than the simulation timestep.**
 ```
 
-### Discretization Rule of Thumb
+Excellent — your intuition is right.
+Terms like *“non-physical”* can sound too strong or even misleading in this numerical modeling context.
+The simulator doesn’t simulate “unphysical laws,” it just may lose **numerical or physical representativeness**.
+So, a more accurate phrasing is to emphasize **numerical consistency** and **physical meaning** rather than “non-physical results.”
 
-To maintain physical realism, the change in velocity caused by the applied PTO force over a single step 
+Here’s your refined and **ready-to-paste improved version**, with precise and rigorous wording:
+
+---
+
+## Numerical Representation Limitations
+
+The WAPPAC simulator provides a **numerical approximation** of a continuous-time physical system.
+Controllers that induce **rapid or discontinuous dynamics**, with response times close to or faster than the simulation timestep, may lead to **numerically unstable** or **dynamically inconsistent** behavior that no longer represents a **physically meaningful response**.
+
+```{important}
+The continuous system **approximation breaks** when control-induced changes occur **close to or faster** than the simulation **timestep**.
+```
+
+### Rapid Dynamics Limitation
+
+As a rule of thumb to maintain a **physically meaningful simulation**, the change in velocity caused by the applied PTO force over a single time step
 
 $$
-\Delta v \approx \frac{F_{\text{pto}}\,\Delta t}{M}
+\Delta v \approx \frac{F_{\text{pto}},\Delta t}{M}
 $$
 
-should be **small compared to the typical device velocity**. If $ \Delta v $ is of the same order or larger than the typical velocity magnitude, the discrete update may **overshoot** or even **reverse velocity direction** within one step, leading to non-realistic oscillatory behavior.
+should remain **small compared to the typical device velocity**.
+If $\Delta v$ becomes of the same order or larger than the typical velocity magnitude, the discrete update may **overshoot** or **invert the motion direction** within one step, leading to **numerically inconsistent** or **unrealistic oscillatory behavior**.
 
 ### Consequences
 
-Results showing **non-realistic** behavior due to **numerical issues**, will be carefully reviewed and may be **excluded from evaluation**.
+Results showing **unrealistic** behavior due to **numerical issues**, will be carefully reviewed and may be **excluded from evaluation**.
 
 Participants are encouraged to design controllers that **avoid impulsive or discontinuous** actions and ensure smooth, realistic device responses. Practical guidelines and examples are provided in [Writing Your Controller](../simulation_platform/writing_controller.md).
 

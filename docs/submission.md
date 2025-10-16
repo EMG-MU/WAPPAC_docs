@@ -62,7 +62,7 @@ All **three** `.enc` files are **required** for a **valid submission**. Incomple
 ```
 
 ```{note}
-Results exhibiting **numerical instability** or **non-realistic dynamics** (see [Numerical Implementation](./model_control/numerical_implementation.md) and [Writing Your Controller](./simulation_platform/writing_controller.md)) may be subject to **manual** review. If the reported performance is determined to arise from **numerical artifacts** rather than consistent dynamic behavior, the corresponding **results** will be **excluded** from the official **evaluation**, ensuring fairness and compliance with the physical modeling assumptions and numerical limits of the WAPPAC platform.
+Results exhibiting **numerical instability** or **unrealistic dynamics** (see [Numerical Implementation](./model_control/numerical_implementation.md) and [Writing Your Controller](./simulation_platform/writing_controller.md)) may be subject to **manual** review. If the reported performance is determined to arise from **numerical artifacts** rather than consistent dynamic behavior, the corresponding **results** will be **excluded** from the official **evaluation**, ensuring fairness and compliance with the physical modeling assumptions and numerical limits of the WAPPAC platform.
 ```
 
 ---
