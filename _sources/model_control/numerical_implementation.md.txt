@@ -45,23 +45,6 @@ For interested readers, the official implementation can be reviewed in [torchdif
 
 ## Numerical Representation Limitations
 
-The WAPPAC simulator provides a **numerical approximation** of a continuous-time physical system. Controllers that induce **rapid or discontinuous dynamics**, with response times close to or faster than the simulation timestep, can lead to **numerically unstable** or **dynamically inconsistent** behavior that no longer represents a **physically meaningful response**.
-
-```{important}
-**The continuous system approximation may break down when control-induced changes occur close to or faster than the simulation timestep.**
-```
-
-Excellent — your intuition is right.
-Terms like *“non-physical”* can sound too strong or even misleading in this numerical modeling context.
-The simulator doesn’t simulate “unphysical laws,” it just may lose **numerical or physical representativeness**.
-So, a more accurate phrasing is to emphasize **numerical consistency** and **physical meaning** rather than “non-physical results.”
-
-Here’s your refined and **ready-to-paste improved version**, with precise and rigorous wording:
-
----
-
-## Numerical Representation Limitations
-
 The WAPPAC simulator provides a **numerical approximation** of a continuous-time physical system.
 Controllers that induce **rapid or discontinuous dynamics**, with response times close to or faster than the simulation timestep, may lead to **numerically unstable** or **dynamically inconsistent** behavior that no longer represents a **physically meaningful response**.
 
