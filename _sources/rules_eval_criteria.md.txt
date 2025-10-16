@@ -114,8 +114,8 @@ For practical guidance on maintaining numerical consistency and mitigating these
      Internet access, external API calls, or runtime package installations are not permitted during evaluation.
      Any attempt to perform such actions will cause evaluation failure. Controllers must run fully self-contained, and not rely on internet or LAN communication (local function calls or internal APIs are, of course, allowed).
    * Results exhibiting **numerical instability** or **unrealistic dynamics** (see [**Numerical Implementation**](./model_control/numerical_implementation.md) and [**Writing Your Controller**](./simulation_platform/writing_controller.md)) may be subject to **manual review**. If the reported performance is determined to arise from **numerical artifacts** rather than consistent dynamic behavior, the corresponding results will be **excluded from the official evaluation**, regardless of their performance index. This ensures fairness and consistency with the **intended physical modeling assumptions** and the **numerical limitations** of the WAPPAC simulation platform.
-   * **No modifications** to the simulation binaries, hydrodynamic model, solver settings, or wave data are permitted.
-     * Any attempt to alter or tamper with the simulation platform, inputs, or encrypted outputs constitutes a violation of the competition integrity and results in **immediate disqualification and reporting the participant**.
+   * **No modifications** to the simulation binaries, hydrodynamic model, solver settings, or wave data are permitted:
+   > Any attempt to alter or tamper with the simulation platform, inputs, or encrypted outputs constitutes a violation of the competition integrity and results in **immediate disqualification and reporting the participant**.
 
 5. **Unit System and Conventions**
 

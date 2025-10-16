@@ -217,7 +217,7 @@ Controllers must be <strong>stable</strong> and yield <strong>consistent dynamic
 <hr class="docutils" />
 <section id="competition-rules">
 <h2>Competition Rules<a class="headerlink" href="#competition-rules" title="Link to this heading">¶</a></h2>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p><strong>Evaluation Mode &amp; Reproducibility</strong></p>
 <ul class="simple">
 <li><p>Final evaluation is performed by setting <code class="docutils literal notranslate"><span class="pre">eval_flag</span> <span class="pre">=</span> <span class="pre">true</span></code> in <code class="docutils literal notranslate"><span class="pre">my_sim_input_file.json</span></code> (see <a class="reference internal" href="simulation_platform/sim_input.html"><span class="std std-doc">Simulation Input File</span></a>).
@@ -250,12 +250,11 @@ Occasional exceedances are permitted but penalized within <span class="math notr
 Internet access, external API calls, or runtime package installations are not permitted during evaluation.
 Any attempt to perform such actions will cause evaluation failure. Controllers must run fully self-contained, and not rely on internet or LAN communication (local function calls or internal APIs are, of course, allowed).</p></li>
 <li><p>Results exhibiting <strong>numerical instability</strong> or <strong>unrealistic dynamics</strong> (see <a class="reference internal" href="model_control/numerical_implementation.html"><span class="std std-doc"><strong>Numerical Implementation</strong></span></a> and <a class="reference internal" href="simulation_platform/writing_controller.html"><span class="std std-doc"><strong>Writing Your Controller</strong></span></a>) may be subject to <strong>manual review</strong>. If the reported performance is determined to arise from <strong>numerical artifacts</strong> rather than consistent dynamic behavior, the corresponding results will be <strong>excluded from the official evaluation</strong>, regardless of their performance index. This ensures fairness and consistency with the <strong>intended physical modeling assumptions</strong> and the <strong>numerical limitations</strong> of the WAPPAC simulation platform.</p></li>
-<li><p><strong>No modifications</strong> to the simulation binaries, hydrodynamic model, solver settings, or wave data are permitted.</p>
-<ul>
-<li><p>Any attempt to alter or tamper with the simulation platform, inputs, or encrypted outputs constitutes a violation of the competition integrity and results in <strong>immediate disqualification and reporting the participant</strong>.</p></li>
+<li><p><strong>No modifications</strong> to the simulation binaries, hydrodynamic model, solver settings, or wave data are permitted:</p></li>
 </ul>
-</li>
-</ul>
+<blockquote>
+<div><p>Any attempt to alter or tamper with the simulation platform, inputs, or encrypted outputs constitutes a violation of the competition integrity and results in <strong>immediate disqualification and reporting the participant</strong>.</p>
+</div></blockquote>
 </li>
 <li><p><strong>Unit System and Conventions</strong></p>
 <ul class="simple">
