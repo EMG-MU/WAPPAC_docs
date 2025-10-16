@@ -241,18 +241,18 @@ The WAPPAC simulator provides a **numerical approximation** of a continuous-time
 Controllers that induce **rapid or discontinuous dynamics**, with response times close to or faster than the simulation timestep, can lead to **numerically unstable** or **non-physical** results.
 
 ```{important}
-The continuous system **approximation breaks** down when control-induced changes occur faster than the simulation timestep.
+The continuous system **approximation breaks** down when control-induced changes occur close to or faster than the simulation timestep.
 ```
 
 #### Discretization Rule of Thumb
 
-To help maintain numerical consistency, the change in velocity caused by the applied PTO force over a single time step should preferably remain **small compared to the current velocity**:
+To help maintain numerical consistency, the change in velocity caused by the applied PTO force over a single time step
 
 $$
 \Delta v \approx \frac{F_{\text{pto}}\Delta t}{M}
 $$
 
-If $\Delta v$ becomes comparable to or larger than the instantaneous velocity, the discrete update may **overshoot** or **reverse** the direction of motion within one integration step, potentially resulting in oscillatory or numerically inconsistent behavior.
+should preferably remain **small compared to the typical device velocity**. If $\Delta v$ becomes comparable to or larger than the instantaneous velocity, the discrete update may **overshoot** or **reverse** the direction of motion within one integration step, potentially resulting in oscillatory or unrealistic behavior.
 
 ---
 
@@ -261,7 +261,7 @@ If $\Delta v$ becomes comparable to or larger than the instantaneous velocity, t
 A **Coulomb-type control law** with a very high gain (e.g. $C_{pto} = 10^6$ N, the maximum allowed PTO force) causes fast changes in velocity within a single time step.
 This leads to unrealistic oscillations and unstable numerical behavior.
 
-Participants are encouraged to **experiment with this configuration** to observe the effect directly:
+By **experimenting with this configuration**, participants can observe the effect directly:
 
 ```python
 def my_controller(x, v, t, eta10):
@@ -298,11 +298,11 @@ These strategies could help achieving consistent and more realistic dynamic resp
 #### Important Note on Evaluation Metrics
 
 The **mean absorbed power** and **performance index** do not inherently penalize rapid or discontinuous variations in force or motion.
-As a result, controllers that inadvertently exploit **numerical artifacts** may appear to achieve artificially high scores.
+As a result, controllers that inadvertently exploit **numerical artifacts** may achieve artificially high scores.
 Participants are encouraged to verify this effect using the Coulomb-like control example above with $C_{pto} = 10^6$ N.
 
 ```{important}
-Results exhibiting high performance due to **numerical inconsistency** or **non-physical behavior** will **not be considered valid for evaluation**.  
+Results exhibiting high performance by exploiting **numerical artifacts** or due to **non-physical behavior** will **not be considered valid for evaluation**.  
 Only simulations demonstrating stable, physically consistent dynamics will be accepted.
 ```
 

@@ -71,14 +71,14 @@ In case of a **tie**, the organizers may apply secondary criteria such as lowest
 ## Numerical Consistency Requirement
 
 The WAPPAC simulator represents a **numerical approximation** of a continuous-time physical system, subject to inherent limitations introduced by the discretization of the governing equations.
-Controllers that induce time responses approaching or exceeding the simulation timestep may **surpass the model’s numerical resolution**, leading to **inconsistent or non-physical dynamics**.
+Controllers that induce time responses approaching or exceeding the simulation timestep may **surpass the model’s numerical resolution**, leading to **unrealistic or non-physical dynamics**.
 
 Performance scores obtained from **numerically inconsistent** or **non-physically meaningful simulations** will **not be considered valid for evaluation**.
 Controllers must be **stable** and yield **consistent dynamic behavior** across the predefined sea states to be eligible for scoring.
 
 For practical guidance on maintaining numerical consistency and mitigating these effects, refer to
-[**Numerical Implementation**](./simulation_platform/numerical_implementation.md) and
-[**Writing Your Controller**](./writing_controller.md).
+[**Numerical Implementation**](./model_control/numerical_implementation.md) and
+[**Writing Your Controller**](./simulation_platform/writing_controller.md).
 
 ---
 
@@ -112,7 +112,7 @@ For practical guidance on maintaining numerical consistency and mitigating these
    * All evaluations are executed on the **official, precompiled WAPPAC binaries**, which run in a **network-isolated, CPU-only environment**.
      Internet access, external API calls, or runtime package installations are not permitted during evaluation.
      Any attempt to perform such actions will cause evaluation failure. Controllers must run fully self-contained, and not rely on internet or LAN communication (local function calls or internal APIs are, of course, allowed).
-   * Results exhibiting **numerical instability** or **non-realistic dynamics** (see [**Numerical Implementation**](./simulation_platform/numerical_implementation.md) and [**Writing Your Controller**](./writing_controller.md)) may be subject to **manual review**. If the reported performance is determined to arise from **numerical artifacts** rather than consistent dynamic behavior, the corresponding results will be **excluded from the official evaluation**, regardless of their performance index. This ensures fairness and consistency with the **intended physical modeling assumptions** and the **numerical limitations** of the WAPPAC simulation platform.
+   * Results exhibiting **numerical instability** or **non-realistic dynamics** (see [**Numerical Implementation**](./model_control/numerical_implementation.md) and [**Writing Your Controller**](./simulation_platform/writing_controller.md)) may be subject to **manual review**. If the reported performance is determined to arise from **numerical artifacts** rather than consistent dynamic behavior, the corresponding results will be **excluded from the official evaluation**, regardless of their performance index. This ensures fairness and consistency with the **intended physical modeling assumptions** and the **numerical limitations** of the WAPPAC simulation platform.
    * **No modifications** to the simulation binaries, hydrodynamic model, solver settings, or wave data are permitted.
      * Any attempt to alter or tamper with the simulation platform, inputs, or encrypted outputs constitutes a violation of the competition integrity and results in **immediate disqualification and reporting the participant**.
 

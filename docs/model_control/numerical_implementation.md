@@ -48,33 +48,33 @@ For interested readers, the official implementation can be reviewed in [torchdif
 The WAPPAC simulator provides a **numerical approximation** of a continuous-time physical system. Controllers that induce **rapid or discontinuous dynamics**, with response times close to or faster than the simulation timestep, can lead to **numerically unstable** or **non-physical** results.
 
 ```{important}
-**The continuous system approximation breaks down when control-induced changes occur faster than the simulation timestep.**
+**The continuous system approximation breaks down when control-induced changes occur close to or faster than the simulation timestep.**
 ```
 
 ### Discretization Rule of Thumb
 
-To maintain physical realism, the change in velocity caused by the applied PTO force over a single step should be **small compared to the current velocity**:
+To maintain physical realism, the change in velocity caused by the applied PTO force over a single step 
 
 $$
-\Delta v \approx \frac{F_{\text{pto}},\Delta t}{M}
+\Delta v \approx \frac{F_{\text{pto}}\,\Delta t}{M}
 $$
 
-If $ \Delta v $ is of the same order or larger than the typical velocity magnitude, the discrete update may **overshoot** or even **reverse velocity direction** within one step, leading to non-realistic oscillatory behavior.
+should be **small compared to the typical device velocity**. If $ \Delta v $ is of the same order or larger than the typical velocity magnitude, the discrete update may **overshoot** or even **reverse velocity direction** within one step, leading to non-realistic oscillatory behavior.
 
 ### Consequences
 
 Results showing **non-realistic** behavior due to **numerical issues**, will be carefully reviewed and may be **excluded from evaluation**.
 
-Participants are encouraged to design controllers that **avoid impulsive or discontinuous** actions and ensure smooth, physically consistent responses. Practical guidelines and examples are provided in [Writing Your Controller](./writing_controller.md).
+Participants are encouraged to design controllers that **avoid impulsive or discontinuous** actions and ensure smooth, realistic device responses. Practical guidelines and examples are provided in [Writing Your Controller](../simulation_platform/writing_controller.md).
 
 ---
 
 ## Ramp Interval
 
-To reduce large transients at the start of the simulation—which could induce sail position drift and premature constraint violations—the **wave excitation force is gradually applied** during the **ramp interval**, illustrated in {numref}`fig_ramp_interval`.
+To reduce large transients at the start of the simulation—which could induce sail position drift and premature constraint violations—the **wave excitation force is gradually applied** during the **ramp interval**, illustrated in {numref}`fig-ramp-interval`.
 
 ```{figure} ../_static/figures/schematics/ramp_interval.png
-:name: fig_ramp_interval
+:name: fig-ramp-interval
 :width: 100%
 :align: center
 Ramp interval versus scoring interval.
