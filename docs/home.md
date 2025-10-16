@@ -1,9 +1,24 @@
 # Home
 
 Welcome to the **WavePiston Passive Control (WAPPAC) competition documentation**.  
-Before you begin experimenting, please **take a moment to register** for the competition by following the instructions in [Registration for WAPPAC competition](#registration-for-wappac-competition) 🌊.  
 
-Registered participants will receive **competition updates**, **technical announcements**, and other **important information** directly via email.
+**Registration is now open!** 🌊
+
+Researchers, students, and professionals in the field of **wave energy** and **control systems** are warmly invited to participate.  
+
+```{important}
+Please [**fill out the registration form here**](https://docs.google.com/forms/d/e/1FAIpQLSc1JRCtbhVDxnm0jyLhFsNW3xCky19vAwDF8hb4oVD_XSU2Jg/viewform?usp=dialog) for the WAPPAC Competition. Registered participants will receive **competition updates**, **technical announcements**, and other **important information**.
+```
+
+For further information please refer to section [Registration for WAPPAC Competition](./comp_overview/registration.md) in this website.
+
+
+[//]: # (**Each participant**, whether competing individually or as part of a team, **must** submit a separate registration to ensure effective communication and acknowledgment of participation.)
+
+[//]: # (Before you begin experimenting, please **take a moment to register** for the competition by following the instructions in [Registration for WAPPAC competition]&#40;#registration-for-wappac-competition&#41; 🌊.)
+
+[//]: # ()
+[//]: # (Registered participants will receive **competition updates**, **technical announcements**, and other **important information** directly via email.)
 
 ---
 
@@ -29,21 +44,27 @@ Learn more about COER work: [coer.maynoothuniversity.ie](https://coer.maynoothun
 ---
 
 
-## Registration for WAPPAC competition
+[//]: # (## Registration for WAPPAC competition)
 
-Registration for the **WavePiston Passive Control (WAPPAC) Competition 2025** is **now open**!!
+[//]: # (Registration for the **WavePiston Passive Control &#40;WAPPAC&#41; Competition 2025** is **now open**!!)
 
-Researchers, students, and professionals in the field of **wave energy** and **control systems** are warmly invited to participate.
+[//]: # ()
+[//]: # (Researchers, students, and professionals in the field of **wave energy** and **control systems** are warmly invited to participate.)
 
-To join, **please complete** the official registration form linked below. 
+[//]: # ()
+[//]: # (To join, **please complete** the official registration form linked below. )
 
+[//]: # ()
+[//]: # ()
+[//]: # ([//]: # &#40;**Each participant**, whether competing individually or as part of a team, **must** submit a separate registration to ensure effective communication and acknowledgment of participation.&#41;)
+[//]: # ()
+[//]: # (```{important})
 
-[//]: # (**Each participant**, whether competing individually or as part of a team, **must** submit a separate registration to ensure effective communication and acknowledgment of participation.)
+[//]: # (**Follow** [**this link**]&#40;https://docs.google.com/forms/d/e/1FAIpQLSc1JRCtbhVDxnm0jyLhFsNW3xCky19vAwDF8hb4oVD_XSU2Jg/viewform?usp=dialog&#41; for **registering** for the **WAPPAC Competition**.)
 
-```{important}
-**Follow** [**this link**](https://docs.google.com/forms/d/e/1FAIpQLSc1JRCtbhVDxnm0jyLhFsNW3xCky19vAwDF8hb4oVD_XSU2Jg/viewform?usp=dialog) for **registering** for the **WAPPAC Competition**.
-```
-For further information please refer to section [Registration to WAPPAC competition](./comp_overview/registration.md).
+[//]: # (```)
+
+[//]: # (For further information please refer to section [Registration to WAPPAC competition]&#40;./comp_overview/registration.md&#41;.)
 
 
 [//]: # (**Privacy Note:**  )
@@ -55,7 +76,7 @@ For further information please refer to section [Registration to WAPPAC competit
 
 [//]: # ([eugenio.gelos@mu.ie]&#40;mailto:eugenio.gelos@mu.ie&#41; — [colm.fitzgerald@mu.ie]&#40;mailto:colm.fitzgerald@mu.ie&#41;)
 
----
+[//]: # (---)
 
 
 ## WavePiston Device

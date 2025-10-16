@@ -1,18 +1,25 @@
 # Registration for WAPPAC Competition
 
-Registration for the **WavePiston Passive Control (WAPPAC) Competition 2025** is now open!
+Registration for the **WAPPAC Competition** is open!
 Researchers, students, and professionals in the field of **wave energy** and **control systems** are warmly invited to participate.
 
-To join, please **complete the registration form** linked below.
-**Each participant**, whether competing individually or as part of a team, **must submit a separate registration** to ensure effective communication and proper acknowledgment of all participants.
+Registered participants will receive **competition updates**, **technical announcements**, and other **important information** directly via email.
 
+
+To **join** the WAPPAC Competition and keep you **updated**:
 ```{important}
-**Follow** [**this link**](https://docs.google.com/forms/d/e/1FAIpQLSc1JRCtbhVDxnm0jyLhFsNW3xCky19vAwDF8hb4oVD_XSU2Jg/viewform?usp=dialog) for **registering** for the **WAPPAC Competition**.
+Please [**fill out the registration form here**](https://docs.google.com/forms/d/e/1FAIpQLSc1JRCtbhVDxnm0jyLhFsNW3xCky19vAwDF8hb4oVD_XSU2Jg/viewform?usp=dialog).
+```
+
+```{note}
+**Each participant**, whether competing individually or as part of a team, **must submit a separate registration** to ensure effective communication and proper acknowledgment of all participants.
 ```
 
 **Privacy Note:**
 
-The information collected through the registration form is **for internal use by the WAPPAC competition organizers only**. It will be used to manage participant **communications**, **updates**, and **evaluation processes**. Data will be handled **confidentially** and **will not be shared or disclosed** outside the WAPPAC organization.
+- The information collected through the registration form is **for internal use by the WAPPAC competition organizers only**. 
+- Information will be used to manage participant **communications**, **updates**, and **evaluation processes**. 
+- Data will be handled **confidentially** and **will not be shared or disclosed** outside the WAPPAC organization.
 
 For any questions regarding registration or participation, please contact the organizing team:
 [eugenio.gelos@mu.ie](mailto:eugenio.gelos@mu.ie) — [colm.fitzgerald@mu.ie](mailto:colm.fitzgerald@mu.ie)
