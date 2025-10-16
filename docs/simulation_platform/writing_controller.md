@@ -302,7 +302,7 @@ As a result, controllers that inadvertently exploit **numerical artifacts** may 
 Participants are encouraged to verify this effect using the Coulomb-like control example above with $C_{pto} = 10^6$ N.
 
 ```{important}
-Results exhibiting high performance due to **numerical inconsistency** or **non-physical behavior** will **not be considered valid for evaluation**.  
+Results exhibiting presenting **numerical inconsistencies** or **non-physical behavior** will **not be considered valid for evaluation**, regardless the performance index value.  
 Only simulations demonstrating stable, physically consistent dynamics will be accepted.
 ```
 
