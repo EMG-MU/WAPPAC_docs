@@ -1,19 +1,20 @@
 # Registration for WAPPAC Competition
 
-Registration for the **WAPPAC Competition** is open!
+**Registration is now open!** 🌊
+
 Researchers, students, and professionals in the field of **wave energy** and **control systems** are warmly invited to participate.
 
-Registered participants will receive **competition updates**, **technical announcements**, and other **important information** directly via email.
-
-
-To **join** the WAPPAC Competition and keep you **updated**:
+To **join** the competition:
 ```{important}
-Please [**fill out the registration form here**](https://docs.google.com/forms/d/e/1FAIpQLSc1JRCtbhVDxnm0jyLhFsNW3xCky19vAwDF8hb4oVD_XSU2Jg/viewform?usp=dialog).
+Please [**fill out the registration form here**](https://docs.google.com/forms/d/e/1FAIpQLSfEmYwDJWQ_0-TnFtaREuSVg6gpJqSyAgp_OKoKbW1oDY8pZA/viewform?usp=dialog) to receive a **personal download link** for the **WAPPAC open-source simulation platform**. Registered participants will also receive **competition updates**, **technical announcements**, and other **important information** in the future.
+```
+```{note}
+- **Registration is mandatory**. It allows you to download the latest version of the WAPPAC simulation platform and receive important information. Additionally, we will use this information to **effectively plan** the **competition evluation**.
+- **Each participant**, whether competing individually or as part of a team, **must submit a separate registration** to ensure effective communication and proper acknowledgment of all participants.
+- The personal download link is **available** for **24 hours** after registration.
 ```
 
-```{note}
-**Each participant**, whether competing individually or as part of a team, **must submit a separate registration** to ensure effective communication and proper acknowledgment of all participants.
-```
+
 
 **Privacy Note:**
 

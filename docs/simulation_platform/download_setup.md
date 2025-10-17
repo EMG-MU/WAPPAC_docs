@@ -1,29 +1,36 @@
 # Getting Started with WAPPAC Simulator
 
-The **WAPPAC simulation platform** is distributed as a **precompiled package** containing ready-to-run executables, template files, and model data for both Linux and Windows systems.
+The **WAPPAC simulation platform** is distributed as a **precompiled package** containing ready-to-run executables, template files, and model data for both Linux and Windows systems.  
 No manual installation or dependency setup is required.
 
-You can obtain the platform via **GitHub**:
+---
 
-## Download ZIP via GitHub Release
+## How to Obtain the WAPPAC Simulator
 
-WAPPAC executables are distributed as a **self-contained release**. The ZIP file **includes both binaries and source code**.
+The **WAPPAC binaries** (executables) are distributed **only after** you **complete your registration** through the **official WAPPAC registration form**.
+
+After completing your registration, you will receive an **automated email** containing a **personal download link** to your copy of the simulator.
 
 ```{important}
-**Download** the **latest release** from the [WAPPAC GitHub Releases](https://github.com/EMG-MU/WAPPAC_comp_pub/releases).
+To **receive** the latest WAPPAC simulator binaries, please register via the **[WAPPAC Competition Registration Form](https://docs.google.com/forms/d/e/1FAIpQLSfEmYwDJWQ_0-TnFtaREuSVg6gpJqSyAgp_OKoKbW1oDY8pZA/viewform?usp=dialog)**.
 ```
+- This download link remains active for **24 hours** from the moment of creation.
+
+- Depending on your email provider, the message containing your download link may take a **few minutes** to arrive. Please check your **Spam** or **Junk** folders if you do not see it in your inbox.
 
 ## Clone Repository (Recommended)
+
+While the executables are distributed only after registration, you can still access the **source files**, **controller templates**, and **model data** directly from GitHub:
 
 ```bash
 git clone https://github.com/EMG-MU/WAPPAC_comp_pub.git
 ```
 
 ```{note}
-The cloned repository will **not include the WAPPAC executables**, as these are distributed separately via GitHub releases due to their file size.
+The cloned repository does **not include the WAPPAC executables**, as these are distributed individually to registered participants via the registration system.
 ```
 
-> **Tip:** Cloning is recommended if you plan to pull updates or bug fixes from the repository during the competition.
+> **Tip:** Cloning is recommended if you intend to pull updates or bug fixes from the repository during the competition.
 
 ---
 

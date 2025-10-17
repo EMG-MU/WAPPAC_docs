@@ -15,7 +15,7 @@ Important WAPPAC competition and dissemination dates are summarized below. Note 
 
 
 ## Competition Flow
-Before you begin developing your controller, **please ensure you are registered** for the WAPPAC Competition by completing the form available at **[this link](https://docs.google.com/forms/d/e/1FAIpQLSc1JRCtbhVDxnm0jyLhFsNW3xCky19vAwDF8hb4oVD_XSU2Jg/viewform?usp=dialog)**. This will allow you to **receive timely updates, key announcements, and all essential information** throughout the competition. For further details, see the [Registration for WAPPAC Competition](./registration.md) section.
+To **download** the **WAPPAC simulation platform**, you **must register** for the WAPPAC competition by completing the form available at **[this link](https://docs.google.com/forms/d/e/1FAIpQLSfEmYwDJWQ_0-TnFtaREuSVg6gpJqSyAgp_OKoKbW1oDY8pZA/viewform?usp=dialog)**. Registered particpiants will also **receive timely updates, key announcements, and all essential information** throughout the competition. For further details, see the [Registration for WAPPAC Competition](./registration.md) section.
 
 Once registered, the **workflow** for participants is straightforward:
 
