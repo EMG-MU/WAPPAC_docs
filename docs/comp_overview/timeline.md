@@ -12,22 +12,20 @@ Important WAPPAC competition and dissemination dates are summarized below. Note 
 
 ---
 
-
-
 ## Competition Flow
-To **download** the **WAPPAC simulation platform**, you **must register** for the WAPPAC competition by completing the form available at **[this link](https://docs.google.com/forms/d/e/1FAIpQLSfEmYwDJWQ_0-TnFtaREuSVg6gpJqSyAgp_OKoKbW1oDY8pZA/viewform?usp=dialog)**. Registered particpiants will also **receive timely updates, key announcements, and all essential information** throughout the competition. For further details, see the [Registration for WAPPAC Competition](./registration.md) section.
+The **workflow** for participants is straightforward:
 
-Once registered, the **workflow** for participants is straightforward:
+1. **Register** (mandatory) for the WAPPAC competition and **download** the simulation platform through [**this link**](https://docs.google.com/forms/d/e/1FAIpQLSfEmYwDJWQ_0-TnFtaREuSVg6gpJqSyAgp_OKoKbW1oDY8pZA/viewform?usp=dialog). 
 
-1. **Develop** your controller locally using the WAPPAC simulation platform.  
+2. **Develop** your controller locally using the WAPPAC simulation platform.  
 
-2. **Test locally** with the provided wave scenarios and tools.  
+3. **Test locally** with the provided wave scenarios and tools.  
 
-3. **Generate evaluation files**.  
+4. **Generate evaluation files**.  
 
-4. **Submit** your controller, evaluation files, and report for official evaluation by the organizers.
+5. **Submit** your controller, evaluation files, and report for official evaluation by the organizers.
 
-5. **Results will be announced** and disseminated through a dedicated session at an international conference.
+6. **Results will be announced** and disseminated through a dedicated session at an international conference.
 
 The overall process ensures a **fair, repeatable, and secure evaluation** of all participants’ controllers.
 

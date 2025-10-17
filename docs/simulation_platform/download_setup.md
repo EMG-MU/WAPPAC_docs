@@ -7,9 +7,9 @@ No manual installation or dependency setup is required.
 
 ## How to Obtain the WAPPAC Simulator
 
-The **WAPPAC binaries** (executables) are distributed **only after** you **complete your registration** through the **official WAPPAC registration form**.
+The **WAPPAC binaries** (executables) are distributed **only after** you **complete your registration** through the official WAPPAC registration form.
 
-After completing your registration, you will receive an **automated email** containing a **personal download link** to your copy of the simulator.
+After completing your registration, you will receive an automated email containing a **personal download link** to your copy of the simulator.
 
 ```{important}
 To **receive** the latest WAPPAC simulator binaries, please register via the **[WAPPAC Competition Registration Form](https://docs.google.com/forms/d/e/1FAIpQLSfEmYwDJWQ_0-TnFtaREuSVg6gpJqSyAgp_OKoKbW1oDY8pZA/viewform?usp=dialog)**.

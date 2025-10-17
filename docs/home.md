@@ -1,14 +1,14 @@
 # Home
 
-Welcome to the **WavePiston Passive Control (WAPPAC) competition documentation**.  
+**Welcome to the WavePiston Passive Control (WAPPAC) competition documentation**.  
 
 ## Latest News
 **Registration is now open!** 🌊
 
-Researchers, students, and professionals in the field of **wave energy** and **control systems** are warmly invited to participate.  
+Researchers, students, and professionals in the field of wave energy and control systems are warmly invited to participate.  
 
 ```{important}
-Please [**fill out the registration form here**](https://docs.google.com/forms/d/e/1FAIpQLSfEmYwDJWQ_0-TnFtaREuSVg6gpJqSyAgp_OKoKbW1oDY8pZA/viewform?usp=dialog) to receive a **personal download link** for the **WAPPAC open-source simulation platform**. Registered participants will also receive **competition updates**, **technical announcements**, and other **important information** in the future.
+Please [**fill out the registration form here**](https://docs.google.com/forms/d/e/1FAIpQLSfEmYwDJWQ_0-TnFtaREuSVg6gpJqSyAgp_OKoKbW1oDY8pZA/viewform?usp=dialog) to receive a **personal download link** for the **WAPPAC open-source simulation platform**. Registered participants will also receive competition updates, technical announcements, and other **important information** in the future.
 ```
 ```{note}
 **Each participant**, whether competing individually or as part of a team, **must submit a separate registration** to ensure effective communication and proper acknowledgment of all participants.
