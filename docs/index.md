@@ -8,7 +8,10 @@ Welcome to the **WavePiston Passive Control (WAPPAC) competition documentation**
 Researchers, students, and professionals in the field of **wave energy** and **control systems** are warmly invited to participate.  
 
 ```{important}
-Please [**fill out the registration form here**](https://docs.google.com/forms/d/e/1FAIpQLSfEmYwDJWQ_0-TnFtaREuSVg6gpJqSyAgp_OKoKbW1oDY8pZA/viewform?usp=dialog) for the WAPPAC Competition. Registered participants will receive **competition updates**, **technical announcements**, and other **important information**.
+Please [**fill out the registration form here**](https://docs.google.com/forms/d/e/1FAIpQLSfEmYwDJWQ_0-TnFtaREuSVg6gpJqSyAgp_OKoKbW1oDY8pZA/viewform?usp=dialog) to receive a **personal download link** for the **WAPPAC open-source simulation platform**. Registered participants will also receive **competition updates**, **technical announcements**, and other **important information** in the future.
+```
+```{note}
+**Each participant**, whether competing individually or as part of a team, **must submit a separate registration** to ensure effective communication and proper acknowledgment of all participants.
 ```
 
 For further information please refer to section [Registration for WAPPAC Competition](./comp_overview/registration.md) in this website.
@@ -135,7 +138,6 @@ Top-view from the first energy collector installed on the Wavepiston string at t
 
 
 
----
 
 ```{toctree}
 :maxdepth: 2
