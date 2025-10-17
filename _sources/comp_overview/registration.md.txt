@@ -3,12 +3,9 @@
 Registration for the **WAPPAC Competition** is open!
 Researchers, students, and professionals in the field of **wave energy** and **control systems** are warmly invited to participate.
 
-Registered participants will receive **competition updates**, **technical announcements**, and other **important information** directly via email.
-
-
 To **join** the WAPPAC Competition and keep you **updated**:
 ```{important}
-Please [**fill out the registration form here**](https://docs.google.com/forms/d/e/1FAIpQLSc1JRCtbhVDxnm0jyLhFsNW3xCky19vAwDF8hb4oVD_XSU2Jg/viewform?usp=dialog).
+Please [**fill out the registration form here**](https://docs.google.com/forms/d/e/1FAIpQLSc1JRCtbhVDxnm0jyLhFsNW3xCky19vAwDF8hb4oVD_XSU2Jg/viewform?usp=dialog). Registered participants will receive **competition updates**, **technical announcements**, and other **important information** directly via email.
 ```
 
 ```{note}

@@ -2,6 +2,7 @@
 
 Welcome to the **WavePiston Passive Control (WAPPAC) competition documentation**.  
 
+## Latest News
 **Registration is now open!** 🌊
 
 Researchers, students, and professionals in the field of **wave energy** and **control systems** are warmly invited to participate.  
