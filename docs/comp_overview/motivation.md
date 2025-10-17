@@ -1,7 +1,7 @@
 # Motivation
 
 ```{important}
-The **WAPPAC Competition** invites the wave energy community to collectively explore and advance **passive control design**. By addressing this open and practically relevant challenge, participants will contribute to advancing the field and refining the overall community understanding of the trade-offs between energy capture, reliability, and the practical implementation of passive control strategies in real-world wave energy systems.
+The **WAPPAC Competition** invites the wave energy community to collectively explore and advance **passive control design**. By addressing this open and practically **relevant challenge**, participants will contribute to **advancing** the field and **refining** the overall **community** understanding of the **trade-offs** between energy capture, operation constraints handling, and the practical implementation of **passive control strategies** in real-world wave energy systems.
 ```
 For decades, wave energy research has primarily focused on **maximizing power absorption**, often through **reactive control strategies** {cite:p}`Ringwood2020,ringwoodBacelliFusco2014`. These controllers not only extract energy from wave-induced motion (active power) but also inject energy back into the system through the power take-off (PTO), supplying **reactive power** to enhance energy capture.  
 
