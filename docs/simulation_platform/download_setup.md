@@ -12,7 +12,7 @@ The **WAPPAC binaries** (executables) are distributed **only after** you **compl
 After completing your registration, you will receive an automated email containing a **personal download link** to your copy of the simulator.
 
 ```{important}
-To **receive** the latest WAPPAC simulator binaries, please register via the **[WAPPAC Competition Registration Form](https://docs.google.com/forms/d/e/1FAIpQLSfEmYwDJWQ_0-TnFtaREuSVg6gpJqSyAgp_OKoKbW1oDY8pZA/viewform?usp=dialog)**.
+To **receive** the latest WAPPAC simulator binaries, please register via the **[WAPPAC Competition Registration Form](https://docs.google.com/forms/d/e/1FAIpQLScfgXSWWg5eI0pRg2_jd_cX82W4DifeaOzrqx5pv14d5TWwPQ/viewform?usp=dialog)**.
 ```
 - This download link remains active for **24 hours** from the moment of creation.
 

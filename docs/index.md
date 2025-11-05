@@ -8,7 +8,7 @@ Welcome to the **WavePiston Passive Control (WAPPAC) competition documentation**
 Researchers, students, and professionals in the field of **wave energy** and **control systems** are warmly invited to participate.  
 
 ```{important}
-Please [**fill out the registration form here**](https://docs.google.com/forms/d/e/1FAIpQLSfEmYwDJWQ_0-TnFtaREuSVg6gpJqSyAgp_OKoKbW1oDY8pZA/viewform?usp=dialog) to receive a **personal download link** for the **WAPPAC open-source simulation platform**. Registered participants will also receive **competition updates**, **technical announcements**, and other **important information** in the future.
+Please [**fill out the registration form here**](https://docs.google.com/forms/d/e/1FAIpQLScfgXSWWg5eI0pRg2_jd_cX82W4DifeaOzrqx5pv14d5TWwPQ/viewform?usp=dialog) to receive a **personal download link** for the **WAPPAC open-source simulation platform**. Registered participants will also receive **competition updates**, **technical announcements**, and other **important information** in the future.
 ```
 ```{note}
 **Each participant**, whether competing individually or as part of a team, **must submit a separate registration** to ensure effective communication and proper acknowledgment of all participants.
@@ -64,7 +64,7 @@ Learn more about COER work: [coer.maynoothuniversity.ie](https://coer.maynoothun
 [//]: # ()
 [//]: # (```{important})
 
-[//]: # (**Follow** [**this link**]&#40;https://docs.google.com/forms/d/e/1FAIpQLSfEmYwDJWQ_0-TnFtaREuSVg6gpJqSyAgp_OKoKbW1oDY8pZA/viewform?usp=dialog&#41; for **registering** for the **WAPPAC Competition**.)
+[//]: # (**Follow** [**this link**]&#40;https://docs.google.com/forms/d/e/1FAIpQLScfgXSWWg5eI0pRg2_jd_cX82W4DifeaOzrqx5pv14d5TWwPQ/viewform?usp=dialog&#41; for **registering** for the **WAPPAC Competition**.)
 
 [//]: # (```)
 
