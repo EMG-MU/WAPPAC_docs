@@ -153,27 +153,6 @@ The SHY project, as part of EU open science policy (Horizon funding Grant Agreem
   <img src="_static/figures/logos/EN-Funded_by_the_EU-POS.jpg" alt="EU logo" style="width:40%;">
 </div>
 
----
-
-[//]: # (## Quick Links)
-
-[//]: # ()
-[//]: # (* [Competition Overview]&#40;competition_overview.md&#41;)
-
-[//]: # (* [WavePiston Model & Control Problem]&#40;model_control/index.md&#41;)
-
-[//]: # (* [Using the Simulation Platform]&#40;simulation_platform/index.md&#41;)
-
-[//]: # (* [Submission Guidelines]&#40;submission.md&#41;)
-
-[//]: # (* [Resources]&#40;resources.md&#41;)
-
-[//]: # (---)
-
-
-
-[//]: # (---)
-
 
 ```{toctree}
 :maxdepth: 2
