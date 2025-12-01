@@ -7,7 +7,7 @@ Clear instructions and references are provided to ensure consistent use of the p
 ---
 
 ```{toctree}
-:maxdepth: 1
+:maxdepth: 2
 
 download_setup
 sim_input

@@ -1,14 +1,14 @@
 # Home
 
-Welcome to the **WavePiston Passive Control (WAPPAC) competition documentation**.  
+**Welcome to the WavePiston Passive Control (WAPPAC) competition documentation**.  
 
 ## Latest News
 **Registration is now open!** 🌊
 
-Researchers, students, and professionals in the field of **wave energy** and **control systems** are warmly invited to participate.  
+Researchers, students, and professionals in the field of wave energy and control systems are warmly invited to participate.  
 
 ```{important}
-Please [**fill out the registration form here**](https://docs.google.com/forms/d/e/1FAIpQLScfgXSWWg5eI0pRg2_jd_cX82W4DifeaOzrqx5pv14d5TWwPQ/viewform?usp=dialog) to receive a **personal download link** for the **WAPPAC open-source simulation platform**. Registered participants will also receive **competition updates**, **technical announcements**, and other **important information** in the future.
+Please [**fill out the registration form here**](https://docs.google.com/forms/d/e/1FAIpQLScfgXSWWg5eI0pRg2_jd_cX82W4DifeaOzrqx5pv14d5TWwPQ/viewform?usp=dialog) to receive a **personal download link** for the **WAPPAC open-source simulation platform**. Registered participants will also receive competition updates, technical announcements, and other **important information** in the future.
 ```
 ```{note}
 **Each participant**, whether competing individually or as part of a team, **must submit a separate registration** to ensure effective communication and proper acknowledgment of all participants.
@@ -33,17 +33,43 @@ The goal is to **maximize captured energy while respecting WavePiston physical c
 
 Through this initiative, WAPPAC competition aims to **foster innovation** and **advance** the **state of the art** in **wave energy control**. The WAPPAC competition results will be **announced** and **disseminated** through a **dedicated session** at an **international conference**.
 
-
-
-This competition is hosted by the **Centre for Ocean Energy Research (COER), Maynooth University**, and is supported by the European Union (EU) under Horizon funding (Grant Agreement No. 101147456 - SHY).
+This competition is hosted by the **Centre for Ocean Energy Research (COER), Maynooth University**, framed within Seawater HYdraulic (**SHY**) PTO project funded by the **European Union (EU)** under **Horizon funding** (Grant Agreement No. 101147456 - SHY).
 
 ```{figure} _static/figures/logos/COER-MU.png
 :name: fig_COER_logo
-:width: 80%
-:align: center
+:width: 60%
+:align: left
 ```
-
 Learn more about COER work: [coer.maynoothuniversity.ie](https://coer.maynoothuniversity.ie/)
+
+<div style="display: flex; justify-content: center; align-items: baseline; gap: 20px;">
+  <img src="_static/figures/logos/wavepiston.png" alt="WavePiston logo" style="width:24%;">
+  <img src="_static/figures/logos/Shy_2.jpg" alt="SHY logo" style="width:12%;">
+  <img src="_static/figures/logos/EN-Funded_by_the_EU-POS.jpg" alt="EU logo" style="width:40%;">
+</div>
+
+[//]: # (```{figure} _static/figures/logos/Shy_2.jpg)
+
+[//]: # (:name: fig-SHY)
+
+[//]: # (:alt: SHY logo)
+
+[//]: # (:width: 20%)
+
+[//]: # (:align: center)
+
+[//]: # (```)
+
+[//]: # ()
+[//]: # (```{figure} _static/figures/logos/EN-Funded_by_the_EU-POS.jpg)
+
+[//]: # (:name: fig_EU_logo)
+
+[//]: # (:width: 50%)
+
+[//]: # (:align: center)
+
+[//]: # (```)
 
 ---
 
@@ -88,6 +114,10 @@ Learn more about COER work: [coer.maynoothuniversity.ie](https://coer.maynoothun
 [**WavePiston**](https://wavepiston.dk/) is a Danish developer of innovative wave energy technology designed to harness the power of ocean waves.
 The modular system captures energy through a series of **sails and power take-off (PTO) units** mounted along a submerged pipe or *string* (see {numref}`fig-wavepiston-1`). Each sail oscillates in response to the surge motion of incoming waves, and its horizontal movement relative to the string drives the hydraulic PTO units, converting the wave-induced motion into usable energy.
 
+<div style="display: flex; justify-content: left;">
+  <img src="_static/figures/logos/wavepiston.png" alt="Wavepiston logo" style="width:15%;">
+</div>
+
 ```{figure} _static/figures/WavePiston_device/Wavepiston_system_illustration_3.jpg
 :name: fig-wavepiston-1
 :alt: Illustration of Wavepiston WEC system.
@@ -101,23 +131,27 @@ Illustration of Wavepiston WEC system, comprising a string of energy collectors.
 :width: 600px
 Top-view from the first energy collector installed on the Wavepiston string at the PLOCAN test site, Gran Canaria. Image courtesy of Wavepiston.
 ```
+
+[//]: # (<div style="display: flex; justify-content: center;">)
+
+[//]: # (  <img src="_static/figures/logos/wavepiston.png" alt="Wavepiston logo" style="width:40%;">)
+
+[//]: # (</div>)
+
 ---
 
 ## EU Horizon [SHY](https://shyproject.eu/) Project
 
-**WAPPAC** competition is framed within the EU's open science policy as part of the **EU Horizon** funded **Seawater HYdraulic (SHY) PTO project**. The SHY project aims to **reduce the levelized cost of energy (LCoE)** of the WavePiston device, while ensuring environmental sustainability, through the development of key components for a seawater-based hydraulic PTO system and the advancement of passive control strategies for wave energy converters.
-
+The SHY project, as part of EU open science policy (Horizon funding Grant Agreement No. 101147456 - SHY), aims to **reduce the levelized cost of energy (LCoE)** of the WavePiston device, while ensuring environmental sustainability, through the development of key components for a seawater-based hydraulic PTO system and the advancement of passive control strategies for wave energy converters.
 * **WavePiston** – Technology developer and system integrator.
 * **COER** – Responsible for control strategy development and various other research.
 * **Key partners** – Technical University of Denmark, FibronPipe, Leser, Julia F. Chozas Consultancy, Applied Renewables Research, Marine Systems Modelling, and PLOCAN.
 
-
-```{figure} _static/figures/logos/Shy_2.jpg
-:name: fig-SHY
-:alt: SHY logo
-:width: 25%
-:align: center
-```
+<div style="display: flex; justify-content: center; align-items: baseline; gap: 20px;">
+  <img src="_static/figures/logos/wavepiston.png" alt="WavePiston logo" style="width:24%;">
+  <img src="_static/figures/logos/Shy_2.jpg" alt="SHY logo" style="width:12%;">
+  <img src="_static/figures/logos/EN-Funded_by_the_EU-POS.jpg" alt="EU logo" style="width:40%;">
+</div>
 
 ---
 
@@ -137,6 +171,8 @@ Top-view from the first energy collector installed on the Wavepiston string at t
 [//]: # (---)
 
 
+
+[//]: # (---)
 
 
 ```{toctree}
