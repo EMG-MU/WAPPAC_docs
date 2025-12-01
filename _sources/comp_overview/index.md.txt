@@ -5,7 +5,7 @@ This section provides a general overview of the competition. Quick-access links 
 ---
 
 ```{toctree}
-:maxdepth: 1
+:maxdepth: 2
 
 motivation
 dissemination
