@@ -3,18 +3,45 @@
 **Welcome to the WavePiston Passive Control (WAPPAC) competition documentation**.  
 
 ## Latest News
-**Registration is now open!** 🌊
 
-Researchers, students, and professionals in the field of wave energy and control systems are warmly invited to participate.  
+### The WAPPAC competition has now concluded! 🌊
 
+[//]: # (**The WAPPAC competition has now concluded.** )
+
+We would like to thank all participants for their interest and contributions! 
+
+
+The **WAPPAC simulation platform remains available** to the research community.
 ```{important}
-Please [**fill out the registration form here**](https://docs.google.com/forms/d/e/1FAIpQLScfgXSWWg5eI0pRg2_jd_cX82W4DifeaOzrqx5pv14d5TWwPQ/viewform?usp=dialog) to receive a **personal download link** for the **WAPPAC open-source simulation platform**. Registered participants will also receive competition updates, technical announcements, and other **important information** in the future.
-```
-```{note}
-**Each participant**, whether competing individually or as part of a team, **must submit a separate registration** to ensure effective communication and proper acknowledgment of all participants.
+- The WAPPAC simulation platform can be **downloaded** through its dedicated [Zenodo repository](https://doi.org/10.5281/zenodo.19099045) and **cited** as:  
+  E. M. Gelos, C. Fitzgerald, C. A. Barry, J. Ringwood, *Wavepiston Passive Control (WAPPAC) Simulation Platform*, Zenodo, Mar. 18, 2026. https://doi.org/10.5281/zenodo.19099045.
+- Access to the WAPPAC simulation platform can also be granted by completing the following [registration form](https://docs.google.com/forms/d/e/1FAIpQLSfEmYwDJWQ_0-TnFtaREuSVg6gpJqSyAgp_OKoKbW1oDY8pZA/viewform?usp=dialog).
 ```
 
-For further information please refer to section [Registration for WAPPAC Competition](./comp_overview/registration.md) in this website.
+Stay tuned for the dissemination of the competition results, which will be presented in an **upcoming dedicated conference session**.
+
+[//]: # (## Latest News)
+
+[//]: # (**Registration is now open!** 🌊)
+
+[//]: # ()
+[//]: # (Researchers, students, and professionals in the field of wave energy and control systems are warmly invited to participate.  )
+
+[//]: # ()
+[//]: # (```{important})
+
+[//]: # (Please [**fill out the registration form here**]&#40;https://docs.google.com/forms/d/e/1FAIpQLScfgXSWWg5eI0pRg2_jd_cX82W4DifeaOzrqx5pv14d5TWwPQ/viewform?usp=dialog&#41; to receive a **personal download link** for the **WAPPAC open-source simulation platform**. Registered participants will also receive competition updates, technical announcements, and other **important information** in the future.)
+
+[//]: # (```)
+
+[//]: # (```{note})
+
+[//]: # (**Each participant**, whether competing individually or as part of a team, **must submit a separate registration** to ensure effective communication and proper acknowledgment of all participants.)
+
+[//]: # (```)
+
+[//]: # ()
+[//]: # (For further information please refer to section [Registration for WAPPAC Competition]&#40;./comp_overview/registration.md&#41; in this website.)
 
 
 [//]: # (**Each participant**, whether competing individually or as part of a team, **must** submit a separate registration to ensure effective communication and acknowledgment of participation.)
@@ -152,6 +179,26 @@ The SHY project, as part of EU open science policy (Horizon funding Grant Agreem
   <img src="_static/figures/logos/Shy_2.jpg" alt="SHY logo" style="width:12%;">
   <img src="_static/figures/logos/EN-Funded_by_the_EU-POS.jpg" alt="EU logo" style="width:40%;">
 </div>
+
+---
+
+[//]: # (## Quick Links)
+
+[//]: # ()
+[//]: # (* [Competition Overview]&#40;competition_overview.md&#41;)
+
+[//]: # (* [WavePiston Model & Control Problem]&#40;model_control/index.md&#41;)
+
+[//]: # (* [Using the Simulation Platform]&#40;simulation_platform/index.md&#41;)
+
+[//]: # (* [Submission Guidelines]&#40;submission.md&#41;)
+
+[//]: # (* [Resources]&#40;resources.md&#41;)
+
+[//]: # (---)
+
+
+
 
 
 ```{toctree}

@@ -4,7 +4,7 @@
 
 ## Latest News
 
-### The WAPPAC Competition has now Concluded 🌊
+### The WAPPAC competition has now concluded! 🌊
 
 [//]: # (**The WAPPAC competition has now concluded.** )
 
