@@ -1,3 +1,6 @@
+--- To activate the virtual environment ---
+.\venv\Scripts\activate.ps1
+
 --- Manually build ---
 - Probably more adequate for large (re-)builds.
 
