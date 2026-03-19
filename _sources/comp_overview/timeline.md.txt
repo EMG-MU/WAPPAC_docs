@@ -6,16 +6,16 @@ Important WAPPAC competition and dissemination dates are summarized below. Note 
 |:---------------------------------------|:-----------------|
 | Competition release/launch             | 14 October 2025  |
 | Submission of Control Results deadline | 28 February 2026 |
-| Preliminary results announcement       | 30 April 2026    |
-| Conference papers due                  | Autumn 2026      |
-| Conference date                        | June–August 2027 |
+| Confirmation of submission evaluation to participants      | 30 April 2026    |
+| Conference papers due                  | October 2026     |
+| Conference date                        | July 2027        |
 
 ---
 
 ## Competition Flow
 The **workflow** for participants is straightforward:
 
-1. **Register** (mandatory) for the WAPPAC competition and **download** the simulation platform through [**this link**](https://docs.google.com/forms/d/e/1FAIpQLScfgXSWWg5eI0pRg2_jd_cX82W4DifeaOzrqx5pv14d5TWwPQ/viewform?usp=dialog). 
+1. **Register** (mandatory) for the WAPPAC competition and **download** the simulation platform through [**this link**](https://docs.google.com/forms/d/e/1FAIpQLSfEmYwDJWQ_0-TnFtaREuSVg6gpJqSyAgp_OKoKbW1oDY8pZA/viewform?usp=dialog). 
 
 2. **Develop** your controller locally using the WAPPAC simulation platform.  
 
